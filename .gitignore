@@ -21,3 +21,4 @@ user-dirs.locale/
 tmux/plugins/
 thefuck/__pycache__/
 thefuck/rules/__pycache__/
+zsh/auth.cfg

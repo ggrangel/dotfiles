@@ -81,11 +81,10 @@ eval "$(pyenv virtualenv-init -)"  # enable auto-activation of virtualenvs
 
 # Starts ssh-agent to avoid having to enter ssh passphrase every time
 if ! pgrep -u "$USER" ssh-agent > /dev/null; then
-    # Saves passprhrase for 8h
+    # Saves passphrase for 8h
     ssh-agent -t 8h > "$XDG_RUNTIME_DIR/ssh-agent.env"
     # lxsession that is run at startup starts an ssh-agent that is unusable because
     # it does not set the SSH environment variables
-    # killall ssh-agent  
 fi
 if [[ ! "$SSH_AUTH_SOCK" ]]; then
     source "$XDG_RUNTIME_DIR/ssh-agent.env" >/dev/null
