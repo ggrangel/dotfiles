@@ -1,0 +1,110 @@
+#################################################################
+# KEYBOARD BINDINGS FOR ANY TWM
+#################################################################
+
+#################################################################
+# SUPER + FUNCTION KEYS
+#################################################################
+
+super + F1
+    setxkbmap us
+
+super + F2
+    setxkbmap br
+
+super + F3
+    $BROWSER https://www.icloud.com/find/
+
+super + F4
+    redshift -P -O 5000
+
+super + F5
+    redshift -P -O 3500
+
+super + F8
+    pulsemixer --toggle-mute && notify-send "Volume" "Mute toggled to $(pulsemixer --get-mute)"
+
+super + F9
+    pulsemixer --change-volume -10 && notify-send "Volume" "$(pulsemixer --get-volume | cut -d ' ' -f1)"
+
+super + F10
+    pulsemixer --change-volume +10  && notify-send "Volume" "$(pulsemixer --get-volume | cut -d ' ' -f1)"
+
+super + F11
+    pulsemixer --set-volume 150  && notify-send "Volume" "Set to maximum (150)"
+
+#################################################################
+# SUPER + ... KEYS
+#################################################################
+
+## Reserved letters: U, I, O, 7, 8, 9, 0, H, J, K, L, S 
+
+#Browser
+super + b
+    $BROWSER
+
+# super + m
+#     $TERMINAL -e bashmount
+
+super + Return
+    $TERMINAL
+
+super + p
+    passmenu
+
+super + q
+    sh /home/rangelgbr/scripts/sortie.sh
+
+#################################################################
+# SUPER + SHIFT KEYS
+#################################################################
+
+## Reserved letters: U, I, O, 7, 8, 9, 0, H, J, K, L, Q
+
+#reload sxhkd:
+super + shift + s
+	pkill -USR1 -x sxhkd
+
+super + shift + Return
+    rofi -show drun -show-icons
+
+super + shift + w
+    rofi -show window
+
+#################################################################
+# CONTROL + ALT KEYS
+#################################################################
+
+#################################################################
+# ALT + ... KEYS
+#################################################################
+
+#################################################################
+#VARIETY KEYS WITH PYWAL
+#################################################################
+
+#################################################################
+# CONTROL + SHIFT KEYS
+#################################################################
+
+#################################################################
+#     SCREENSHOTS
+#################################################################
+
+Print
+    /home/rangelgbr/scripts/screenshooter.sh select
+
+shift  + Print
+    /home/rangelgbr/scripts/screenshooter.sh screen
+
+ctrl + Print
+    /home/rangelgbr/scripts/screenshooter.sh window
+
+#################################################################
+#     FUNCTION KEYS
+#################################################################
+
+#################################################################
+#     MULTIMEDIA KEYS
+#################################################################
+

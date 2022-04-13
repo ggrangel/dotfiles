@@ -1,0 +1,5 @@
+# BEGIN_KITTY_THEME
+# Solarized Dark Higher Contrast
+include current-theme.conf
+font_size 11.0
+# END_KITTY_THEME

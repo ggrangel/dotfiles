@@ -1,0 +1,6 @@
+configuration {
+    font: "Hack Nerd Font 12";
+}
+@theme "/usr/share/rofi/themes/lb.rasi"
+
+
