@@ -32,3 +32,6 @@ zoomus.conf
 QtProject.conf
 mimeapps.list
 user-dirs.locale
+awesome/setup/rules.lua
+awesome/setup/screens.lua
+zsh/.zcompdump

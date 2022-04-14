@@ -1,1 +1,0 @@
-/home/rangelgbr/.config/awesome/setup/screens2.lua
