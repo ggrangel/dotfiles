@@ -37,7 +37,7 @@ super + F11
 # SUPER + ... KEYS
 #################################################################
 
-## Reserved letters: U, I, O, 7, 8, 9, 0, H, J, K, L, S 
+## Reserved letters: U, I, O, P, 7, 8, 9, H, J, K, L, S 
 
 #Browser
 super + b
@@ -49,7 +49,7 @@ super + b
 super + Return
     $TERMINAL
 
-super + p
+super + z
     passmenu
 
 super + q
