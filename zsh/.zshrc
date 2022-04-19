@@ -90,6 +90,9 @@ if [[ ! "$SSH_AUTH_SOCK" ]]; then
     source "$XDG_RUNTIME_DIR/ssh-agent.env" >/dev/null
 fi
 
+# Ruby Version Manager: enables `rails new <project_dir>`
+source "/home/rangelgbr/.rvm/scripts/rvm"
+
 # export PYTHONPATH="${PYTHONPATH}:/home/rangelgbr/projects/ogum" 
 
 # load zhs-syntax-highlighting; should be last.
