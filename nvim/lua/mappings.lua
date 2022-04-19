@@ -71,10 +71,6 @@ keymap("n", "<leader>fb", ":Telescope bookmarks<CR>", opts)
 keymap("n", "<leader>xx", ":TroubleToggle <CR>", opts)
 keymap("n", "gr", ":TroubleToggle lsp_references<CR>", opts)
 
------- Fn Keys
-keymap("n", "<F3>", ":UndotreeToggle<CR>", opts)
-keymap("n", "<leader>ss", ":wa<CR>", opts)
-
 keymap("n", "<leader><leader>s", "<cmd>source ~/.config/nvim/lua/luasnip-setup.lua<CR>", opts)
 
 -- for tiny movements in insert mode
