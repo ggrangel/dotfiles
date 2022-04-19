@@ -80,13 +80,13 @@ keybindings.globalkeys = gears.table.join(
 	end, { description = "set horizontal size in the xl range (>= 1400 px)", group = "test" }),
 
 	-- Screen movements
-	awful.key({ modkey }, "u", function()
+	awful.key({ modkey }, "7", function()
 		awful.screen.focus(1)
 	end, { description = "focus screen 1", group = "screen" }),
-	awful.key({ modkey }, "i", function()
+	awful.key({ modkey }, "8", function()
 		awful.screen.focus(2)
 	end, { description = "focus screen 2", group = "screen" }),
-	awful.key({ modkey }, "o", function()
+	awful.key({ modkey }, "9", function()
 		awful.screen.focus(3)
 	end, { description = "focus screen 3", group = "screen" })
 
@@ -108,42 +108,42 @@ keybindings.clientkeys = gears.table.join(
 	end, { description = "close client", group = "client" }),
 
 	-- Client movements
-	awful.key({ modkey, "Shift" }, "u", function(c)
+	awful.key({ modkey, "Shift" }, "7", function(c)
 		c:move_to_screen(1)
 	end, { description = "move client to screen 1", group = "client" }),
-	awful.key({ modkey, "Shift" }, "i", function(c)
+	awful.key({ modkey, "Shift" }, "8", function(c)
 		c:move_to_screen(2)
 	end, { description = "move client to screen 2", group = "client" }),
-	awful.key({ modkey, "Shift" }, "o", function(c)
+	awful.key({ modkey, "Shift" }, "9", function(c)
 		c:move_to_screen(3)
-	end, { description = "move client to screen 3", group = "client" }),
-	awful.key({ modkey, "Control" }, "1", function(c)
-		c.setwfact(1)
-	end, { description = "increase/decrease horizontal size", group = "layout" })
+	end, { description = "move client to screen 3", group = "client" })
 )
 
 -- Bind key numbers to tags.
-for i = 7, 10 do
+tags = { "u", "i", "o", "p" }
+for j = 1, #tags do
+	local tag = tags[j]
+
 	keybindings.globalkeys = gears.table.join(
 		keybindings.globalkeys,
 
-		awful.key({ modkey }, "#" .. i + 9, function()
+		awful.key({ modkey }, tag, function()
 			local screen = awful.screen.focused()
-			local tag = screen.tags[i - 6]
+			local tag = screen.tags[j]
 			if tag then
 				tag:view_only()
 			end
-		end, { description = "view tag #" .. i, group = "tag" }),
+		end, { description = "view tag #" .. tag, group = "tag" }),
 
-		awful.key({ modkey, "Shift" }, "#" .. i + 9, function()
+		awful.key({ modkey, "Shift" }, tag, function()
 			if client.focus then
-				local tag = client.focus.screen.tags[i - 6]
+				local tag = client.focus.screen.tags[j]
 				if tag then
 					client.focus:move_to_tag(tag)
 					tag:view_only()
 				end
 			end
-		end, { description = "move focused client to tag #" .. i .. " and view it", group = "tag" })
+		end, { description = "move focused client to tag #" .. tag .. " and view it", group = "tag" })
 	)
 end
 

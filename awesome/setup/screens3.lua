@@ -1,6 +1,7 @@
 local awful = require("awful")
 local wibox = require("wibox")
 local beautiful = require("beautiful")
+local gears = require("gears")
 
 local layouts = {
 	awful.layout.suit.tile,
@@ -8,9 +9,9 @@ local layouts = {
 }
 
 -- awful.tag({ "1" }, screen[1], layouts[2])
-awful.tag({ "7", "8", "9", "0" }, screen[1], layouts[1])
+awful.tag({ "U", "I", "O", "P" }, screen[1], layouts[1])
 awful.tag({ "1" }, screen[2], layouts[2])
-awful.tag({ "7", "8", "9", "0" }, screen[3], layouts[1])
+awful.tag({ "U", "I", "O", "P" }, screen[3], layouts[1])
 
 local textclock = wibox.widget.textclock("%a %b %d, %H:%M:%S", 1)
 
@@ -22,36 +23,41 @@ s_left.taglist = awful.widget.taglist({
 })
 
 -- Create the wibox
-s_left.mywibox = awful.wibar({ position = "bottom", screen = s_right, height = 25, bg = beautiful.bg_normal .. "00" })
+s_left.mywibox = awful.wibar({ position = "top", screen = s_right, height = 25, bg = beautiful.bg_normal .. "00" })
 
--- Add widgets to the wibox
-s_left.mywibox:setup({
-	layout = wibox.layout.align.horizontal,
-	-- s_left.mytasklist, -- Middle widget
-	{ -- left widgets
-		layout = wibox.layout.fixed.horizontal,
-		-- s_left.taglist,
-		wibox.container.margin(s_left.taglist, 900, 0, 0),
-	},
-	{ -- Left widgets
-		layout = wibox.layout.fixed.horizontal,
-		-- mylauncher,
-		wibox.container.margin(textclock, 780, 0, 0),
-	},
-})
 s_left.mywibox:setup({
 	layout = wibox.layout.stack,
 	{
 		layout = wibox.container.place,
 		valign = "center",
-		halign = "center",
-		wibox.container.margin(s_left.taglist, 0, 0, 0),
+		halign = "right",
+		{
+			{
+				s_left.taglist,
+				left = 15,
+				right = 15,
+				widget = wibox.container.margin,
+			},
+			shape = gears.shape.hexagon,
+			widget = wibox.container.background,
+			bg = "#00000055",
+		},
 	},
 	{
 		layout = wibox.container.place,
 		valign = "center",
-		halign = "right",
-		wibox.container.margin(textclock, 0, 10, 0),
+		halign = "left",
+		{
+			{
+				textclock,
+				left = 15,
+				right = 15,
+				widget = wibox.container.margin,
+			},
+			shape = gears.shape.hexagon,
+			widget = wibox.container.background,
+			bg = "#00000055",
+		},
 	},
 })
 
@@ -63,22 +69,41 @@ s_right.taglist = awful.widget.taglist({
 })
 
 -- Create the wibox
-s_right.mywibox = awful.wibar({ position = "bottom", screen = s_right, height = 25, bg = beautiful.bg_normal .. "00" })
+s_right.mywibox = awful.wibar({ position = "top", screen = s_right, height = 25, bg = beautiful.bg_normal .. "00" })
 
 -- Add widgets to the wibox
 s_right.mywibox:setup({
 	layout = wibox.layout.stack,
 	{
-		layout = wibox.layout.align.horizontal, -- Left widgets
+		layout = wibox.container.place,
+		valign = "center",
+		halign = "right",
 		{
-			layout = wibox.layout.fixed.horizontal,
-			wibox.container.margin(textclock, 10, 0, 0),
+			{
+				textclock,
+				left = 15,
+				right = 15,
+				widget = wibox.container.margin,
+			},
+			shape = gears.shape.hexagon,
+			widget = wibox.container.background,
+			bg = "#00000055",
 		},
 	},
 	{
 		layout = wibox.container.place,
 		valign = "center",
-		halign = "center",
-		s_right.taglist, -- Middle widget
+		halign = "left",
+		{
+			{
+				s_right.taglist,
+				left = 15,
+				right = 15,
+				widget = wibox.container.margin,
+			},
+			shape = gears.shape.hexagon,
+			widget = wibox.container.background,
+			bg = "#00000055",
+		},
 	},
 })
