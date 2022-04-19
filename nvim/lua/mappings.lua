@@ -98,10 +98,6 @@ keymap("n", "<leader>p", '"zyy"zp', opts)
 keymap("n", "cw", "dwi", opts)
 keymap("n", "cW", "dWi", opts)
 
-vim.cmd([[
-command Wa :silent wa | silent !sh refresh.sh 'Calculadora de Execução Penal - Brave'
-]])
-
 -- Mirrors vim-surround keybindings to vim-sandwich
 vim.cmd([[
 runtime macros/sandwich/keymap/surround.vim
