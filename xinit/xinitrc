@@ -7,7 +7,7 @@ if [[ $pcName == "core" ]]; then
     awesome
 
 elif [[ $pcName == "work" ]]; then
-    xrandr --output DVI-0 --off --output HDMI-0 --mode 1920x1200 --pos 1920x0 --rotate normal --output DisplayPort-0 --primary --mode 1920x1200 --pos 0x0 --rotate normal
+    xrandr --output DVI-0 --off --output HDMI-0 --mode 1920x1080 --pos 1920x0 --rotate normal --output DisplayPort-0 --mode 1920x1080 --pos 0x0 --rotate normal
     ln -sf ~/.config/awesome/setup/screens2.lua ~/.config/awesome/setup/screens.lua
     ln -sf ~/.config/awesome/setup/rules2.lua ~/.config/awesome/setup/rules.lua
     awesome

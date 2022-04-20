@@ -5,6 +5,10 @@ alias rm="rm -v"
 alias mv="mv -v"
 alias v="nvim"
 alias grep="grep --color=auto"
+alias gs="git status"
+
+# if I only type lazygit, autojump may take us to the lazygit dir
+alias gg="lazygit -p ."
 
 alias td="sh todo.sh"
 
@@ -14,14 +18,6 @@ alias cpwd="pwd | tr '\n' ' ' | xsel -ib"
 alias dbrave='devour brave'
 alias dsxiv='devour sxiv'
 alias dzathura='devour zathura'
-
-# git
-# alias gs='git status'
-# alias gc='git commit'
-# alias gps='git push'
-# alias gpl='git pull'
-# alias gd='git diff'
-# alias ga='git add'
 
 manp () {
     man -Tpdf $1 | zathura - &!
