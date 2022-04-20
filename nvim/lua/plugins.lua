@@ -19,6 +19,7 @@ return require("packer").startup(function()
 	use("wbthomason/packer.nvim")
 
 	use("unblevable/quick-scope")
+	use("tpope/vim-rails")
 
 	use("ThePrimeagen/refactoring.nvim")
 

@@ -67,7 +67,7 @@ keymap("n", "<leader>fn", ":lua require('telescope').extensions.neoclip.default(
 keymap("n", "<leader>fb", ":Telescope buffers<CR>", opts)
 keymap("n", "<leader>fb", ":Telescope bookmarks<CR>", opts)
 
----- Trouble
+--- Trouble
 keymap("n", "<leader>xx", ":TroubleToggle <CR>", opts)
 keymap("n", "gr", ":TroubleToggle lsp_references<CR>", opts)
 
@@ -126,3 +126,8 @@ keymap("n", "<leader>hh", ":lua require('harpoon.ui').toggle_quick_menu()<CR>", 
 for i = 1, 6 do
 	keymap("n", "<leader>h" .. i .. "", ":lua require('harpoon.ui').nav_file(" .. i .. ")<CR>", opts)
 end
+
+--- Vim-rails
+keymap("n", "<leader>em", ":Emodel<CR>", opts)
+keymap("n", "<leader>ev", ":Eview<CR>", opts)
+keymap("n", "<leader>ec", ":Econtroller<CR>", opts)
