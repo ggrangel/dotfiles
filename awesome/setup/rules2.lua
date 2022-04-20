@@ -26,9 +26,9 @@ local rules = {
 
 	-- { rule = { instance = "brave-browser" }, properties = { screen = screen[2], tag = "1", switchtotag = true } },
 	-- { rule = { class = "firefox" }, properties = { screen = screen[2], tag = "3", switchtotag = true } },
-	{ rule = { instance = "telegram-desktop" }, properties = { screen = screen[2], tag = "0" } },
+	{ rule = { instance = "telegram-desktop" }, properties = { screen = screen[2], tag = "P" } },
 	-- { rule = { instance = "whatsapp-nativefier-d40211" }, properties = { screen = screen[2], tag = "2" } },
-	{ rule = { instance = "Insync" }, properties = { screen = screen[2], tag = "0" } },
+	{ rule = { instance = "Insync" }, properties = { screen = screen[2], tag = "P" } },
 }
 
 return rules
