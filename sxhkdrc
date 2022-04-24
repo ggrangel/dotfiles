@@ -6,12 +6,6 @@
 # SUPER + FUNCTION KEYS
 #################################################################
 
-super + F1
-    setxkbmap us
-
-super + F2
-    setxkbmap br
-
 super + F3
     $BROWSER https://www.icloud.com/find/
 
@@ -43,13 +37,16 @@ super + F11
 super + b
     $BROWSER
 
+super + c
+    $BROWSER --incognito
+
 # super + m
 #     $TERMINAL -e bashmount
 
 super + Return
     $TERMINAL
 
-super + z
+super + p
     passmenu
 
 super + q

@@ -63,21 +63,13 @@ keymap("v", ">", ">gv", opts)
 keymap("n", "<leader>ff", ":Telescope find_files<CR>", opts)
 keymap("n", "<leader>fg", ":Telescope live_grep<CR>", opts)
 keymap("n", "<leader>fi", ":Telescope git_files<CR>", opts)
-keymap("n", "<leader>fn", ":lua require('telescope').extensions.neoclip.default()<CR>", opts)
 keymap("n", "<leader>fb", ":Telescope buffers<CR>", opts)
-keymap("n", "<leader>fb", ":Telescope bookmarks<CR>", opts)
+-- keymap("n", "<leader>fn", ":lua require('telescope').extensions.neoclip.default()<CR>", opts)
+-- keymap("n", "<leader>fb", ":Telescope bookmarks<CR>", opts)
 
 --- Trouble
 keymap("n", "<leader>xx", ":TroubleToggle <CR>", opts)
 keymap("n", "gr", ":TroubleToggle lsp_references<CR>", opts)
-
-keymap("n", "<leader><leader>s", "<cmd>source ~/.config/nvim/lua/luasnip-setup.lua<CR>", opts)
-
--- for tiny movements in insert mode
-keymap("i", "<C-h>", "<Esc>i", opts)
-keymap("i", "<C-l>", "<Esc>la", opts)
-keymap("i", "<C-k>", "<Esc>ka", opts)
-keymap("i", "<C-j>", "<Esc>ja", opts)
 
 -- navigate between windows
 keymap("n", "<C-h>", "<C-w>h", opts)
@@ -94,10 +86,6 @@ keymap("n", "<C-q>j", "<C-w>j :q <CR>", opts)
 -- duplicate line without yanking to clipboard
 keymap("n", "<leader>p", '"zyy"zp', opts)
 
--- fix an weird behavior of cw
-keymap("n", "cw", "dwi", opts)
-keymap("n", "cW", "dWi", opts)
-
 -- Mirrors vim-surround keybindings to vim-sandwich
 vim.cmd([[
 runtime macros/sandwich/keymap/surround.vim
@@ -105,20 +93,17 @@ runtime macros/sandwich/keymap/surround.vim
 
 ---- Refactoring nvim
 -- Remaps for each of the four refactoring operations currently offered by the plugin
-keymap("v", "<leader>re", [[ <Esc><Cmd>lua require('refactoring').refactor('Extract Function')<CR>]], opts)
-keymap("v", "<leader>rf", [[ <Esc><Cmd>lua require('refactoring').refactor('Extract Function To File')<CR>]], opts)
-keymap("v", "<leader>rv", [[ <Esc><Cmd>lua require('refactoring').refactor('Extract Variable')<CR>]], opts)
-keymap("v", "<leader>ri", [[ <Esc><Cmd>lua require('refactoring').refactor('Inline Variable')<CR>]], opts)
-
--- Inline variable can also pick up the identifier currently under the cursor without visual mode
-keymap("n", "<leader>ri", [[ <Cmd>lua require('refactoring').refactor('Inline Variable')<CR>]], opts)
--- keymap("n", "<leader>rp", ":lua require('refactoring').debug.printf({below = true})<CR>", opts)
-
--- Print var: this remap should be made in visual mode
-keymap("v", "<leader>rp", ":lua require('refactoring').debug.print_var({})<CR>", opts)
-
--- Cleanup function: this remap should be made in normal mode
-keymap("n", "<leader>rc", ":lua require('refactoring').debug.cleanup({})<CR>", opts)
+-- keymap("v", "<leader>re", [[ <Esc><Cmd>lua require('refactoring').refactor('Extract Function')<CR>]], opts)
+-- keymap("v", "<leader>rf", [[ <Esc><Cmd>lua require('refactoring').refactor('Extract Function To File')<CR>]], opts)
+-- keymap("v", "<leader>rv", [[ <Esc><Cmd>lua require('refactoring').refactor('Extract Variable')<CR>]], opts)
+-- keymap("v", "<leader>ri", [[ <Esc><Cmd>lua require('refactoring').refactor('Inline Variable')<CR>]], opts)
+-- -- Inline variable can also pick up the identifier currently under the cursor without visual mode
+-- keymap("n", "<leader>ri", [[ <Cmd>lua require('refactoring').refactor('Inline Variable')<CR>]], opts)
+-- -- keymap("n", "<leader>rp", ":lua require('refactoring').debug.printf({below = true})<CR>", opts)
+-- -- Print var: this remap should be made in visual mode
+-- keymap("v", "<leader>rp", ":lua require('refactoring').debug.print_var({})<CR>", opts)
+-- -- Cleanup function: this remap should be made in normal mode
+-- keymap("n", "<leader>rc", ":lua require('refactoring').debug.cleanup({})<CR>", opts)
 
 ---- Harpoon
 keymap("n", "<leader>hm", ":lua require('harpoon.mark').add_file()<CR>", opts)
@@ -128,6 +113,6 @@ for i = 1, 6 do
 end
 
 --- Vim-rails
-keymap("n", "<leader>em", ":Emodel<CR>", opts)
-keymap("n", "<leader>ev", ":Eview<CR>", opts)
-keymap("n", "<leader>ec", ":Econtroller<CR>", opts)
+keymap("n", "<leader>rm", ":Emodel<CR>", opts)
+keymap("n", "<leader>rv", ":Eview<CR>", opts)
+keymap("n", "<leader>rc", ":Econtroller<CR>", opts)

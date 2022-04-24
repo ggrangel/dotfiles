@@ -17,6 +17,8 @@ null_ls.setup({
 		formatting.latexindent,
 		formatting.shfmt,
 		formatting.stylua,
+		formatting.rubocop,
+		-- diagnostics.rubocop,
 		-- formatting.codespell.with({ filetypes = { "markdown", "vimwiki" } }),
 		-- formatting.prettier, -- .with({extra_args = {"--no-semi", "--single-quote", "--jsx-single-quote"}}),
 		formatting.prettier_standard.with({

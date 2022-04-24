@@ -18,10 +18,9 @@ require("packer").init({
 return require("packer").startup(function()
 	use("wbthomason/packer.nvim")
 
+	use("lewis6991/impatient.nvim") -- Speed up loading Lua modules in Neovim to improve startup time.
 	use("unblevable/quick-scope")
 	use("tpope/vim-rails")
-
-	use("ThePrimeagen/refactoring.nvim")
 
 	-- Misc
 	use("ThePrimeagen/vim-be-good")
@@ -32,8 +31,8 @@ return require("packer").startup(function()
 	-- Extra features
 	use("kyazdani42/nvim-tree.lua")
 	use("mbbill/undotree")
-	use("tpope/vim-fugitive")
 	use("tpope/vim-rhubarb") -- :GBrowse command
+	use("tpope/vim-fugitive") -- required by rhubarb
 	use({
 		"folke/trouble.nvim",
 		requires = "kyazdani42/nvim-web-devicons",
@@ -45,10 +44,8 @@ return require("packer").startup(function()
 	use("tpope/vim-commentary")
 	use("JoosepAlviste/nvim-ts-context-commentstring")
 	use("windwp/nvim-autopairs")
-	use("andrewradev/splitjoin.vim") -- gS (not working) and gJ commands
 
 	-- Colorschemes and Appearance
-	use("gruvbox-community/gruvbox")
 	use("lunarvim/darkplus.nvim")
 	use("p00f/nvim-ts-rainbow")
 	use({ "rrethy/vim-hexokinase", run = "make hexokinase" }) -- shows color as a virtual text
@@ -87,5 +84,5 @@ return require("packer").startup(function()
 			{ "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
 		},
 	})
-	use("dhruvmanila/telescope-bookmarks.nvim")
+	-- use("dhruvmanila/telescope-bookmarks.nvim")
 end)

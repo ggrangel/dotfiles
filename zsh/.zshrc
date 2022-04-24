@@ -73,7 +73,6 @@ fi
 
 export PYENV_ROOT="$HOME/.pyenv"
 
-export PATH="$PATH:$HOME/scripts:$PYENV_ROOT/bin:$HOME/.cargo/bin:$HOME/.local/bin"
 
 eval "$(pyenv init --path)"
 eval "$(pyenv init -)"
@@ -90,6 +89,8 @@ fi
 
 # Ruby Version Manager: enables `rails new <project_dir>`
 source "/home/rangelgbr/.rvm/scripts/rvm"
+
+export PATH="$PATH:$HOME/scripts:$PYENV_ROOT/bin:$HOME/.cargo/bin:$HOME/.local/bin:$HOME/.rvm/bin"
 
 # export PYTHONPATH="${PYTHONPATH}:/home/rangelgbr/projects/ogum" 
 
