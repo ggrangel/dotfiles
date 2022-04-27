@@ -19,49 +19,41 @@ return require("packer").startup(function()
 	use("wbthomason/packer.nvim")
 
 	use("lewis6991/impatient.nvim") -- Speed up loading Lua modules in Neovim to improve startup time.
-	use("unblevable/quick-scope")
-	use("tpope/vim-rails")
-
-	-- Misc
-	use("ThePrimeagen/vim-be-good")
+	-- use("ThePrimeagen/vim-be-good")
 	use("vimwiki/vimwiki")
 	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
-	use("ThePrimeagen/harpoon")
-
-	-- Extra features
-	use("kyazdani42/nvim-tree.lua")
 	use("mbbill/undotree")
-	use("tpope/vim-rhubarb") -- :GBrowse command
-	use("tpope/vim-fugitive") -- required by rhubarb
-	use({
-		"folke/trouble.nvim",
-		requires = "kyazdani42/nvim-web-devicons",
-	})
-	use("tpope/vim-sleuth") -- automatically adjusts 'shiftwidth' and 'expandtab' based on the current file
+	use("folke/trouble.nvim")
+
+	-- Navigation
+	use("unblevable/quick-scope")
+	use("ThePrimeagen/harpoon")
+	use("tpope/vim-rails")
 
 	-- Remaps
+	use("ggandor/leap.nvim")
 	use("machakann/vim-sandwich") -- like vim-surround but highlights text and also supports dot command
+	use("windwp/nvim-autopairs")
 	use("tpope/vim-commentary")
 	use("JoosepAlviste/nvim-ts-context-commentstring")
-	use("windwp/nvim-autopairs")
 
-	-- Colorschemes and Appearance
+	-- Appearance
 	use("lunarvim/darkplus.nvim")
 	use("p00f/nvim-ts-rainbow")
 	use({ "rrethy/vim-hexokinase", run = "make hexokinase" }) -- shows color as a virtual text
-	use({
-		"nvim-lualine/lualine.nvim",
-		requires = { "kyazdani42/nvim-web-devicons", opt = true },
-	})
+	use("nvim-lualine/lualine.nvim")
+	use("kyazdani42/nvim-tree.lua")
+	use("kyazdani42/nvim-web-devicons") -- Required by many plugins
+	use("tpope/vim-sleuth") -- automatically adjusts 'shiftwidth' and 'expandtab' based on the current file
 
-	-- Completions
+	-- Completion
 	use("hrsh7th/nvim-cmp")
 	use("hrsh7th/cmp-buffer")
 	use("hrsh7th/cmp-path")
 	use("hrsh7th/cmp-cmdline")
-	use("saadparwaiz1/cmp_luasnip")
 	use("hrsh7th/cmp-nvim-lsp")
 	use("hrsh7th/cmp-nvim-lua") -- for neovim API (if I ever develop a plugin)
+	use("saadparwaiz1/cmp_luasnip")
 
 	-- Snippets
 	use("L3MON4D3/LuaSnip")
@@ -76,13 +68,11 @@ return require("packer").startup(function()
 	-- Telescope
 	use({
 		"nvim-telescope/telescope.nvim",
-		-- module = "telescope",
-		-- cmd = "Telescope", -- only starts when we run this command. check :PackerStatus before running it
 		requires = {
 			{ "nvim-lua/popup.nvim" },
+			{ "burntsushi/ripgrep" },
 			{ "nvim-lua/plenary.nvim" },
 			{ "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
 		},
 	})
-	-- use("dhruvmanila/telescope-bookmarks.nvim")
 end)

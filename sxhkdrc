@@ -6,26 +6,26 @@
 # SUPER + FUNCTION KEYS
 #################################################################
 
-super + F3
+super + F1
     $BROWSER https://www.icloud.com/find/
 
-super + F4
+super + F2
     redshift -P -O 5000
 
-super + F5
+super + F3
     redshift -P -O 3500
 
 super + F8
     pulsemixer --toggle-mute && notify-send "Volume" "Mute toggled to $(pulsemixer --get-mute)"
 
 super + F9
-    pulsemixer --change-volume -10 && notify-send "Volume" "$(pulsemixer --get-volume | cut -d ' ' -f1)"
+    pulsemixer --set-volume 100  && notify-send "Volume" "Set volume to 100"
 
 super + F10
-    pulsemixer --change-volume +10  && notify-send "Volume" "$(pulsemixer --get-volume | cut -d ' ' -f1)"
+    pulsemixer --set-volume 150  && notify-send "Volume" "Set volume to maximum (150)"
 
 super + F11
-    pulsemixer --set-volume 150  && notify-send "Volume" "Set to maximum (150)"
+    $TERMINAL python3
 
 #################################################################
 # SUPER + ... KEYS
@@ -33,20 +33,16 @@ super + F11
 
 ## Reserved letters: U, I, O, P, 7, 8, 9, H, J, K, L, S 
 
-#Browser
 super + b
     $BROWSER
 
 super + c
     $BROWSER --incognito
 
-# super + m
-#     $TERMINAL -e bashmount
-
 super + Return
     $TERMINAL
 
-super + p
+super + z
     passmenu
 
 super + q
