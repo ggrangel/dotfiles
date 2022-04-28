@@ -15,6 +15,7 @@ keymap("n", "Q", "<nop>", opts)
 
 -- Nvim-tree
 keymap("n", "<leader>t", ":NvimTreeToggle <CR>", opts)
+vim.cmd([[let g:winresizer_start_key = '<c-w>']])
 
 ---- Keeping it centered
 keymap("n", "n", "nzzzv", opts)

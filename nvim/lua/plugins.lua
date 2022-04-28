@@ -24,6 +24,7 @@ return require("packer").startup(function()
 	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
 	use("mbbill/undotree")
 	use("folke/trouble.nvim")
+	use("simeji/winresizer") -- Easy resizing of vim windows (press <c-w>)
 
 	-- Navigation
 	use("unblevable/quick-scope")
