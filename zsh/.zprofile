@@ -1,12 +1,17 @@
 # [[ -f ~/.config/zsh/.zshrc ]] && . ~/.config/zsh/.zshrc
 
+export PATH="$PATH:$HOME/scripts:$PYENV_ROOT/bin:$HOME/.cargo/bin:$HOME/.local/bin:$HOME/.rvm/bin"
+
 export TERMINAL="kitty"
 export EDITOR="nvim"
 export VISUAL="nvim"
 export BROWSER="brave"
 
-export HISTCONTROL=ignoreboth # removes duplicates from zsh history.
+# export HISTCONTROL=ignoreboth # removes duplicates from zsh history.
 export _ZO_ECHO=1 # z will print the matched directory before navigating to it.
+
+# creating env variable to be easier to grep
+export ZSH_HISTORY=$HOME/.cache/zsh_history
 
 export QT_STYLE_OVERRIDE=kvantum  # apply GTK themes to Qt programs
 

@@ -1,40 +1,58 @@
-# Enable colors and change prompt:
-autoload -U colors && colors
-PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
+# Change prompt
+fpath=($HOME/.config/zsh/prompt $fpath)
+source $HOME/.config/zsh/prompt/prompt.zsh
 
 # diable Ctrl+s (freezes the terminal)
 stty -ixon
 
-setopt autocd autopushd
-
-# creating env variable to be easier to grep
-export ZSH_HISTORY=$HOME/.cache/zsh_history
+setopt autocd autopushd # enables .. to go back one dir
 
 HISTFILE=$ZSH_HISTORY
 HISTSIZE=50000
 SAVEHIST=50000
 setopt INC_APPEND_HISTORY
 setopt HIST_IGNORE_DUPS  # do not write duplicates to history
-setopt HIST_FIND_NO_DUPS  # when searching, do not show duplicates (apparently, it does not work)
-# setopt SHARE_HISTORY
+setopt HIST_FIND_NO_DUPS  # when searching, do not show duplicates 
 
-# Basic auto/tab complete:
-autoload -U compinit
-zstyle ':completion:*' menu select
-zmodload zsh/complist
-compinit
-_comp_options+=(globdots)		# Include hidden files.
+# Basic auto/tab complete
+autoload -U compinit; compinit # loads a file containing shell commands
+_comp_options+=(globdots)  # include hidden files in completions
+source $HOME/.config/zsh/completion.zsh  
+
+# vi mode
+bindkey -v
+export KEYTIMOUT=1 # makes the switch between modes quicker
 
 # Use vim keys in tab complete menu:
+zmodload zsh/complist
 bindkey -M menuselect 'h' vi-backward-char
 bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
-bindkey -v '^?' backward-delete-char
 
-# vi mode
-bindkey -v
-export KEYTIMOUT=1
+# Text objects feature
+autoload -Uz select-bracketed select-quoted
+zle -N select-quoted
+zle -N select-bracketed
+for km in viopp visual; do
+  bindkey -M $km -- '-' vi-up-line-or-history
+  for c in {a,i}${(s..)^:-\'\"\`\|,./:;=+@}; do
+    bindkey -M $km $c select-quoted
+  done
+  for c in {a,i}${(s..)^:-'()[]{}<>bB'}; do
+    bindkey -M $km $c select-bracketed
+  done
+done
+
+# Tpope's surround feature
+autoload -Uz surround
+zle -N delete-surround surround
+zle -N add-surround surround
+zle -N change-surround surround
+bindkey -M vicmd cs change-surround
+bindkey -M vicmd ds delete-surround
+bindkey -M vicmd ys add-surround
+bindkey -M visual S add-surround
 
 # Change cursor shape for different vi modes.
 function zle-keymap-select {
@@ -72,8 +90,6 @@ if [[ $pcName == "work" ]]; then
 fi
 
 export PYENV_ROOT="$HOME/.pyenv"
-
-
 eval "$(pyenv init --path)"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"  # enable auto-activation of virtualenvs
@@ -90,10 +106,9 @@ fi
 # Ruby Version Manager: enables `rails new <project_dir>`
 source "/home/rangelgbr/.rvm/scripts/rvm"
 
-export PATH="$PATH:$HOME/scripts:$PYENV_ROOT/bin:$HOME/.cargo/bin:$HOME/.local/bin:$HOME/.rvm/bin"
 
 # export PYTHONPATH="${PYTHONPATH}:/home/rangelgbr/projects/ogum" 
 
 # load zhs-syntax-highlighting; should be last.
+# this seems to be incompatible with tpope's surrounding feature. Let's check...
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
