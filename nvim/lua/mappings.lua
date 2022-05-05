@@ -22,12 +22,6 @@ keymap("n", "n", "nzzzv", opts)
 keymap("n", "N", "Nzzzv", opts)
 keymap("n", "J", "mzJ`z", opts)
 
----- Undo breakpoints
-keymap("i", ",", ",<c-g>u", opts)
-keymap("i", ".", ".<c-g>u", opts)
-keymap("i", "!", "!<c-g>u", opts)
-keymap("i", "?", "?<c-g>u", opts)
-
 ---- Moving text
 keymap("v", "J", ":m '>+1<CR>gv=gv", opts)
 keymap("v", "K", ":m '<-2<CR>gv=gv", opts)

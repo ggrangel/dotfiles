@@ -79,7 +79,6 @@ preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 [ -f "$HOME/.config/zsh/aliasrc" ] && source "$HOME/.config/zsh/aliasrc"
 
 eval "$(zoxide init zsh)"
-eval "$(thefuck --alias)"
 
 pcName=$(cat /etc/hostname)
 if [[ $pcName == "work" ]]; then

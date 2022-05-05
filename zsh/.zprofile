@@ -21,7 +21,7 @@ export TMUXP_CONFIGDIR="$HOME/.config/tmuxp/"
 export QT_STYLE_OVERRIDE=kvantum  # apply GTK themes to Qt programs
 
 if [[ "$(tty)" = "/dev/tty1" ]]; then
-    pgrep awesome || exec startx /home/rangelgbr/.config/xinit/xinitrc
-elif [[ "$(tty)" = "/dev/tty2" ]]; then
-    pgrep qtile || startx /home/rangelgbr/.config/xinit/xinitrc-qtile
+    pgrep awesome || exec startx /home/rangelgbr/.config/xinitrc
+# elif [[ "$(tty)" = "/dev/tty2" ]]; then
+#     pgrep qtile || startx /home/rangelgbr/.config/xinit/xinitrc-qtile
 fi
