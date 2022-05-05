@@ -95,13 +95,13 @@ eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"  # enable auto-activation of virtualenvs
 
 # Starts ssh-agent to avoid having to enter ssh passphrase every time
-if ! pgrep -u "$USER" ssh-agent > /dev/null; then
-    # Saves passphrase for 8h
-    ssh-agent -t 8h > "$XDG_RUNTIME_DIR/ssh-agent.env"
-fi
-if [[ ! "$SSH_AUTH_SOCK" ]]; then
-    source "$XDG_RUNTIME_DIR/ssh-agent.env" >/dev/null
-fi
+# if ! pgrep -u "$USER" ssh-agent > /dev/null; then
+#     # Saves passphrase for 8h
+#     ssh-agent -t 8h > "$XDG_RUNTIME_DIR/ssh-agent.env"
+# fi
+# if [[ ! "$SSH_AUTH_SOCK" ]]; then
+#     source "$XDG_RUNTIME_DIR/ssh-agent.env" >/dev/null
+# fi
 
 # Ruby Version Manager: enables `rails new <project_dir>`
 source "/home/rangelgbr/.rvm/scripts/rvm"

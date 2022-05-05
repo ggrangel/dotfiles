@@ -18,8 +18,8 @@ require("packer").init({
 return require("packer").startup(function()
 	use("wbthomason/packer.nvim")
 
+	-- Misc
 	use("lewis6991/impatient.nvim") -- Speed up loading Lua modules in Neovim to improve startup time.
-	-- use("ThePrimeagen/vim-be-good")
 	use("vimwiki/vimwiki")
 	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
 	use("mbbill/undotree")
@@ -30,9 +30,9 @@ return require("packer").startup(function()
 	use("unblevable/quick-scope")
 	use("ThePrimeagen/harpoon")
 	use("tpope/vim-rails")
+	use("ggandor/leap.nvim")
 
 	-- Remaps
-	use("ggandor/leap.nvim")
 	use("machakann/vim-sandwich") -- like vim-surround but highlights text and also supports dot command
 	use("windwp/nvim-autopairs")
 	use("tpope/vim-commentary")

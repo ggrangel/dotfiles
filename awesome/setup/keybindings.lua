@@ -5,6 +5,14 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 local modkey = "Mod4"
 local terminal = os.getenv("TERMINAL")
 
+-- If I set screens to be "nei", somehow I'm not able to move widows between them anymore
+-- screens_kb = { "n", "e", "i" }
+screens_kb = { "m", ",", "." }
+-- tags_kb = { "m", ",", ".", "/" }
+tags_kb = { "n", "e", "i", "o" }
+
+local gears = require("gears")
+
 local keybindings = {}
 
 keybindings.globalkeys = gears.table.join(
@@ -80,49 +88,37 @@ keybindings.globalkeys = gears.table.join(
 	end, { description = "set horizontal size in the xl range (>= 1400 px)", group = "test" }),
 
 	-- Screen movements
-	awful.key({ modkey }, "7", function()
+	awful.key({ modkey }, screens_kb[1], function()
 		awful.screen.focus(1)
 	end, { description = "focus screen 1", group = "screen" }),
-	awful.key({ modkey }, "8", function()
+	awful.key({ modkey }, screens_kb[2], function()
 		awful.screen.focus(2)
 	end, { description = "focus screen 2", group = "screen" }),
-	awful.key({ modkey }, "9", function()
+	awful.key({ modkey }, screens_kb[3], function()
 		awful.screen.focus(3)
 	end, { description = "focus screen 3", group = "screen" })
-
-	-- Standard Programs
-	-- awful.key({ modkey }, "Return", function()
-	-- 	awful.spawn(terminal)
-	-- end, { description = "open default terminal", group = "launcher" })
-	-- awful.key({ modkey, "Shift" }, "r", awesome.restart, { description = "reload awesome", group = "awesome" }),
-	-- awful.key({ modkey, "Shift" }, "x", awesome.quit, { description = "quit awesome", group = "awesome" })
 )
 
 keybindings.clientkeys = gears.table.join(
-	-- awful.key({ modkey }, "f", function(c)
-	-- 	c.fullscreen = not c.fullscreen
-	-- 	c:raise()
-	-- end, { description = "toggle fullscreen", group = "client" }),
 	awful.key({ modkey, "Shift" }, "q", function(c)
 		c:kill()
 	end, { description = "close client", group = "client" }),
 
 	-- Client movements
-	awful.key({ modkey, "Shift" }, "7", function(c)
+	awful.key({ modkey, "Shift" }, screens_kb[1], function(c)
 		c:move_to_screen(1)
 	end, { description = "move client to screen 1", group = "client" }),
-	awful.key({ modkey, "Shift" }, "8", function(c)
+	awful.key({ modkey, "Shift" }, screens_kb[2], function(c)
 		c:move_to_screen(2)
 	end, { description = "move client to screen 2", group = "client" }),
-	awful.key({ modkey, "Shift" }, "9", function(c)
+	awful.key({ modkey, "Shift" }, screens_kb[3], function(c)
 		c:move_to_screen(3)
 	end, { description = "move client to screen 3", group = "client" })
 )
 
 -- Bind key numbers to tags.
-tags = { "u", "i", "o", "p" }
-for j = 1, #tags do
-	local tag = tags[j]
+for j = 1, #tags_kb do
+	local tag = tags_kb[j]
 
 	keybindings.globalkeys = gears.table.join(
 		keybindings.globalkeys,
@@ -133,7 +129,7 @@ for j = 1, #tags do
 			if tag then
 				tag:view_only()
 			end
-		end, { description = "view tag #" .. tag, group = "tag" }),
+		end, { description = "view tag #" .. j, group = "tag" }),
 
 		awful.key({ modkey, "Shift" }, tag, function()
 			if client.focus then
@@ -143,7 +139,7 @@ for j = 1, #tags do
 					tag:view_only()
 				end
 			end
-		end, { description = "move focused client to tag #" .. tag .. " and view it", group = "tag" })
+		end, { description = "move focused client to tag #" .. j .. " and view it", group = "tag" })
 	)
 end
 

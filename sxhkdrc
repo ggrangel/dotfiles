@@ -31,7 +31,7 @@ super + F11
 # SUPER + ... KEYS
 #################################################################
 
-## Reserved letters: U, I, O, P, 7, 8, 9, H, J, K, L, S 
+## Reserved letters: 
 
 super + b
     $BROWSER
@@ -43,7 +43,7 @@ super + Return
     $TERMINAL
 
 super + z
-    passmenu
+    passmenu -fn "Hack Nerd Font"
 
 super + q
     sh /home/rangelgbr/scripts/sortie.sh
@@ -52,7 +52,7 @@ super + q
 # SUPER + SHIFT KEYS
 #################################################################
 
-## Reserved letters: U, I, O, 7, 8, 9, 0, H, J, K, L, Q
+## Reserved letters: 
 
 #reload sxhkd:
 super + shift + s
@@ -87,8 +87,8 @@ super + shift + w
 Print
     /home/rangelgbr/scripts/screenshooter.sh select
 
-shift  + Print
-    /home/rangelgbr/scripts/screenshooter.sh screen
+# shift  + Print
+#     /home/rangelgbr/scripts/screenshooter.sh screen
 
 ctrl + Print
     /home/rangelgbr/scripts/screenshooter.sh window
