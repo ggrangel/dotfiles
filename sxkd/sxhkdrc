@@ -15,17 +15,6 @@ super + F2
 super + F3
     redshift -P -O 3500
 
-super + F8
-    pulsemixer --toggle-mute && notify-send "Volume" "Mute toggled to $(pulsemixer --get-mute)"
-
-super + F9
-    pulsemixer --set-volume 100  && notify-send "Volume" "Set volume to 100"
-
-super + F10
-    pulsemixer --set-volume 150  && notify-send "Volume" "Set volume to maximum (150)"
-
-super + F11
-    $TERMINAL python3
 
 #################################################################
 # SUPER + ... KEYS
@@ -56,7 +45,7 @@ super + q
 
 #reload sxhkd:
 super + shift + s
-	pkill -USR1 -x sxhkd
+    pkill -USR1 -x sxhkd
 
 super + shift + Return
     rofi -show drun -show-icons
