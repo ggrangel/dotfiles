@@ -35,7 +35,7 @@ user-dirs.locale
 awesome/setup/rules.lua
 awesome/setup/screens.lua
 zsh/.zcompdump
-
 klavaro
 lazygit/state.yml
 balena-etcher-electron
+tmuxp/
