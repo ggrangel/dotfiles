@@ -1,11 +1,11 @@
 F8
-    pulsemixer --toggle-mute && notify-send "Volume" "Mute toggled to $(pulsemixer --get-mute)"
+    volume.sh toggle_mute
 
 F9
-    pulsemixer --set-volume 100  && notify-send "Volume" "Set volume to 100"
+    volume.sh down
 
 F10
-    pulsemixer --set-volume 150  && notify-send "Volume" "Set volume to maximum (150)"
+    volume.sh up
 
 F11
     $TERMINAL python3

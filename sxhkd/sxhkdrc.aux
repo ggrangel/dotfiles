@@ -1,5 +1,11 @@
 F1
-    pulsemixer --toggle-mute && notify-send "Volume" "Mute toggled to $(pulsemixer --get-mute)"
+    volume.sh toggle_mute
+
+F2
+    volume.sh down
+
+F3
+    volume.sh up
 
 F5
     brightnessctl set 10%-
