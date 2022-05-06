@@ -7,6 +7,8 @@ local layouts = {
 	awful.layout.suit.tile,
 }
 
+local battery = require("battery-widget")({ battery_prefix = "🔋" })
+
 awful.tag({ "1", "2", "3", "4" }, screen[1], layouts[1])
 
 local textclock = wibox.widget.textclock("%a %b %d, %H:%M:%S", 1)
@@ -18,15 +20,30 @@ s_left.taglist = awful.widget.taglist({
 	filter = awful.widget.taglist.filter.all,
 })
 
--- Create the wibox
-s_left.mywibox = awful.wibar({ position = "top", screen = s_right, height = 25, bg = beautiful.bg_normal .. "00" })
+s_left.mywibox = awful.wibar({ position = "top", screen = s_right, height = 30, bg = beautiful.bg_normal .. "00" })
 
 s_left.mywibox:setup({
 	layout = wibox.layout.stack,
 	{
 		layout = wibox.container.place,
 		valign = "center",
-		halign = "right",
+		halign = "left",
+		{
+			{
+				battery,
+				left = 15,
+				right = 15,
+				widget = wibox.container.margin,
+			},
+			shape = gears.shape.hexagon,
+			widget = wibox.container.background,
+			bg = "#00000055",
+		},
+	},
+	{
+		layout = wibox.container.place,
+		valign = "center",
+		halign = "center",
 		{
 			{
 				s_left.taglist,
@@ -42,7 +59,7 @@ s_left.mywibox:setup({
 	{
 		layout = wibox.container.place,
 		valign = "center",
-		halign = "left",
+		halign = "right",
 		{
 			{
 				textclock,
