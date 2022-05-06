@@ -1,17 +1,15 @@
-alias p="sudo pacman"
+# commands w/ default options
 alias mkd="mkdir -pv"
 alias ls="ls -hNAv --color=auto --group-directories-first" # N supresses quotes, A ignores the dot and dotdot dirs, v shows dotfiles first
 alias rm="rm -v"
 alias mv="mv -v"
-alias v="nvim"
 alias grep="grep --color=auto"
-alias gs="git status"
 
 # if I only type lazygit, autojump may take us to the lazygit dir
 alias gg="lazygit -p ."
+alias gs="git status"
 
 alias td="sh todo.sh"
-
 alias cpwd="pwd | tr '\n' ' ' | xsel -ib"
 
 # devour
@@ -19,6 +17,7 @@ alias dbrave='devour brave'
 alias dsxiv='devour sxiv'
 alias dzathura='devour zathura'
 
-manp () {
-    man -Tpdf $1 | zathura - &!
-}
+# one-letter aliases
+alias h="cat $HOME/.cache/zsh_history | grep -i"
+alias p="sudo pacman"
+alias v="nvim"

@@ -12,9 +12,6 @@ export CARGO_HOME="$HOME/apps/cargo/"
 # export HISTCONTROL=ignoreboth # removes duplicates from zsh history.
 export _ZO_ECHO=1 # z will print the matched directory before navigating to it.
 
-# creating env variable to be easier to grep
-export ZSH_HISTORY=$HOME/.cache/zsh_history
-
 export DISABLE_AUTO_TITLE='true'  # tmuxf stuff
 export TMUXP_CONFIGDIR="$HOME/.config/tmuxp/"
 
