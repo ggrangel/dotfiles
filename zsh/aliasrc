@@ -7,9 +7,12 @@ alias grep="grep --color=auto"
 
 # if I only type lazygit, autojump may take us to the lazygit dir
 alias gg="lazygit -p ."
+
 alias gs="git status"
 
 alias td="sh todo.sh"
+
+# copy current pwd to clipboard
 alias cpwd="pwd | tr '\n' ' ' | xsel -ib"
 
 # devour

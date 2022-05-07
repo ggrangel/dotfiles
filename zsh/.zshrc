@@ -1,10 +1,13 @@
 # Change prompt
 fpath=($ZDOTDIR/prompt $fpath)
-source $ZDOTDIR/prompt/prompt.zsh
+source $HOME/.config/zsh/prompt/prompt.zsh
 
 # diable Ctrl+s (freezes the terminal)
 stty -ixon
 
+# easy navigation
+export _ZO_ECHO=1 # z will print the matched directory before navigating to it.
+eval "$(zoxide init zsh)"
 setopt autocd autopushd # enables .. to go back one dir
 
 HISTFILE=$HOME/.cache/zsh_history
@@ -25,15 +28,7 @@ source $ZDOTDIR/completion.zsh
 
 [ -f "$ZDOTDIR/proxy.zsh" ] && source "$ZDOTDIR/proxy.zsh"
 
-eval "$(zoxide init zsh)"
-
-export PYENV_ROOT="$HOME/.pyenv"
-eval "$(pyenv init --path)"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"  # enable auto-activation of virtualenvs
-
-# Ruby Version Manager: enables `rails new <project_dir>`
-source "/home/rangelgbr/.rvm/scripts/rvm"
+[ -f "$ZDOTDIR/dev.zsh" ] && source "$ZDOTDIR/dev.zsh"
 
 # load zhs-syntax-highlighting; should be last.
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

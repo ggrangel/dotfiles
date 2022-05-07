@@ -15,19 +15,13 @@ keymap("n", "Q", "<nop>", opts)
 
 -- Nvim-tree
 keymap("n", "<leader>t", ":NvimTreeToggle <CR>", opts)
-vim.cmd([[let g:winresizer_start_key = '<c-w>']])
+-- window resize
+vim.cmd([[let g:winresizer_start_key = '<leader>w']])
 
 ---- Keeping it centered
 keymap("n", "n", "nzzzv", opts)
 keymap("n", "N", "Nzzzv", opts)
 keymap("n", "J", "mzJ`z", opts)
-
----- Moving text
-keymap("v", "J", ":m '>+1<CR>gv=gv", opts)
-keymap("v", "K", ":m '<-2<CR>gv=gv", opts)
-
----- Yank whole buffer
-keymap("n", "<leader>Y", "ggyG", opts)
 
 ---- Do not delete to register
 keymap("n", "<leader>d", '"_d', opts)
@@ -66,20 +60,11 @@ keymap("n", "<leader>fb", ":Telescope buffers<CR>", opts)
 keymap("n", "<leader>xx", ":TroubleToggle <CR>", opts)
 keymap("n", "gr", ":TroubleToggle lsp_references<CR>", opts)
 
--- navigate between windows
-keymap("n", "<C-h>", "<C-w>h", opts)
-keymap("n", "<C-l>", "<C-w>l", opts)
-keymap("n", "<C-k>", "<C-w>k", opts)
-keymap("n", "<C-j>", "<C-w>j", opts)
-
 -- close other tab
 keymap("n", "<C-q>h", "<C-w>h :q <CR>", opts)
 keymap("n", "<C-q>l", "<C-w>l :q <CR>", opts)
 keymap("n", "<C-q>k", "<C-w>k :q <CR>", opts)
 keymap("n", "<C-q>j", "<C-w>j :q <CR>", opts)
-
--- duplicate line without yanking to clipboard
-keymap("n", "<leader>p", '"zyy"zp', opts)
 
 -- Mirrors vim-surround keybindings to vim-sandwich
 vim.cmd([[
@@ -101,10 +86,11 @@ runtime macros/sandwich/keymap/surround.vim
 -- keymap("n", "<leader>rc", ":lua require('refactoring').debug.cleanup({})<CR>", opts)
 
 ---- Harpoon
-keymap("n", "<leader>hm", ":lua require('harpoon.mark').add_file()<CR>", opts)
+keymap("n", "<leader>hf", ":lua require('harpoon.mark').add_file()<CR>", opts)
 keymap("n", "<leader>hh", ":lua require('harpoon.ui').toggle_quick_menu()<CR>", opts)
-for i = 1, 6 do
-	keymap("n", "<leader>h" .. i .. "", ":lua require('harpoon.ui').nav_file(" .. i .. ")<CR>", opts)
+local hkeys = { "a", "r", "s", "t", "d" }
+for i = 1, 5 do
+	keymap("n", "<leader>h" .. hkeys[i] .. "", ":lua require('harpoon.ui').nav_file(" .. i .. ")<CR>", opts)
 end
 
 --- Vim-rails
