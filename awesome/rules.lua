@@ -1,1 +1,0 @@
-/home/rangelgbr/.config/awesome/rules3.lua
