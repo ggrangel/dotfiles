@@ -6,10 +6,10 @@ local modkey = "Mod4"
 local terminal = os.getenv("TERMINAL")
 
 -- If I set screens to be "nei", somehow I'm not able to move widows between them anymore
--- screens_kb = { "n", "e", "i" }
 screens_kb = { "m", ",", "." }
--- tags_kb = { "m", ",", ".", "/" }
+-- screens_kb = { "n", "e", "i" }
 tags_kb = { "n", "e", "i", "o" }
+-- tags_kb = { "m", ",", ".", "/" }
 
 local gears = require("gears")
 
