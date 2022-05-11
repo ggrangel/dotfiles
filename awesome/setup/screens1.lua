@@ -7,7 +7,10 @@ local layouts = {
 	awful.layout.suit.tile,
 }
 
-local battery = require("battery-widget")({ battery_prefix = "🔋" })
+-- local battery_widget = require("awesome-wm-widgets.battery-widget.battery")({ display_notification = true })
+local battery_widget = require("awesome-wm-widgets.batteryarc-widget.batteryarc")({
+	size = 20,
+})
 
 awful.tag({ "1", "2", "3", "4" }, screen[1], layouts[1])
 
@@ -30,7 +33,7 @@ s_left.mywibox:setup({
 		halign = "left",
 		{
 			{
-				battery,
+				battery_widget,
 				left = 15,
 				right = 15,
 				widget = wibox.container.margin,

@@ -10,6 +10,8 @@ local opts = { noremap = true }
 
 vim.g.mapleader = " "
 
+keymap("n", "<leader><leader>s", ":source $MYVIMRC<CR>", opts)
+
 -- Disable Ex mode
 keymap("n", "Q", "<nop>", opts)
 
@@ -88,7 +90,7 @@ runtime macros/sandwich/keymap/surround.vim
 ---- Harpoon
 keymap("n", "<leader>hf", ":lua require('harpoon.mark').add_file()<CR>", opts)
 keymap("n", "<leader>hh", ":lua require('harpoon.ui').toggle_quick_menu()<CR>", opts)
-local hkeys = { "a", "r", "s", "t", "d" }
+local hkeys = { "a", "s", "d", "f", "g" }
 for i = 1, 5 do
 	keymap("n", "<leader>h" .. hkeys[i] .. "", ":lua require('harpoon.ui').nav_file(" .. i .. ")<CR>", opts)
 end

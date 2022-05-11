@@ -5,11 +5,8 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 local modkey = "Mod4"
 local terminal = os.getenv("TERMINAL")
 
--- If I set screens to be "nei", somehow I'm not able to move widows between them anymore
-screens_kb = { "m", ",", "." }
--- screens_kb = { "n", "e", "i" }
-tags_kb = { "n", "e", "i", "o" }
--- tags_kb = { "m", ",", ".", "/" }
+screens_kb = { "u", "i", "o" }
+tags_kb = { "m", ",", ".", "/" }
 
 local gears = require("gears")
 
@@ -100,7 +97,7 @@ keybindings.globalkeys = gears.table.join(
 )
 
 keybindings.clientkeys = gears.table.join(
-	awful.key({ modkey, "Shift" }, "q", function(c)
+	awful.key({ modkey, "Shift" }, "w", function(c)
 		c:kill()
 	end, { description = "close client", group = "client" }),
 
