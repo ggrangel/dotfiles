@@ -88,7 +88,7 @@ runtime macros/sandwich/keymap/surround.vim
 -- keymap("n", "<leader>rc", ":lua require('refactoring').debug.cleanup({})<CR>", opts)
 
 ---- Harpoon
-keymap("n", "<leader>hf", ":lua require('harpoon.mark').add_file()<CR>", opts)
+keymap("n", "<leader>hk", ":lua require('harpoon.mark').add_file()<CR>", opts)
 keymap("n", "<leader>hh", ":lua require('harpoon.ui').toggle_quick_menu()<CR>", opts)
 local hkeys = { "a", "s", "d", "f", "g" }
 for i = 1, 5 do
