@@ -31,7 +31,7 @@ local handler = require("lsp-setup/handlers")
 
 handler.setup()
 
-local servers = { "pyright", "bashls", "tsserver", "html", "cssls" }
+local servers = { "pyright", "bashls", "tsserver", "html" }
 
 for _, lsp in ipairs(servers) do
 	lspconfig[lsp].setup({
