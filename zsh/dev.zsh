@@ -1,4 +1,4 @@
-export PYENV_ROOT="$HOME/.pyenv"
+export PYENV_ROOT="$HOME/apps/pyenv"
 eval "$(pyenv init --path)"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"  # enable auto-activation of virtualenvs
@@ -12,3 +12,4 @@ source /usr/share/nvm/init-nvm.sh
 export PATH="$PATH:$HOME/.cargo/bin"
 export PATH="$PATH:$HOME/.rvm/bin"
 export PATH="$PATH:$PYENV_ROOT/bin"
+
