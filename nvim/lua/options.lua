@@ -62,11 +62,6 @@ vim.cmd([[
 autocmd FileType help wincmd L
 ]])
 
--- Show line diagnostic automatically in hover windows
--- You will likely want to reduce updatetime which affects CursorHold
-vim.o.updatetime = 250
-vim.cmd([[autocmd! CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false, scope="cursor"})]])
-
 -- Disable continuation of comments in new line
 vim.cmd("autocmd BufEnter * set formatoptions-=cro")
 vim.cmd("autocmd BufEnter * setlocal formatoptions-=cro")
