@@ -1,6 +1,5 @@
-export XDG_CONFIG_HOME="$HOME/.config/"
-export XDG_CACHE_HOME="$HOME/.cache/"
-export XDG_DATA_HOME="$HOME/.local/share/"
+# it is recommended to set this env variable before setting any other
+export XDG_STATE_HOME="$HOME/.local/state"
 
 export PATH="$PATH:$HOME/scripts:$HOME/.local/bin"
 
