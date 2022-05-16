@@ -1,4 +1,3 @@
-export PYENV_ROOT="$HOME/apps/pyenv"
 eval "$(pyenv init --path)"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"  # enable auto-activation of virtualenvs
@@ -9,7 +8,7 @@ source "/home/rangelgbr/.rvm/scripts/rvm"
 # Node version manager
 source /usr/share/nvm/init-nvm.sh
 
-export PATH="$PATH:$HOME/.cargo/bin"
+export PATH="$PATH:$CARGO_HOME/bin"
 export PATH="$PATH:$HOME/.rvm/bin"
 export PATH="$PATH:$PYENV_ROOT/bin"
 
