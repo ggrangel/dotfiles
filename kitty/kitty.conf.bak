@@ -1,6 +1,6 @@
 #
 # BEGIN_KITTY_THEME
-# Argonaut
+# Catppuccin
 include current-theme.conf
 # END_KITTY_THEME
 #
@@ -8,9 +8,17 @@ include current-theme.conf
 # This mapping can mess up with vim by accident
 # map ctrl+k combine : clear_terminal scrollback active : send_text normal \x0c
 
+# To change theme, run: kitty +kitten themes
+
 map ctrl+tab send_text normal,application \x1b[9;5u
 
-font_family Hack Nerd Font
-bold_family  Hack Nerd Font
-italic_family Hack Nerd Font
-bold_italic_family Hack Nerd Font
+# For supported fonts: `kitty list-fonts`
+# FONT="Hack Nerd Font"
+env FONT="Fira Code Nert Font Mono"
+
+font_family  Fira Code Nerd Font Mono
+bold_family  Fira Code Nerd Font Mono
+italic_family Fira Code Nerd Font Mono
+bold_italic_family Fira Code Nerd Font Mono 
+
+macos_thicken_font 0.1
