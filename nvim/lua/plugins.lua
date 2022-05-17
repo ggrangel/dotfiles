@@ -63,6 +63,7 @@ return require("packer").startup(function()
 
 	-- LSP
 	use("neovim/nvim-lspconfig")
+	-- use({ "ray-x/navigator.lua", requires = { "ray-x/guihua.lua", run = "cd lua/fzy && make" } })
 	use("williamboman/nvim-lsp-installer")
 	use("jose-elias-alvarez/null-ls.nvim") -- for formatters and linters
 

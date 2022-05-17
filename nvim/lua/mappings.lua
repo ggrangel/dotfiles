@@ -59,7 +59,7 @@ keymap("n", "<leader>fb", ":Telescope buffers<CR>", opts)
 -- keymap("n", "<leader>fb", ":Telescope bookmarks<CR>", opts)
 
 --- Trouble
-keymap("n", "<leader>xx", ":TroubleToggle <CR>", opts)
+keymap("n", "<leader>xx", ":Trouble workspace_diagnostics <CR>", opts)
 keymap("n", "gr", ":TroubleToggle lsp_references<CR>", opts)
 
 -- close other tab
@@ -72,6 +72,19 @@ keymap("n", "<C-q>j", "<C-w>j :q <CR>", opts)
 vim.cmd([[
 runtime macros/sandwich/keymap/surround.vim
 ]])
+
+---- Harpoon
+keymap("n", "<leader>hk", ":lua require('harpoon.mark').add_file()<CR>", opts)
+keymap("n", "<leader>hh", ":lua require('harpoon.ui').toggle_quick_menu()<CR>", opts)
+local hkeys = { "a", "s", "d", "f", "g" }
+for i = 1, 5 do
+	keymap("n", "<leader>h" .. hkeys[i] .. "", ":lua require('harpoon.ui').nav_file(" .. i .. ")<CR>", opts)
+end
+
+--- Vim-rails
+keymap("n", "<leader>rm", ":Emodel<CR>", opts)
+keymap("n", "<leader>rv", ":Eview<CR>", opts)
+keymap("n", "<leader>rc", ":Econtroller<CR>", opts)
 
 ---- Refactoring nvim
 -- Remaps for each of the four refactoring operations currently offered by the plugin
@@ -86,16 +99,3 @@ runtime macros/sandwich/keymap/surround.vim
 -- keymap("v", "<leader>rp", ":lua require('refactoring').debug.print_var({})<CR>", opts)
 -- -- Cleanup function: this remap should be made in normal mode
 -- keymap("n", "<leader>rc", ":lua require('refactoring').debug.cleanup({})<CR>", opts)
-
----- Harpoon
-keymap("n", "<leader>hk", ":lua require('harpoon.mark').add_file()<CR>", opts)
-keymap("n", "<leader>hh", ":lua require('harpoon.ui').toggle_quick_menu()<CR>", opts)
-local hkeys = { "a", "s", "d", "f", "g" }
-for i = 1, 5 do
-	keymap("n", "<leader>h" .. hkeys[i] .. "", ":lua require('harpoon.ui').nav_file(" .. i .. ")<CR>", opts)
-end
-
---- Vim-rails
-keymap("n", "<leader>rm", ":Emodel<CR>", opts)
-keymap("n", "<leader>rv", ":Eview<CR>", opts)
-keymap("n", "<leader>rc", ":Econtroller<CR>", opts)

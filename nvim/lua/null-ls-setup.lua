@@ -1,7 +1,4 @@
-local null_ls_status_ok, null_ls = pcall(require, "null-ls")
-if not null_ls_status_ok then
-	return
-end
+local null_ls = require("null-ls")
 
 -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/formatting
 local formatting = null_ls.builtins.formatting
@@ -17,7 +14,7 @@ null_ls.setup({
 		formatting.latexindent,
 		formatting.shfmt,
 		formatting.stylua,
-		formatting.rubocop,
+		-- formatting.rubocop,
 		-- diagnostics.rubocop,
 		-- formatting.codespell.with({ filetypes = { "markdown", "vimwiki" } }),
 		-- formatting.prettier, -- .with({extra_args = {"--no-semi", "--single-quote", "--jsx-single-quote"}}),
@@ -54,6 +51,7 @@ null_ls.setup({
 			vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync()")
 		end
 
-		Lsp_keymaps(bufnr)
+		-- TODO: check this later
+		-- Lsp_keymaps(bufnr)
 	end,
 })
