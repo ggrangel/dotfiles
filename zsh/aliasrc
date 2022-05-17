@@ -1,26 +1,26 @@
 # commands w/ default options
-alias mkd="mkdir -pv"
+alias mkdir="mkdir -pv"
 alias ls="ls -hNAv --color=auto --group-directories-first" # N supresses quotes, A ignores the dot and dotdot dirs, v shows dotfiles first
 alias rm="rm -v"
 alias mv="mv -v"
 alias grep="grep --color=auto"
 
-# if I only type lazygit, autojump may take us to the lazygit dir
+# one-letter aliases
+alias h="cat $HOME/.cache/zsh_history | grep -i"
+alias p="sudo pacman"
+alias v="nvim"
+alias t="tmux"
+
+# two-letter aliases
 alias gg="lazygit -p ."
-
 alias gs="git status"
-
+# if I only type lazygit, autojump may take us to the lazygit dir
 alias td="sh todo.sh"
-
-# copy current pwd to clipboard
-alias cpwd="pwd | tr '\n' ' ' | xsel -ib"
 
 # devour
 alias dbrave='devour brave'
 alias dsxiv='devour sxiv'
 alias dzathura='devour zathura'
 
-# one-letter aliases
-alias h="cat $HOME/.cache/zsh_history | grep -i"
-alias p="sudo pacman"
-alias v="nvim"
+# copy current pwd to clipboard
+alias cpwd="pwd | tr '\n' ' ' | xsel -ib"

@@ -1,5 +1,8 @@
 # it is recommended to set this env variable before setting any other
 export XDG_STATE_HOME="$HOME/.local/state"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_CACHE_HOME="$HOME/.cache"
 
 export PATH="$PATH:$HOME/scripts:$HOME/.local/bin"
 
@@ -17,9 +20,9 @@ export GTK2_RC_FILES="$HOME/.config/gtk-2.0/gtkrc"
 export NPM_CONFIG_USERCONFIG="$HOME/apps/npm/npmrc"
 export NVM_DIR="$HOME/apps/nvm"
 export PYENV_ROOT="$HOME/apps/pyenv" 
-export BUNDLE_USER_CONFIG="$HOME/apps/bundle"
-export BUNDLE_USER_CACHE="$HOME/apps/bundle"
-export BUNDLE_USER_PLUGIN="$HOME/apps/bundle"
+export BUNDLE_USER_CONFIG="$XDG_CONFIG_HOME/bundle"
+export BUNDLE_USER_CACHE="$XDG_CACHE_HOME/bundle"
+export BUNDLE_USER_PLUGIN="$XDG_DATA_HOME/bundle"
 export XAUTHORITY="$HOME/apps/Xauthority"
 export PASSWORD_STORE_DIR="$HOME/apps/pass" 
 
