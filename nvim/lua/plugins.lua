@@ -53,7 +53,7 @@ return require("packer").startup(function()
 	use("hrsh7th/cmp-path")
 	use("hrsh7th/cmp-cmdline")
 	use("hrsh7th/cmp-nvim-lsp")
-	use("hrsh7th/cmp-nvim-lua") -- for neovim API (if I ever develop a plugin)
+	use("hrsh7th/cmp-nvim-lua") --> completion source for nvim lua api
 	use("saadparwaiz1/cmp_luasnip")
 
 	-- Snippets

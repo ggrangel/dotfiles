@@ -13,7 +13,7 @@ local battery_widget = require("awesome-wm-widgets.batteryarc-widget.batteryarc"
 	show_notification_mode = "on_click",
 })
 
-awful.tag({ "1", "2", "3", "4" }, screen[1], layouts[1])
+awful.tag({ "1", "2", "3", "4", "5" }, screen[1], layouts[1])
 
 local textclock = wibox.widget.textclock("%a %b %d, %H:%M:%S", 1)
 

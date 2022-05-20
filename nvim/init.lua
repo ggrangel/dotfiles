@@ -8,10 +8,10 @@ load("impatient")
 load("plugins")
 load("mappings")
 load("options")
+--> Plugins <--
 load("telescope-setup")
 load("completions-setup")
 load("lsp")
--- load("navigator-setup")
 load("null-ls-setup")
 load("treesitter-setup")
 load("autopairs-setup")
@@ -24,8 +24,6 @@ load("harpoon-setup")
 load("quick-scope-setup")
 load("friendly-snippets-setup")
 load("leap-setup")
-
--- require("navigator").setup()
 
 -- [TEST]
 -- automatically detects missing TS parsers for current ft

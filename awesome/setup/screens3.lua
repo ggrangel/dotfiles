@@ -9,9 +9,9 @@ local layouts = {
 }
 
 -- awful.tag({ "1" }, screen[1], layouts[2])
-awful.tag({ "1", "2", "3", "4" }, screen[1], layouts[1])
+awful.tag({ "1", "2", "3", "4", "5" }, screen[1], layouts[1])
 awful.tag({ "1" }, screen[2], layouts[2])
-awful.tag({ "1", "2", "3", "4" }, screen[3], layouts[1])
+awful.tag({ "1", "2", "3", "4", "5" }, screen[3], layouts[1])
 
 local textclock = wibox.widget.textclock("%a %b %d, %H:%M:%S", 1)
 

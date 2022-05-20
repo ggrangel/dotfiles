@@ -6,7 +6,7 @@ local modkey = "Mod4"
 local terminal = os.getenv("TERMINAL")
 
 screens_kb = { "u", "i", "o" }
-tags_kb = { "m", ",", ".", "/" }
+tags_kb = { "n", "m", ",", ".", "/" }
 
 local gears = require("gears")
 
@@ -97,7 +97,7 @@ keybindings.globalkeys = gears.table.join(
 )
 
 keybindings.clientkeys = gears.table.join(
-	awful.key({ modkey, "Shift" }, "w", function(c)
+	awful.key({ modkey }, "\\", function(c)
 		c:kill()
 	end, { description = "close client", group = "client" }),
 

@@ -1,23 +1,24 @@
 local null_ls = require("null-ls")
 
+--> There is no plugin linke lspinstaller for linters/formmaters.
+--> You need to install the source's binary (pacman/AUR should have all of them)
+
 -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/formatting
 local formatting = null_ls.builtins.formatting
 -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/diagnostics
 local diagnostics = null_ls.builtins.diagnostics
+-- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/code_actions
 local code_actions = null_ls.builtins.code_actions
 
 null_ls.setup({
 	debug = false,
 	sources = {
+		--> Formatters <--
 		formatting.black,
 		formatting.isort,
 		formatting.latexindent,
 		formatting.shfmt,
 		formatting.stylua,
-		-- formatting.rubocop,
-		-- diagnostics.rubocop,
-		-- formatting.codespell.with({ filetypes = { "markdown", "vimwiki" } }),
-		-- formatting.prettier, -- .with({extra_args = {"--no-semi", "--single-quote", "--jsx-single-quote"}}),
 		formatting.prettier_standard.with({
 			filetypes = {
 				"javascript",
@@ -37,21 +38,14 @@ null_ls.setup({
 				"handlebars",
 			},
 		}),
-		-- code_actions.xo,
-		-- diagnostics.flake8,
+		--> Linters <--
 		diagnostics.shellcheck,
-		-- diagnostics.luacheck, -- too many false positive, needs setup
-		-- diagnostics.stylelint,
-		-- diagnostics.eslint_d,
-		-- code_actions.proselint.with({ filetypes = { "vimwiki" } }),
 	},
-	on_attach = function(client, bufnr)
+	on_attach = function(client, _)
 		if client.resolved_capabilities.document_formatting then
 			-- formatting_seq_sync() formats with all language server (instead of keeping asking which one you wanna use in case you have multiple installed)
+			-- as an alternative, you can choose a source to disable its formatting capability (like I did for tsserver)
 			vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync()")
 		end
-
-		-- TODO: check this later
-		-- Lsp_keymaps(bufnr)
 	end,
 })
