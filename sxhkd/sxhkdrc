@@ -25,6 +25,9 @@ super + q
 # super + p
 #    colorpicker --short  --one-shot | xsel -ib     
 
+super + BackSpace
+    wmctrl -c :ACTIVE:
+
 super + y
     rofi -show drun -show-icons
 

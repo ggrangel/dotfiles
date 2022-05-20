@@ -97,9 +97,9 @@ keybindings.globalkeys = gears.table.join(
 )
 
 keybindings.clientkeys = gears.table.join(
-	awful.key({ modkey }, "\\", function(c)
-		c:kill()
-	end, { description = "close client", group = "client" }),
+	-- awful.key({ modkey }, "\\", function(c)
+	-- 	c:kill()
+	-- end, { description = "close client", group = "client" }),
 
 	-- Client movements
 	awful.key({ modkey, "Shift" }, screens_kb[1], function(c)
