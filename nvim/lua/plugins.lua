@@ -23,7 +23,6 @@ return require("packer").startup(function()
 	use("vimwiki/vimwiki")
 	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
 	use("mbbill/undotree")
-	use("folke/trouble.nvim")
 	use("simeji/winresizer") -- Easy resizing of vim windows (press <c-w>)
 
 	-- Navigation
@@ -38,7 +37,7 @@ return require("packer").startup(function()
 	use("tpope/vim-commentary")
 	use("JoosepAlviste/nvim-ts-context-commentstring")
 
-	-- Appearance
+	--> Appearance and GUI <--
 	use("lunarvim/darkplus.nvim")
 	use("p00f/nvim-ts-rainbow")
 	use({ "rrethy/vim-hexokinase", run = "make hexokinase" }) -- shows color as a virtual text
@@ -46,6 +45,8 @@ return require("packer").startup(function()
 	use("kyazdani42/nvim-tree.lua")
 	use("kyazdani42/nvim-web-devicons") -- Required by many plugins
 	use("tpope/vim-sleuth") -- automatically adjusts 'shiftwidth' and 'expandtab' based on the current file
+	use("stevearc/dressing.nvim") --> beautiful vim.ui.select and vim.ui.input
+	use("folke/trouble.nvim") --> pretty list of LSP diagnostics and references
 
 	-- Completion
 	use("hrsh7th/nvim-cmp")
@@ -75,6 +76,7 @@ return require("packer").startup(function()
 			{ "burntsushi/ripgrep" },
 			{ "nvim-lua/plenary.nvim" },
 			{ "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
+			{ "nvim-telescope/telescope-ui-select.nvim" }, --> sets vim.ui.select to telescope
 		},
 	})
 end)

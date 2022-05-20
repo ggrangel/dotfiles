@@ -24,6 +24,7 @@ load("harpoon-setup")
 load("quick-scope-setup")
 load("friendly-snippets-setup")
 load("leap-setup")
+-- load("dressing-setup")
 
 -- [TEST]
 -- automatically detects missing TS parsers for current ft

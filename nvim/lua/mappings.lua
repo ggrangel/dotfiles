@@ -93,6 +93,10 @@ keymap("n", "]d", '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>
 keymap("n", "gl", '<cmd>lua vim.diagnostic.open_float({ border = "rounded" })<CR>')
 keymap("n", "<leader>q", vim.diagnostic.setloclist)
 
+--> LuaSnip <--
+vim.cmd([[command! LuaSnipEdit :lua require("luasnip.loaders.from_lua").edit_snippet_files()]])
+keymap("n", "<leader><leader><CR>", "<cmd>LuaSnipEdit<cr>")
+
 ---- Refactoring nvim
 -- Remaps for each of the four refactoring operations currently offered by the plugin
 -- keymap("v", "<leader>re", [[ <Esc><Cmd>lua require('refactoring').refactor('Extract Function')<CR>]])

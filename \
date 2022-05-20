@@ -24,6 +24,9 @@ ls.config.set_config({
 	},
 })
 
+vim.cmd([[command! LuaSnipEdit :lua require("luasnip.loaders.from_lua").edit_snippet_files()]])
+vim.keymap.set("n", "<Leader><CR>", "<cmd>LuaSnipEdit<cr>")
+
 -- vim.keymap.set({ "i", "s" }, "<c-s>", "<Esc>:w<cr>")
 -- vim.keymap.set({ "i", "s" }, "<c-u>", '<cmd>lua require("luasnip.extras.select_choice")()<cr><C-c><C-c>')
 
@@ -71,3 +74,5 @@ ls.config.set_config({
 -- 		ls.change_choice(-1)
 -- 	end
 -- end) --}}}
+
+-- vim.cmd([[autocmd BufEnter */snippets/*.lua nnoremap <silent> <buffer> <CR> /-- End Refactoring --<CR>O<Esc>O]])
