@@ -46,7 +46,7 @@ keymap("v", ">", ">gv")
 
 ---- Telescope
 keymap("n", "<leader>ff", ":Telescope find_files<CR>")
-keymap("n", "<leader>fg", ":Telescope live_grep<CR>")
+keymap("n", "<leader>fl", ":Telescope live_grep<CR>")
 keymap("n", "<leader>fi", ":Telescope git_files<CR>")
 keymap("n", "<leader>fb", ":Telescope buffers<CR>")
 
