@@ -78,7 +78,7 @@ keymap("n", "gd", vim.lsp.buf.definition)
 keymap("n", "K", vim.lsp.buf.hover)
 keymap("n", "gi", vim.lsp.buf.implementation)
 keymap("n", "<C-k>", vim.lsp.buf.signature_help)
-keymap("n", "<space>D", vim.lsp.buf.type_definition)
+keymap("n", "<space>gt", vim.lsp.buf.type_definition)
 -- keymap("n", "gr", vim.lsp.buf.references) -- handled by trouble.nvim
 keymap("n", "<leader>ca", vim.lsp.buf.code_action)
 keymap("n", "[d", '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<CR>')
