@@ -22,10 +22,12 @@ return require("packer").startup(function()
 	use("lewis6991/impatient.nvim") -- Speed up loading Lua modules in Neovim to improve startup time.
 	use("vimwiki/vimwiki")
 	use("mbbill/undotree")
-	use("simeji/winresizer") -- Easy resizing of vim windows (press <c-w>)
+	use("tpope/vim-sleuth") -- automatically adjusts 'shiftwidth' and 'expandtab' based on the current file
+	use("lewis6991/gitsigns.nvim") -- git decorations
 
 	-- Treesitter
 	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
+	use("p00f/nvim-ts-rainbow")
 	use("nvim-treesitter/nvim-treesitter-textobjects")
 
 	-- Navigation
@@ -41,16 +43,15 @@ return require("packer").startup(function()
 
 	--> Appearance and GUI <--
 	use("lunarvim/darkplus.nvim")
-	use("p00f/nvim-ts-rainbow")
 	use({ "rrethy/vim-hexokinase", run = "make hexokinase" }) -- shows color as a virtual text
 	use("nvim-lualine/lualine.nvim")
 	use("kyazdani42/nvim-tree.lua")
 	use("kyazdani42/nvim-web-devicons") -- Required by many plugins
-	use("tpope/vim-sleuth") -- automatically adjusts 'shiftwidth' and 'expandtab' based on the current file
 	use("stevearc/dressing.nvim") --> beautiful vim.ui.select and vim.ui.input
 	use("folke/trouble.nvim") --> pretty list of LSP diagnostics and references
 	use("rcarriga/nvim-notify") --> notification manager
 	use("onsails/lspkind.nvim") --> add pictograms to neovim lsp
+	use("simeji/winresizer") -- Easy resizing of vim windows (press <c-w>)
 
 	-- Completion
 	use("hrsh7th/nvim-cmp")
