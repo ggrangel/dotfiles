@@ -84,7 +84,11 @@ telescope.setup({
 	},
 	pickers = {
 		find_files = {
-			hidden = true,
+			-- hidden = true,
+			theme = "dropdown",
+		},
+		git_files = {
+			theme = "dropdown",
 		},
 		-- Default configuration for builtin pickers goes here:
 		-- picker_name = {
