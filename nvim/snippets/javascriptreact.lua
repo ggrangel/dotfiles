@@ -14,7 +14,7 @@ local rep = require("luasnip.extras").rep
 local snippets, autosnippets = {}, {}
 
 local useState = s(
-    "state",
+    "STATE",
     fmt(
         [[ 
 const [{}, set{}] = useState()
@@ -28,8 +28,24 @@ const [{}, set{}] = useState()
     )
 )
 
+local controlledComponent = s(
+    "CONTROLLEDCOMP",
+    fmt(
+        [[ 
+        value={{{}}}
+        onChange={{(e) => set{}(e.target.value)}}
+]]       ,
+        {
+            i(1, "state"),
+            f(function(nodes, _)
+                return nodes[1][1]:gsub("^%l", string.upper)
+            end, 1),
+        }
+    )
+)
+
 local functionComponent = s(
-    "functionComp",
+    "FUNCTIONCOMP",
     fmt(
         [[ 
         function {} ({}) {{
@@ -42,12 +58,13 @@ local functionComponent = s(
         {
             i(1, "FuncName"),
             i(2, ""),
-            i(3, ""),
+            i(0), --> 0 is the last position of the cursor when we're done editing the snippet
         }
     )
 )
 
 table.insert(snippets, useState)
 table.insert(snippets, functionComponent)
+table.insert(snippets, controlledComponent)
 
 return snippets, autosnippets

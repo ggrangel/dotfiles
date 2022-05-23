@@ -21,9 +21,12 @@ return require("packer").startup(function()
 	-- Misc
 	use("lewis6991/impatient.nvim") -- Speed up loading Lua modules in Neovim to improve startup time.
 	use("vimwiki/vimwiki")
-	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
 	use("mbbill/undotree")
 	use("simeji/winresizer") -- Easy resizing of vim windows (press <c-w>)
+
+	-- Treesitter
+	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
+	use("nvim-treesitter/nvim-treesitter-textobjects")
 
 	-- Navigation
 	use("unblevable/quick-scope")
@@ -34,8 +37,7 @@ return require("packer").startup(function()
 	-- Remaps
 	use("machakann/vim-sandwich") -- like vim-surround but highlights text and also supports dot command
 	use("windwp/nvim-autopairs")
-	use("tpope/vim-commentary")
-	use("JoosepAlviste/nvim-ts-context-commentstring")
+	use("numToStr/Comment.nvim")
 
 	--> Appearance and GUI <--
 	use("lunarvim/darkplus.nvim")
@@ -47,6 +49,8 @@ return require("packer").startup(function()
 	use("tpope/vim-sleuth") -- automatically adjusts 'shiftwidth' and 'expandtab' based on the current file
 	use("stevearc/dressing.nvim") --> beautiful vim.ui.select and vim.ui.input
 	use("folke/trouble.nvim") --> pretty list of LSP diagnostics and references
+	use("rcarriga/nvim-notify") --> notification manager
+	use("onsails/lspkind.nvim") --> add pictograms to neovim lsp
 
 	-- Completion
 	use("hrsh7th/nvim-cmp")
@@ -79,4 +83,9 @@ return require("packer").startup(function()
 			{ "nvim-telescope/telescope-ui-select.nvim" }, --> sets vim.ui.select to telescope
 		},
 	})
+	--> use({
+	--> 	"ghillb/cybu.nvim",
+	--> 	branch = "v1.x", -- won't receive breaking changes
+	--> 	-- branch = "main", -- timely updates
+	--> })
 end)

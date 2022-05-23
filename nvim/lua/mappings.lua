@@ -51,7 +51,8 @@ keymap("n", "<leader>fi", ":Telescope git_files<CR>")
 keymap("n", "<leader>fb", ":Telescope buffers<CR>")
 
 --- Trouble
-keymap("n", "<leader>xx", ":Trouble workspace_diagnostics <CR>")
+keymap("n", "<leader>xd", ":Trouble workspace_diagnostics <CR>")
+keymap("n", "<leader>xx", ":TroubleToggle <CR>")
 keymap("n", "gr", ":TroubleToggle lsp_references<CR>")
 
 -- close other tab
@@ -61,17 +62,10 @@ keymap("n", "<C-q>k", "<C-w>k :q <CR>")
 keymap("n", "<C-q>j", "<C-w>j :q <CR>")
 
 -- Mirrors vim-surround keybindings to vim-sandwich
+--> ys, yss, yS, ds, cs, S, dss, css
 vim.cmd([[
 runtime macros/sandwich/keymap/surround.vim
 ]])
-
----- Harpoon
-keymap("n", "<leader>hk", ":lua require('harpoon.mark').add_file()<CR>")
-keymap("n", "<leader>hh", ":lua require('harpoon.ui').toggle_quick_menu()<CR>")
-local hkeys = { "a", "s", "d", "f", "g" }
-for i = 1, 5 do
-	keymap("n", "<leader>h" .. hkeys[i] .. "", ":lua require('harpoon.ui').nav_file(" .. i .. ")<CR>")
-end
 
 --- Vim-rails
 keymap("n", "<leader>rm", ":Emodel<CR>")
@@ -85,7 +79,6 @@ keymap("n", "K", vim.lsp.buf.hover)
 keymap("n", "gi", vim.lsp.buf.implementation)
 keymap("n", "<C-k>", vim.lsp.buf.signature_help)
 keymap("n", "<space>D", vim.lsp.buf.type_definition)
-keymap("n", "<leader>rn", vim.lsp.buf.rename)
 -- keymap("n", "gr", vim.lsp.buf.references) -- handled by trouble.nvim
 keymap("n", "<leader>ca", vim.lsp.buf.code_action)
 keymap("n", "[d", '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<CR>')
@@ -94,8 +87,16 @@ keymap("n", "gl", '<cmd>lua vim.diagnostic.open_float({ border = "rounded" })<CR
 keymap("n", "<leader>q", vim.diagnostic.setloclist)
 
 --> LuaSnip <--
-vim.cmd([[command! LuaSnipEdit :lua require("luasnip.loaders.from_lua").edit_snippet_files()]])
+vim.api.nvim_create_user_command("LuaSnipEdit", require("luasnip.loaders.from_lua").edit_snippet_files, {})
 keymap("n", "<leader><leader><CR>", "<cmd>LuaSnipEdit<cr>")
+
+-- Harpoon
+keymap("n", "<leader>hr", ":lua require('harpoon.mark').add_file()<CR>")
+keymap("n", "<leader>hh", ":lua require('harpoon.ui').toggle_quick_menu()<CR>")
+local hkeys = { "a", "s", "d", "f", "g" }
+for i = 1, 5 do
+	keymap("n", "<leader>h" .. hkeys[i] .. "", ":lua require('harpoon.ui').nav_file(" .. i .. ")<CR>")
+end
 
 ---- Refactoring nvim
 -- Remaps for each of the four refactoring operations currently offered by the plugin

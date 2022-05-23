@@ -23,7 +23,7 @@ s_left.taglist = awful.widget.taglist({
 })
 
 -- Create the wibox
-s_left.mywibox = awful.wibar({ position = "top", screen = s_right, height = 30, bg = beautiful.bg_normal .. "00" })
+s_left.mywibox = awful.wibar({ position = "top", screen = s_left, height = 30, bg = beautiful.bg_normal .. "00" })
 
 s_left.mywibox:setup({
 	layout = wibox.layout.stack,

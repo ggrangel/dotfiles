@@ -3,12 +3,10 @@ local awful = require("awful")
 local hotkeys_popup = require("awful.hotkeys_popup")
 
 local modkey = "Mod4"
-local terminal = os.getenv("TERMINAL")
+-- local terminal = os.getenv("TERMINAL")
 
-screens_kb = { "u", "i", "o" }
-tags_kb = { "n", "m", ",", ".", "/" }
-
-local gears = require("gears")
+local screens_kb = { "u", "i", "o" }
+local tags_kb = { "n", "m", ",", ".", "/" }
 
 local keybindings = {}
 
@@ -122,18 +120,18 @@ for j = 1, #tags_kb do
 
 		awful.key({ modkey }, tag, function()
 			local screen = awful.screen.focused()
-			local tag = screen.tags[j]
-			if tag then
-				tag:view_only()
+			local screenTag = screen.tags[j]
+			if screenTag then
+				screenTag:view_only()
 			end
 		end, { description = "view tag #" .. j, group = "tag" }),
 
 		awful.key({ modkey, "Shift" }, tag, function()
 			if client.focus then
-				local tag = client.focus.screen.tags[j]
-				if tag then
-					client.focus:move_to_tag(tag)
-					tag:view_only()
+				local focusedTag = client.focus.screen.tags[j]
+				if focusedTag then
+					client.focus:move_to_tag(focusedTag)
+					focusedTag:view_only()
 				end
 			end
 		end, { description = "move focused client to tag #" .. j .. " and view it", group = "tag" })

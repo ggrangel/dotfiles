@@ -16,9 +16,9 @@ null_ls.setup({
 		--> Formatters <--
 		formatting.black,
 		formatting.isort,
-		formatting.latexindent,
 		formatting.shfmt,
 		formatting.stylua,
+		--> formatting.standardrb,
 		formatting.prettier_standard.with({
 			filetypes = {
 				"javascript",
