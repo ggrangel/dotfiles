@@ -1,9 +1,9 @@
 vim.opt.scrolloff = 8 -- minimal number of screen lines to keep above and below the cursor.
 vim.opt.wrap = false -- do not wrap long text
 vim.opt.clipboard = "unnamedplus" -- from yank to clipboard and vice versa
--- vim.opt.updatetime = 300 -- default is 4000ms
-vim.opt.splitright = true
-vim.opt.completeopt = { "menuone", "noinsert", "noselect" }
+vim.opt.splitright = true -- split vertical window to the right of the current window
+vim.opt.completeopt = { "menuone", "noinsert", "noselect" } -- see :h completeopt
+vim.opt.updatetime = 300 -- default is 4000ms
 
 -- set this to false when running macros with find (/) words
 vim.opt.wrapscan = true
