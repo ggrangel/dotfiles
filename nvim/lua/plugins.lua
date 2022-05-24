@@ -50,7 +50,6 @@ return require("packer").startup(function()
 	use("stevearc/dressing.nvim") --> beautiful vim.ui.select and vim.ui.input
 	use("folke/trouble.nvim") --> pretty list of LSP diagnostics and references
 	use("rcarriga/nvim-notify") --> notification manager
-	use("onsails/lspkind.nvim") --> add pictograms to neovim lsp
 	use("simeji/winresizer") -- Easy resizing of vim windows (press <c-w>)
 
 	-- Completion
@@ -69,18 +68,17 @@ return require("packer").startup(function()
 
 	-- LSP
 	use("neovim/nvim-lspconfig")
-	-- use({ "ray-x/navigator.lua", requires = { "ray-x/guihua.lua", run = "cd lua/fzy && make" } })
 	use("williamboman/nvim-lsp-installer")
 	use("jose-elias-alvarez/null-ls.nvim") -- for formatters and linters
+	use("onsails/lspkind.nvim") --> add pictograms to neovim lsp
 
 	-- Telescope
 	use({
 		"nvim-telescope/telescope.nvim",
 		requires = {
-			{ "nvim-lua/popup.nvim" },
-			{ "burntsushi/ripgrep" },
-			{ "nvim-lua/plenary.nvim" },
-			{ "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
+			{ "nvim-lua/plenary.nvim" }, -- dependency
+			{ "burntsushi/ripgrep" }, -- necessary for live_grep picker
+			{ "nvim-telescope/telescope-fzf-native.nvim", run = "make" }, -- better sorgint performance
 			{ "nvim-telescope/telescope-ui-select.nvim" }, --> sets vim.ui.select to telescope
 		},
 	})
