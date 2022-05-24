@@ -14,7 +14,6 @@ telescope.setup({
 		},
 		shorten_path = true,
 		sorting_strategy = "ascending",
-		-- theme = "dropdown",
 
 		--- Default mappings
 		mappings = {

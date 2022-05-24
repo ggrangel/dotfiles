@@ -10,6 +10,7 @@ local servers = {
 	"jsonls",
 	"sumneko_lua",
 	"tsserver", --[[ "sorbet"  ]]
+	"sorbet",
 	"html",
 }
 
