@@ -13,9 +13,8 @@ export BROWSER="brave"
 
 # cause I don't let just anyone into my $HOME
 export PASSWORD_STORE_DIR="$XDG_DATA_HOME/pass"
-# export TMUXP_CONFIGDIR="$HOME/.config/tmuxp/"
 export CARGO_HOME="$XDG_DATA_HOME/cargo/"
-# export GOPATH="$HOME/apps/go"
+export GOPATH="$XDG_DATA_HOME/go"
 export GTK2_RC_FILES="$HOME/.config/gtk-2.0/gtkrc"
 export NVM_DIR="$XDG_DATA_HOME/nvm"
 export PYENV_ROOT="$XDG_DATA_HOME/pyenv" 
