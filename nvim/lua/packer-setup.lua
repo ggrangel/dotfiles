@@ -2,7 +2,7 @@
 vim.cmd([[
     augroup packer_user_config
        autocmd!
-        autocmd BufWritePost plugins.lua source <afile> | PackerSync
+        autocmd BufWritePost packer-setup.lua source <afile> | PackerSync
     augroup end
 ]])
 
@@ -22,6 +22,8 @@ return require("packer").startup(function()
 	use("lewis6991/impatient.nvim") -- Speed up loading Lua modules in Neovim to improve startup time.
 	use("vimwiki/vimwiki")
 	use("tpope/vim-sleuth") -- automatically adjusts 'shiftwidth' and 'expandtab' based on the current file
+	use("dstein64/vim-startuptime")
+	use("ibhagwan/fzf-lua")
 
 	-- Treesitter
 	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
@@ -32,7 +34,7 @@ return require("packer").startup(function()
 	use("unblevable/quick-scope")
 	use("ThePrimeagen/harpoon")
 	use("tpope/vim-rails")
-	use("ggandor/leap.nvim")
+	use({ "ggandor/leap.nvim", configs = { require("leap").set_default_keymaps() } })
 
 	-- Remaps
 	use("machakann/vim-sandwich") -- like vim-surround but highlights text and also supports dot command
@@ -46,7 +48,7 @@ return require("packer").startup(function()
 	use("kyazdani42/nvim-web-devicons") -- Required by many plugins
 	use("stevearc/dressing.nvim") --> beautiful vim.ui.select and vim.ui.input
 	use("folke/trouble.nvim") --> pretty list of LSP diagnostics and references
-	use("rcarriga/nvim-notify") --> notification manager
+	use({ "rcarriga/nvim-notify", config = "vim.notify = require('notify')" }) --> notification manager
 
 	--> GUI <--
 	use("nvim-lualine/lualine.nvim")

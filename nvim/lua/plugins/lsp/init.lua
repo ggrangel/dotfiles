@@ -1,4 +1,4 @@
-local handlers = require("lsp/handlers")
+local handlers = require("plugins/lsp/handlers")
 
 handlers.setup()
 
@@ -24,7 +24,7 @@ for _, server in pairs(servers) do
 		capabilities = handlers.capabilities,
 	}
 
-	local has_custom_opts, server_custom_opts = pcall(require, "lsp/settings/" .. server)
+	local has_custom_opts, server_custom_opts = pcall(require, "plugins/lsp/settings/" .. server)
 	if has_custom_opts then
 		opts = vim.tbl_deep_extend("force", server_custom_opts, opts)
 	end

@@ -1,5 +1,22 @@
 local keymap = vim.keymap.set
 
+-- highlight yanked text for 200ms using the "Visual" highlight group
+vim.cmd([[
+augroup highlight_yank
+autocmd!
+au TextYankPost * silent! lua vim.highlight.on_yank({higroup="Visual", timeout=200})
+augroup END
+]])
+
+-- open help in vertical split
+vim.cmd([[
+autocmd FileType help wincmd L
+]])
+
+-- Disable continuation of comments in new line
+vim.cmd("autocmd BufEnter * set formatoptions-=cro")
+vim.cmd("autocmd BufEnter * setlocal formatoptions-=cro")
+
 function OpenGitHubRepo()
 	local function open_uri(uri)
 		if type(uri) ~= "nil" then
@@ -87,3 +104,29 @@ end
 
 vim.api.nvim_create_user_command("LspRename", LspRename, {})
 keymap("n", "<leader>rn", LspRename)
+
+-- Disable builtin unused plugins
+local disabled_built_ins = {
+	"netrw",
+	"netrwPlugin",
+	"netrwSettings",
+	"netrwFileHandlers",
+	"gzip",
+	"zip",
+	"zipPlugin",
+	"tar",
+	"tarPlugin",
+	"getscript",
+	"getscriptPlugin",
+	"vimball",
+	"vimballPlugin",
+	"2html_plugin",
+	"logipat",
+	"rrhelper",
+	"spellfile_plugin",
+	"matchit",
+}
+
+for _, plugin in pairs(disabled_built_ins) do
+	vim.g["loaded_" .. plugin] = 1
+end

@@ -42,34 +42,7 @@ for k, v in pairs(options) do
 	vim.opt[k] = v
 end
 
------- Treesitter
+-- Treesitter folding
 vim.wo.foldmethod = "expr"
 vim.wo.foldexpr = "nvim_treesitter#foldexpr()"
 vim.wo.foldenable = false
-
------- Appearance
-vim.cmd([[
-try
-  colorscheme darkplus
-catch /^Vim\%((\a\+)\)\=:E185/
-  colorscheme default
-  set background=dark
-endtry
-]])
-
--- highlight yanked text for 200ms using the "Visual" highlight group
-vim.cmd([[
-augroup highlight_yank
-autocmd!
-au TextYankPost * silent! lua vim.highlight.on_yank({higroup="Visual", timeout=200})
-augroup END
-]])
-
--- open help in vertical split
-vim.cmd([[
-autocmd FileType help wincmd L
-]])
-
--- Disable continuation of comments in new line
-vim.cmd("autocmd BufEnter * set formatoptions-=cro")
-vim.cmd("autocmd BufEnter * setlocal formatoptions-=cro")
