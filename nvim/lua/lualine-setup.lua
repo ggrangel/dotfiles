@@ -187,10 +187,10 @@ ins_right({
         return msg
     end,
     icon = " LSP:",
-    color = { fg = "#ffffff", gui = "bold" },
+    color = { fg = colors.violet, gui = "bold" },
 })
 
-ins_right({ "progress", color = { fg = colors.fg, gui = "bold" } })
+ins_right({ "progress", color = { fg = colors.orange, gui = "bold" } })
 
 ins_right({
     function()

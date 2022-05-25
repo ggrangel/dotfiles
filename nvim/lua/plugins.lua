@@ -84,9 +84,4 @@ return require("packer").startup(function()
 			{ "nvim-telescope/telescope-ui-select.nvim" }, --> sets vim.ui.select to telescope
 		},
 	})
-	--> use({
-	--> 	"ghillb/cybu.nvim",
-	--> 	branch = "v1.x", -- won't receive breaking changes
-	--> 	-- branch = "main", -- timely updates
-	--> })
 end)
