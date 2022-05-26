@@ -11,28 +11,24 @@ vim.g.mapleader = " "
 
 keymap("n", "<leader><leader>s", ":source $MYVIMRC<CR>")
 
--- Disable Ex mode
-keymap("n", "Q", "<nop>")
-
 -- Nvim-tree
 keymap("n", "<leader>t", ":NvimTreeToggle <CR>")
 -- window resize
 vim.cmd([[let g:winresizer_start_key = '<leader>w']])
+
+-- Mirrors vim-surround keybindings to vim-sandwich
+--> ys, yss, yS, ds, cs, S, dss, css
+vim.cmd([[
+runtime macros/sandwich/keymap/surround.vim
+]])
 
 ---- Keeping it centered
 keymap("n", "n", "nzzzv")
 keymap("n", "N", "Nzzzv")
 keymap("n", "J", "mzJ`z")
 
----- Do not delete to register
-keymap("n", "<leader>d", '"_d')
-keymap("n", "<leader>D", '"_D')
-keymap("v", "<leader>d", '"_d')
-keymap("v", "<leader>D", '"_D')
-keymap("n", "<leader>c", '"_c')
-keymap("n", "<leader>C", '"_C')
-keymap("v", "<leader>c", '"_c')
-keymap("v", "<leader>C", '"_C')
+---- Paste from 0 register
+keymap({ "n", "v" }, "<leader>p", '"0p')
 
 ---- Navigate tabs
 keymap("n", "<C-h>", "<C-w>h")
@@ -61,12 +57,6 @@ keymap("n", "<C-q>l", "<C-w>l :q <CR>")
 keymap("n", "<C-q>k", "<C-w>k :q <CR>")
 keymap("n", "<C-q>j", "<C-w>j :q <CR>")
 
--- Mirrors vim-surround keybindings to vim-sandwich
---> ys, yss, yS, ds, cs, S, dss, css
-vim.cmd([[
-runtime macros/sandwich/keymap/surround.vim
-]])
-
 --- Vim-rails
 keymap("n", "<leader>rm", ":Emodel<CR>")
 keymap("n", "<leader>rv", ":Eview<CR>")
@@ -81,21 +71,32 @@ keymap("n", "<C-k>", vim.lsp.buf.signature_help)
 keymap("n", "<space>gt", vim.lsp.buf.type_definition)
 -- keymap("n", "gr", vim.lsp.buf.references) -- handled by trouble.nvim
 keymap("n", "<leader>ca", vim.lsp.buf.code_action)
-keymap("n", "[d", '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<CR>')
-keymap("n", "]d", '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>')
-keymap("n", "gl", '<cmd>lua vim.diagnostic.open_float({ border = "rounded" })<CR>')
-keymap("n", "<leader>q", vim.diagnostic.setloclist)
+keymap("n", "[d", function()
+	return vim.diagnostic.goto_prev({ border = "rounded" })
+end)
+keymap("n", "]d", function()
+	return vim.diagnostic.goto_next({ border = "rounded" })
+end)
+keymap("n", "gl", function()
+	return vim.diagnostic.open_float({ border = "rounded" })
+end)
 
 --> LuaSnip <--
 vim.api.nvim_create_user_command("LuaSnipEdit", require("luasnip.loaders.from_lua").edit_snippet_files, {})
 keymap("n", "<leader><leader><CR>", "<cmd>LuaSnipEdit<cr>")
 
 -- Harpoon
-keymap("n", "<leader>hr", ":lua require('harpoon.mark').add_file()<CR>")
-keymap("n", "<leader>hh", ":lua require('harpoon.ui').toggle_quick_menu()<CR>")
+keymap("n", "<leader>hr", function()
+	return require("harpoon.mark").add_file()
+end)
+keymap("n", "<leader>hh", function()
+	return require("harpoon.ui").toggle_quick_menu()
+end)
 local hkeys = { "a", "s", "d", "f", "g" }
 for i = 1, 5 do
-	keymap("n", "<leader>h" .. hkeys[i] .. "", ":lua require('harpoon.ui').nav_file(" .. i .. ")<CR>")
+	keymap("n", "<leader>h" .. hkeys[i], function()
+		return require("harpoon.ui").nav_file(i)
+	end)
 end
 
 ---- Refactoring nvim
