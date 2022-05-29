@@ -45,11 +45,17 @@ M.setup = function()
 	)
 end
 
+local function lsp_highlight_document(client)
+	require("illuminate").on_attach(client)
+end
+
 M.on_attach = function(client, bufnr)
 	-- tsserver already has a builtin format. Let's disable it so it does not collide with prettier.
 	if client.name == "tsserver" then
 		client.resolved_capabilities.document_formatting = false
 	end
+
+	lsp_highlight_document(client)
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
