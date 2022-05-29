@@ -30,5 +30,13 @@ source $ZDOTDIR/completion.zsh
 
 [ -f "$ZDOTDIR/dev.zsh" ] && source "$ZDOTDIR/dev.zsh"
 
+# make a new directory and cd to it
+mkd () {
+    # -- makes sure the passed name for the new direcxtory is not interpreted as an option to mkdir or cd
+    # -P used on cd resolves symbolink links.
+    mkdir -p -- "$1" &&
+    cd -P -- "$1"
+}
+
 # load zhs-syntax-highlighting; should be last.
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
