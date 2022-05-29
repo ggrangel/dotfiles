@@ -9,18 +9,19 @@ local keymap = vim.keymap.set
 
 vim.g.mapleader = " "
 
-keymap("n", "<leader><leader>s", ":source $MYVIMRC<CR>")
+keymap("n", "<leader>a", ":wa | lua vim.notify('Project saved') <CR>", { silent = true })
+keymap("n", "<leader>s", ":wa | source | lua vim.notify('Project sourced') <CR>", { silent = true })
 
 -- Nvim-tree
 keymap("n", "<leader>t", ":NvimTreeToggle <CR>")
 -- window resize
-vim.cmd([[let g:winresizer_start_key = '<leader>w']])
+vim.cmd [[let g:winresizer_start_key = '<leader>w']]
 
 -- Mirrors vim-surround keybindings to vim-sandwich
 --> ys, yss, yS, ds, cs, S, dss, css
-vim.cmd([[
+vim.cmd [[
 runtime macros/sandwich/keymap/surround.vim
-]])
+]]
 
 ---- Keeping it centered
 keymap("n", "n", "nzzzv")
@@ -41,10 +42,18 @@ keymap("v", "<", "<gv")
 keymap("v", ">", ">gv")
 
 ---- Telescope
-keymap("n", "<leader>ff", ":Telescope find_files<CR>")
-keymap("n", "<leader>fl", ":Telescope live_grep<CR>")
-keymap("n", "<leader>fi", ":Telescope git_files<CR>")
-keymap("n", "<leader>fb", ":Telescope buffers<CR>")
+keymap("n", "<leader>fl", function()
+  return require("telescope.builtin").live_grep()
+end)
+keymap("n", "<leader>fi", function()
+  return require("telescope.builtin").git_files()
+end)
+keymap("n", "<leader>fb", function()
+  return require("telescope.builtin").buffers()
+end)
+keymap("n", "<leader>fh", function()
+  return require("telescope.builtin").help_tags()
+end)
 
 --- Trouble
 keymap("n", "<leader>xd", ":Trouble workspace_diagnostics <CR>")
@@ -72,31 +81,31 @@ keymap("n", "<space>gt", vim.lsp.buf.type_definition)
 -- keymap("n", "gr", vim.lsp.buf.references) -- handled by trouble.nvim
 keymap("n", "<leader>ca", vim.lsp.buf.code_action)
 keymap("n", "[d", function()
-	return vim.diagnostic.goto_prev({ border = "rounded" })
+  return vim.diagnostic.goto_prev { border = "rounded" }
 end)
 keymap("n", "]d", function()
-	return vim.diagnostic.goto_next({ border = "rounded" })
+  return vim.diagnostic.goto_next { border = "rounded" }
 end)
 keymap("n", "gl", function()
-	return vim.diagnostic.open_float({ border = "rounded" })
+  return vim.diagnostic.open_float { border = "rounded" }
 end)
 
 --> LuaSnip <--
 vim.api.nvim_create_user_command("LuaSnipEdit", require("luasnip.loaders.from_lua").edit_snippet_files, {})
-keymap("n", "<leader><leader><CR>", "<cmd>LuaSnipEdit<cr>")
+keymap("n", "<leader><CR>", "<cmd>LuaSnipEdit<cr>")
 
 -- Harpoon
 keymap("n", "<leader>hr", function()
-	return require("harpoon.mark").add_file()
+  return require("harpoon.mark").add_file()
 end)
 keymap("n", "<leader>hh", function()
-	return require("harpoon.ui").toggle_quick_menu()
+  return require("harpoon.ui").toggle_quick_menu()
 end)
 local hkeys = { "a", "s", "d", "f", "g" }
 for i = 1, 5 do
-	keymap("n", "<leader>h" .. hkeys[i], function()
-		return require("harpoon.ui").nav_file(i)
-	end)
+  keymap("n", "<leader>h" .. hkeys[i], function()
+    return require("harpoon.ui").nav_file(i)
+  end)
 end
 
 ---- Refactoring nvim
