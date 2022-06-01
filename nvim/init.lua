@@ -1,25 +1,26 @@
-require("impatient")
-require("packer-setup")
-require("options")
-require("mappings")
-require("utils")
-require("theme")
-require("globals")
+require "impatient"
+require "packer-setup"
+require "options"
+require "mappings"
+require "utils"
+require "theme"
+require "globals"
 
-require("plugins/lsp")
-require("plugins/telescope")
-require("plugins/cmp")
-require("plugins/null-ls")
-require("plugins/treesitter")
-require("plugins/autopairs")
-require("plugins/vimwiki")
-require("plugins/luasnip-setup") -- "-setup" avoids unwanted warning from LSP
-require("plugins/nvimtree")
-require("plugins/lualine")
-require("plugins/trouble")
-require("plugins/quick-scope")
-require("plugins/friendly-snippets")
-require("plugins/comment")
-require("plugins/gitsigns")
-require("plugins/harpoon")
-require("plugins/dressing")
+require "plugins/lsp"
+require "plugins/telescope"
+require "plugins/cmp"
+require "plugins/null-ls"
+require "plugins/treesitter"
+require "plugins/autopairs"
+require "plugins/vimwiki"
+require "plugins/luasnip-setup" -- "-setup" avoids unwanted warning from LSP
+require "plugins/nvimtree"
+require "plugins/lualine"
+require "plugins/trouble"
+require "plugins/quick-scope"
+require "plugins/friendly-snippets"
+require "plugins/comment"
+require "plugins/gitsigns"
+require "plugins/harpoon"
+require "plugins/dressing"
+require "plugins/notify"
