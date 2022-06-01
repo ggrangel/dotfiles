@@ -2,7 +2,7 @@
 fpath=($ZDOTDIR/prompt $fpath)
 source $HOME/.config/zsh/prompt/prompt.zsh
 
-# diable Ctrl+s (freezes the terminal)
+# disable Ctrl+s (freezes the terminal)
 stty -ixon
 
 # easy navigation
