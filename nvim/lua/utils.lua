@@ -1,21 +1,12 @@
 local keymap = vim.keymap.set
 
--- highlight yanked text for 200ms using the "Visual" highlight group
-vim.cmd [[
-augroup highlight_yank
-autocmd!
-au TextYankPost * silent! lua vim.highlight.on_yank({higroup="Visual", timeout=200})
-augroup END
-]]
-
--- opens help in left window
-vim.api.nvim_create_autocmd("FileType", { pattern = "help", command = "wincmd L" })
-
--- disables continuation of comments (doesn't work to set as an option)
--- vim.cmd("autocmd BufEnter * set formatoptions-=cro")
--- vim.cmd("autocmd BufEnter * setlocal formatoptions-=cro")
-vim.api.nvim_create_autocmd("BufEnter", { command = "set formatoptions-=cro" })
-vim.api.nvim_create_autocmd("BufEnter", { command = "setlocal formatoptions-=cro" })
+vim.api.nvim_create_augroup("highlight_yank", { clear = true })
+vim.api.nvim_create_autocmd("TextYankPost", {
+  callback = function()
+    vim.highlight.on_yank { higroup = "Visual", timeout = 200 }
+  end,
+  group = "highlight_yank",
+})
 
 function OpenGitHubRepo()
   local function open_uri(uri)

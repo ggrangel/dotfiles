@@ -37,7 +37,7 @@ local options = {
   guifont = "monospace:h17", -- the font used in graphical neovim applications
   -- termguicolors = true -- for colorizer to work
 
-  shadafile = "NONE", -- improves startuptime a little bit
+  -- shadafile = "NONE", -- improves startuptime a little bit
 }
 
 for k, v in pairs(options) do
@@ -48,3 +48,10 @@ end
 vim.wo.foldmethod = "expr"
 vim.wo.foldexpr = "nvim_treesitter#foldexpr()"
 vim.wo.foldenable = false
+
+vim.api.nvim_create_augroup("one_time_opts", { clear = true })
+-- opens help in left window
+vim.api.nvim_create_autocmd("FileType", { pattern = "help", command = "wincmd L", group = "one_time_opts" })
+-- disables continuation of comments (doesn't work to set as an option)
+vim.api.nvim_create_autocmd("BufEnter", { command = "set formatoptions-=cro", group = "one_time_opts" })
+vim.api.nvim_create_autocmd("BufEnter", { command = "setlocal formatoptions-=cro", group = "one_time_opts" })
