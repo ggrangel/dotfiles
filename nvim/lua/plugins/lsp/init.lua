@@ -1,33 +1,35 @@
-local handlers = require("plugins/lsp/handlers")
+local handlers = require "plugins/lsp/handlers"
 
 handlers.setup()
 
-local lsp_installer = require("nvim-lsp-installer")
+local lsp_installer = require "nvim-lsp-installer"
 
-local lspconfig = require("lspconfig")
+local lspconfig = require "lspconfig"
 
 local servers = {
-	"jsonls",
-	"sumneko_lua",
-	"tsserver", --[[ "sorbet"  ]]
-	"sorbet",
-	"html",
+  "bashls",
+  "html",
+  "jsonls",
+  "rust_analyzer",
+  "sorbet",
+  "sumneko_lua",
+  "tsserver",
 }
 
-lsp_installer.setup({
-	ensure_installed = servers,
-})
+lsp_installer.setup {
+  ensure_installed = servers,
+}
 
 for _, server in pairs(servers) do
-	local opts = {
-		on_attach = handlers.on_attach,
-		capabilities = handlers.capabilities,
-	}
+  local opts = {
+    on_attach = handlers.on_attach,
+    capabilities = handlers.capabilities,
+  }
 
-	local has_custom_opts, server_custom_opts = pcall(require, "plugins/lsp/settings/" .. server)
-	if has_custom_opts then
-		opts = vim.tbl_deep_extend("force", server_custom_opts, opts)
-	end
+  local has_custom_opts, server_custom_opts = pcall(require, "plugins/lsp/settings/" .. server)
+  if has_custom_opts then
+    opts = vim.tbl_deep_extend("force", server_custom_opts, opts)
+  end
 
-	lspconfig[server].setup(opts)
+  lspconfig[server].setup(opts)
 end
