@@ -17,9 +17,8 @@ null_ls.setup {
     formatting.black,
     formatting.isort,
     formatting.shfmt,
-    formatting.stylua.with {
-      indent_width = 2,
-    },
+    formatting.stylua,
+    formatting.rustfmt,
     --> formatting.standardrb,
     formatting.prettier_standard.with {
       filetypes = {
