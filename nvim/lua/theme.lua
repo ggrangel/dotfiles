@@ -7,5 +7,12 @@
 -- endtry
 -- ]])
 
-vim.g.catppuccin_flavour = "macchiato" -- macchiato, mocha, dusk
+local flavour = "mocha"
+
+-- less contrast for evenings
+if os.date("*t").hour >= 18 then
+  flavour = "macchiato"
+end
+
+vim.g.catppuccin_flavour = "macchiato"
 vim.cmd [[colorscheme catppuccin]]
