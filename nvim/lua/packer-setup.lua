@@ -1,10 +1,9 @@
--- Autocommand that reloads neovim whenever you save this file
-vim.cmd [[
-    augroup packer_user_config
-       autocmd!
-        autocmd BufWritePost packer-setup.lua source <afile> | PackerSync
-    augroup end
-]]
+-- Reloads vim whenever you save this file
+vim.api.nvim_create_augroup("packer_user_config", { clear = true })
+vim.api.nvim_create_autocmd(
+  "BufWritePost",
+  { pattern = { "packer-setup.lua" }, command = "source <afile> | PackerSync", group = "packer_user_config" }
+)
 
 -- Have packer use a popup window
 require("packer").init {
@@ -51,7 +50,7 @@ return require("packer").startup(function()
   use "kyazdani42/nvim-web-devicons" -- Required by many plugins
   use "stevearc/dressing.nvim" --> beautiful vim.ui.select and vim.ui.input
   use "folke/trouble.nvim" --> pretty list of LSP diagnostics and references
-  use { "rcarriga/nvim-notify", config = "vim.notify = require('notify')" } --> notification manager
+  use "rcarriga/nvim-notify" --> notification manager
   use "RRethy/vim-illuminate"
 
   --> GUI <--
