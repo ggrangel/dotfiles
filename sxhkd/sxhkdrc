@@ -7,7 +7,7 @@ super + F2
 super + F3
     redshift -P -O 3500
 
-super + b
+super + r
     $BROWSER
 
 super + c
@@ -21,9 +21,6 @@ super + z
 
 super + q
     sortie.sh
-
-# super + p
-#    colorpicker --short  --one-shot | xsel -ib     
 
 super + BackSpace
     wmctrl -c :ACTIVE:
