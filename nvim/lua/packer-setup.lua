@@ -43,8 +43,6 @@ return require("packer").startup(function()
   use { "numToStr/Comment.nvim", config = require "plugins.comment" }
 
   --> Appearance and GUI <--
-  use "lunarvim/darkplus.nvim"
-  -- use { "catppuccin/nvim", as = "catppuccin" }
   use { "lewis6991/gitsigns.nvim", config = require "plugins.gitsigns" } -- git decorations
   use { "rrethy/vim-hexokinase", run = "make hexokinase" } -- shows color as a virtual text
   use "kyazdani42/nvim-web-devicons" -- Required by many plugins
@@ -52,6 +50,11 @@ return require("packer").startup(function()
   use { "folke/trouble.nvim", config = require "plugins.trouble" } --> pretty list of LSP diagnostics and references
   use { "rcarriga/nvim-notify", config = require "plugins.notify" } --> notification manager
   use "RRethy/vim-illuminate"
+
+  -- Color themes
+  use "lunarvim/darkplus.nvim"
+  -- use { "catppuccin/nvim", as = "catppuccin" }
+  -- use { "lewis6991/github_dark.nvim" }
 
   --> GUI <--
   use { "nvim-lualine/lualine.nvim", config = require "plugins.lualine" }

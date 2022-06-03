@@ -1,7 +1,7 @@
 require "impatient"
 require "packer-setup"
+require "theme"
 require "options"
 require "mappings"
 require "utils"
-require "theme"
 require "globals"

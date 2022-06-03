@@ -7,6 +7,8 @@ catch /^Vim\%((\a\+)\)\=:E185/
 endtry
 ]]
 
+-- require("github_dark").apply()
+
 -- local flavour = "mocha"
 --
 -- -- less contrast for evenings
