@@ -52,8 +52,8 @@ return require("packer").startup(function()
   use "RRethy/vim-illuminate"
 
   -- Color themes
-  use "lunarvim/darkplus.nvim"
-  -- use { "catppuccin/nvim", as = "catppuccin" }
+  -- use "lunarvim/darkplus.nvim"
+  use { "catppuccin/nvim", as = "catppuccin" }
   -- use { "lewis6991/github_dark.nvim" }
 
   --> GUI <--
