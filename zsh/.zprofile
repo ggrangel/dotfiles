@@ -25,7 +25,8 @@ export NVM_DIR="$XDG_DATA_HOME/nvm"
 export PASSWORD_STORE_DIR="$XDG_DATA_HOME/pass"
 export PYENV_ROOT="$XDG_DATA_HOME/pyenv" 
 export PYTHONSTARTUP="$XDG_CONFIG_HOME/python/pythonrc"
-export XAUTHORITY="$XDG_RUNTIME_DIR/Xauthority"
+export RUSTUP_HOME="$XDG_DATA_HOME/rustup"
+# export XAUTHORITY="$XDG_RUNTIME_DIR/Xauthority" # uncommenting this line will make the systemd service of locking PC before suspending it stop working
 
 export DISABLE_AUTO_TITLE='true'  # tmuxp stuff
 
