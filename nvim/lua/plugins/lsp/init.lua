@@ -10,6 +10,7 @@ local servers = {
   "bashls",
   "html",
   "jsonls",
+  "pyright",
   "rust_analyzer",
   "sorbet",
   "sumneko_lua",
