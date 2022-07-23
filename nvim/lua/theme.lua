@@ -7,14 +7,12 @@
 -- endtry
 -- ]]
 
--- require("github_dark").apply()
-
-local flavour = "mocha"
-
--- less contrast for evenings
-if os.date("*t").hour >= 18 then
-  flavour = "macchiato"
-end
-
-vim.g.catppuccin_flavour = flavour
-vim.cmd [[colorscheme catppuccin]]
+-- local flavour = "mocha"
+--
+-- -- less contrast for evenings
+-- if os.date("*t").hour >= 18 then
+--   flavour = "macchiato"
+-- end
+--
+-- vim.g.catppuccin_flavour = flavour
+-- vim.cmd [[colorscheme catppuccin]]
