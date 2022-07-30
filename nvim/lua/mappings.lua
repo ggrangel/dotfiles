@@ -9,8 +9,10 @@ local keymap = vim.keymap.set
 
 vim.g.mapleader = " "
 
-keymap("n", "<leader>a", ":wa | lua vim.notify('Project saved') <CR>", { silent = true })
-keymap("n", "<leader>s", ":wa | source | lua vim.notify('Project sourced') <CR>", { silent = true })
+keymap("n", "<leader><leader>a", ":wa | lua vim.notify('Project saved') <CR>", { silent = true })
+keymap("n", "<leader><leader>s", ":wa | source | lua vim.notify('Project sourced') <CR>", { silent = true })
+keymap("n", "<leader><leader>l", ":source ~/.config/nvim/after/plugin/luasnip.lua<CR>")
+keymap("n", "<leader><leader>p", ":wa | !python3 %<CR>", { silent = true })
 
 -- Nvim-tree
 keymap("n", "<leader>t", ":NvimTreeToggle <CR>")
@@ -42,6 +44,9 @@ keymap("v", "<", "<gv")
 keymap("v", ">", ">gv")
 
 ---- Telescope
+keymap("n", "<leader>ff", function()
+  return require("telescope.builtin").find_files()
+end)
 keymap("n", "<leader>fl", function()
   return require("telescope.builtin").live_grep()
 end)
