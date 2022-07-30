@@ -23,6 +23,12 @@ return require("packer").startup(function()
   use { "vimwiki/vimwiki", config = require "plugins.vimwiki" }
   -- use "tpope/vim-sleuth" -- automatically adjusts 'shiftwidth' and 'expandtab' based on the current file... not working anymore?
   use "dstein64/vim-startuptime"
+  use {
+    "iamcco/markdown-preview.nvim",
+    run = function()
+      vim.fn["mkdp#util#install"]()
+    end,
+  }
 
   -- Treesitter
   use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate", config = require "plugins.treesitter" }
@@ -52,8 +58,8 @@ return require("packer").startup(function()
   use "RRethy/vim-illuminate"
 
   -- Color themes
-  -- use "lunarvim/darkplus.nvim"
-  use { "catppuccin/nvim", as = "catppuccin" }
+  use "lunarvim/darkplus.nvim"
+  -- use { "catppuccin/nvim", as = "catppuccin" }
   -- use { "lewis6991/github_dark.nvim" }
 
   --> GUI <--
