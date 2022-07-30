@@ -8,4 +8,4 @@ F10
     volume.sh up
 
 F11
-    $TERMINAL python3
+    $TERMINAL bpython
