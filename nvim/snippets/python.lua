@@ -14,7 +14,7 @@ local rep = require("luasnip.extras").rep
 local snippets, autosnippets = {}, {}
 
 local read_N = s("READN", { t "N = int(sys.stdin.readline())" })
-local read_arr_int = s("READINTS", fmt("{} = [int(c) for c in sys.stdin.readline().split()]", i(1, "arr")))
+local read_arr_int = s("READINTS", fmt("{} = list(map(int, sys.stdin.readline().split()))", i(1, "arr")))
 
 table.insert(snippets, read_N)
 table.insert(snippets, read_arr_int)
