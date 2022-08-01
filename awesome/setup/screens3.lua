@@ -8,10 +8,9 @@ local layouts = {
 	awful.layout.suit.tile.left,
 }
 
--- awful.tag({ "1" }, screen[1], layouts[2])
-awful.tag({ "1", "2", "3", "4", "5" }, screen[1], layouts[1])
-awful.tag({ "1" }, screen[2], layouts[2])
-awful.tag({ "1", "2", "3", "4", "5" }, screen[3], layouts[1])
+awful.tag({ "1", "2", "3", "4" }, screen[1], layouts[1])
+awful.tag({ "1", "2", "3", "4" }, screen[2], layouts[2])
+awful.tag({ "1", "2", "3", "4" }, screen[3], layouts[1])
 
 local textclock = wibox.widget.textclock("%a %b %d, %H:%M:%S", 1)
 
@@ -50,6 +49,36 @@ s_left.mywibox:setup({
 		{
 			{
 				textclock,
+				left = 15,
+				right = 15,
+				widget = wibox.container.margin,
+			},
+			shape = gears.shape.hexagon,
+			widget = wibox.container.background,
+			bg = "#00000055",
+		},
+	},
+})
+
+local s_mid = screen[2]
+
+s_mid.taglist = awful.widget.taglist({
+	screen = s_mid,
+	filter = awful.widget.taglist.filter.all,
+})
+
+-- Create the wibox
+s_mid.mywibox = awful.wibar({ position = "top", screen = s_mid, height = 30, bg = beautiful.bg_normal .. "00" })
+
+s_mid.mywibox:setup({
+	layout = wibox.layout.stack,
+	{
+		layout = wibox.container.place,
+		valign = "center",
+		halign = "center",
+		{
+			{
+				s_mid.taglist,
 				left = 15,
 				right = 15,
 				widget = wibox.container.margin,

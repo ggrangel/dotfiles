@@ -6,7 +6,7 @@ local modkey = "Mod4"
 -- local terminal = os.getenv("TERMINAL")
 
 local screens_kb = { "u", "i", "o" }
-local tags_kb = { "n", "m", ",", ".", "/" }
+local tags_kb = { "m", ",", ".", "/" }
 
 local keybindings = {}
 
@@ -98,6 +98,11 @@ keybindings.clientkeys = gears.table.join(
 	-- awful.key({ modkey }, "\\", function(c)
 	-- 	c:kill()
 	-- end, { description = "close client", group = "client" }),
+
+	awful.key({ modkey }, "f", function(c)
+		c.fullscreen = not c.fullscreen
+		c:raise()
+	end, { description = "toggle fullscreen", group = "client" }),
 
 	-- Client movements
 	awful.key({ modkey, "Shift" }, screens_kb[1], function(c)
