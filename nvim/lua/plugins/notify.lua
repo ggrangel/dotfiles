@@ -14,7 +14,7 @@ notify.setup {
   minimum_width = 1,
   render = "default",
   stages = "fade_in_slide_out",
-  timeout = 1,
+  timeout = 2,
 }
 
 vim.notify = notify

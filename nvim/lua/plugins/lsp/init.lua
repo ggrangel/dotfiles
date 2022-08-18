@@ -11,6 +11,7 @@ local servers = {
   "html",
   "jsonls",
   "pyright",
+  -- "pylsp",
   "rust_analyzer",
   "sorbet",
   "sumneko_lua",
