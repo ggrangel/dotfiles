@@ -19,7 +19,7 @@ local rules = {
 		},
 	},
 
-	{ rule = { instance = "Insync" }, properties = { screen = screen[1], tag = "5" } },
+	{ rule = { instance = "Insync" }, properties = { screen = screen[1], tag = "4" } },
 }
 
 return rules
