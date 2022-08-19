@@ -38,5 +38,13 @@ mkd () {
     cd -P -- "$1"
 }
 
+# save a quick note
+function note {
+    notesFile="$HOME/drive/notes"
+    echo "$(date "+%a, %b %d %Y @ %H:%M")" >> $notesFile
+    echo "$@" >> $notesFile
+    echo "" >> $notesFile
+}
+
 # load zhs-syntax-highlighting; should be last.
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
