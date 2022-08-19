@@ -16,7 +16,7 @@ null_ls.setup {
     --> Formatters <--
     formatting.black,
     formatting.isort,
-    formatting.shfmt,
+    formatting.beautysh,
     formatting.stylua,
     formatting.rustfmt,
     --> formatting.standardrb,
