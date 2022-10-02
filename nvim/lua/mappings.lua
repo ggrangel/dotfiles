@@ -9,17 +9,17 @@ local keymap = vim.keymap.set
 
 vim.g.mapleader = " "
 
-keymap("n", "<leader><leader>a", ":wa | lua vim.notify('Project saved') <CR>")
-keymap("n", "<leader><leader>s", ":wa | source | lua vim.notify('Project sourced') <CR>")
+-- keymap("n", "<leader><leader>a", ":wa | lua vim.notify('Project saved') <CR>")
+keymap("n", "<leader><leader>s", ":wa | source | lua vim.notify('Project sourced') <CR>", { silent = true })
 keymap("n", "<leader><leader>l", ":source ~/.config/nvim/after/plugin/luasnip.lua<CR>")
-keymap("n", "<leader><leader>p", ":wa | !python3 %<CR>")
 
-vim.cmd [[let g:winresizer_start_key = '<leader><leader>w']] --> window resize
+vim.cmd [[let g:winresizer_start_key = '<Space>w']] --> window resize
 
 -- Nvim-tree
 keymap("n", "<leader>t", ":NvimTreeToggle <CR>")
 
 -- Mirrors vim-surround keybindings to vim-sandwich
+
 --> ys, yss, yS, ds, cs, S, dss, css
 vim.cmd [[
 runtime macros/sandwich/keymap/surround.vim
