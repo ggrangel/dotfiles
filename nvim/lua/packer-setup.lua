@@ -20,7 +20,7 @@ return require("packer").startup(function()
 
   -- Misc
   use "lewis6991/impatient.nvim" -- Speed up loading Lua modules in Neovim to improve startup time.
-  use { "vimwiki/vimwiki", config = require "plugins.vimwiki" }
+  use { "vimwiki/vimwiki", config = function () require "plugins.vimwiki" end }
   -- use "tpope/vim-sleuth" -- automatically adjusts 'shiftwidth' and 'expandtab' based on the current file... not working anymore?
   use "dstein64/vim-startuptime"
   use {
@@ -41,30 +41,30 @@ return require("packer").startup(function()
   }
 
   -- Treesitter
-  use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate", config = require "plugins.treesitter" }
+  use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate", config = function () require "plugins.treesitter" end}
   use "p00f/nvim-ts-rainbow"
   use { "nvim-treesitter/playground" }
   use "RRethy/nvim-treesitter-textsubjects"
   use "nvim-treesitter/nvim-treesitter-textobjects"
 
   -- Navigation
-  use { "unblevable/quick-scope", config = require "plugins.quick-scope" }
-  use { "ThePrimeagen/harpoon", config = require "plugins.harpoon" }
+  use { "unblevable/quick-scope", config = function () require "plugins.quick-scope" end }
+  use { "ThePrimeagen/harpoon", config = function () require "plugins.harpoon" end }
   use "tpope/vim-rails"
-  use { "ggandor/leap.nvim", config = require("leap").set_default_keymaps() }
+  use { "ggandor/leap.nvim", config = function () require("leap").set_default_keymaps() end }
 
   -- Remaps
   use "machakann/vim-sandwich" -- like vim-surround but highlights text and also supports dot command
-  use { "windwp/nvim-autopairs", config = require "plugins.autopairs" }
-  use { "numToStr/Comment.nvim", config = require "plugins.comment" }
+  use { "windwp/nvim-autopairs", config = function () require "plugins.autopairs" end }
+  use { "numToStr/Comment.nvim", config = function () require "plugins.comment" end }
 
   --> Appearance and GUI <--
-  use { "lewis6991/gitsigns.nvim", config = require "plugins.gitsigns" } -- git decorations
-  use { "rrethy/vim-hexokinase", run = "make hexokinase" } -- shows color as a virtual text
+  use { "lewis6991/gitsigns.nvim", config = function () require "plugins.gitsigns" end } -- git decorations
+  -- use { "rrethy/vim-hexokinase", run = "make hexokinase" } -- shows color as a virtual text
   use "kyazdani42/nvim-web-devicons" -- Required by many plugins
-  use { "stevearc/dressing.nvim", config = require "plugins.dressing" } --> beautiful vim.ui.select and vim.ui.input
-  use { "folke/trouble.nvim", config = require "plugins.trouble" } --> pretty list of LSP diagnostics and references
-  use { "rcarriga/nvim-notify", config = require "plugins.notify" } --> notification manager
+  use { "stevearc/dressing.nvim", config = function () require "plugins.dressing" end } --> beautiful vim.ui.select and vim.ui.input
+  use { "folke/trouble.nvim", config = function () require "plugins.trouble" end } --> pretty list of LSP diagnostics and references
+  use { "rcarriga/nvim-notify", config = function () require "plugins.notify" end } --> notification manager
   use "RRethy/vim-illuminate"
 
   -- Color themes
@@ -73,13 +73,13 @@ return require("packer").startup(function()
   -- use { "lewis6991/github_dark.nvim" }
 
   --> GUI <--
-  use { "nvim-lualine/lualine.nvim", config = require "plugins.lualine" }
+  use { "nvim-lualine/lualine.nvim", config = function () require "plugins.lualine" end }
   use "mbbill/undotree"
-  use { "kyazdani42/nvim-tree.lua", config = require "plugins.nvimtree" }
+  use { "kyazdani42/nvim-tree.lua", config = function () require "plugins.nvimtree" end }
   use "simeji/winresizer" -- Easy resizing of vim windows (press <c-w>)
 
   -- Completion
-  use { "hrsh7th/nvim-cmp", config = require "plugins.cmp" }
+  use { "hrsh7th/nvim-cmp", config = function () require "plugins.cmp" end }
   use "hrsh7th/cmp-buffer"
   use "hrsh7th/cmp-path"
   use "hrsh7th/cmp-cmdline"
@@ -88,14 +88,14 @@ return require("packer").startup(function()
   use "saadparwaiz1/cmp_luasnip"
 
   -- Snippets
-  use { "L3MON4D3/LuaSnip", config = require "plugins.luasnip-setup" }
-  use { "rafamadriz/friendly-snippets", config = require "plugins.friendly-snippets" }
+  use { "L3MON4D3/LuaSnip", config = function () require "plugins.luasnip-setup" end }
+  use { "rafamadriz/friendly-snippets", config = function () require "plugins.friendly-snippets" end }
   use "mattn/emmet-vim"
 
   -- LSP
-  use { "neovim/nvim-lspconfig", config = require "plugins.lsp" }
+  use { "neovim/nvim-lspconfig", config = function () require "plugins.lsp" end }
   use "williamboman/nvim-lsp-installer"
-  use { "jose-elias-alvarez/null-ls.nvim", config = require "plugins/null-ls" } -- for formatters and linters
+  use { "jose-elias-alvarez/null-ls.nvim", config = function () require "plugins/null-ls" end } -- for formatters and linters
   use "onsails/lspkind.nvim" --> add pictograms to neovim lsp
 
   -- Telescope
@@ -107,6 +107,6 @@ return require("packer").startup(function()
       { "nvim-telescope/telescope-fzf-native.nvim", run = "make" }, -- better sorgint performance
       { "nvim-telescope/telescope-ui-select.nvim" }, --> sets vim.ui.select to telescope
     },
-    config = require "plugins.telescope",
+    config = function () require "plugins.telescope" end,
   }
 end)

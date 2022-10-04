@@ -96,7 +96,7 @@ keymap("n", "gl", function()
 end)
 
 --> LuaSnip <--
-vim.api.nvim_create_user_command("LuaSnipEdit", require("luasnip.loaders.from_lua").edit_snippet_files, {})
+--vim.api.nvim_create_user_command("LuaSnipEdit", require("luasnip.loaders.from_lua").edit_snippet_files, {})
 keymap("n", "<leader><CR>", "<cmd>LuaSnipEdit<cr>")
 
 -- Harpoon
