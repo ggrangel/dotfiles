@@ -42,7 +42,7 @@ do
 end
 
 -- this must go first to give priority to sxhkd's keybdings
-awful.spawn.with_shell("/home/rangelgbr/scripts/autostart.sh")
+awful.spawn.with_shell("~/scripts/autostart.sh")
 
 root.keys(keybindings.globalkeys)
 
