@@ -7,6 +7,9 @@ super + F2
 super + F3
     redshift -P -O 3500
 
+super + F4
+    insync start
+
 super + r
     $BROWSER
 
