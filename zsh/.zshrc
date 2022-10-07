@@ -15,12 +15,12 @@ HISTSIZE=50000
 SAVEHIST=50000
 setopt INC_APPEND_HISTORY
 setopt HIST_IGNORE_DUPS  # do not write duplicates to history
-setopt HIST_FIND_NO_DUPS  # when searching, do not show duplicates 
+setopt HIST_FIND_NO_DUPS  # when searching, do not show duplicates
 
 # Basic auto/tab complete
 autoload -U compinit; compinit # loads a file containing shell commands
 _comp_options+=(globdots)  # include hidden files in completions
-source $ZDOTDIR/completion.zsh  
+source $ZDOTDIR/completion.zsh
 
 [ -f "$ZDOTDIR/vi.zsh" ] && source "$ZDOTDIR/vi.zsh"
 
@@ -30,6 +30,9 @@ source $ZDOTDIR/completion.zsh
 
 [ -f "$ZDOTDIR/dev.zsh" ] && source "$ZDOTDIR/dev.zsh"
 
+eval "$(mcfly init zsh)"
+export MCFLY_KEY_SCHEME=vim
+
 # make a new directory and cd to it
 mkd () {
     # -- makes sure the passed name for the new direcxtory is not interpreted as an option to mkdir or cd
@@ -37,7 +40,6 @@ mkd () {
     mkdir -p -- "$1" &&
     cd -P -- "$1"
 }
-
 
 # load zhs-syntax-highlighting; should be last.
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
