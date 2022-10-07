@@ -11,8 +11,12 @@ local options = {
   wrapscan = true,
 
   ------ Numbering
-  relativenumber = true,
-  number = true,
+  -- relativenumber = true,
+  -- number = true,
+
+  ------ Bar Heights
+  ls = 0, -- last stats
+  ch = 0, -- command height
 
   ------ Searching
   hlsearch = false, -- do not highlight search pattern

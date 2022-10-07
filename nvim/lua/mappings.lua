@@ -18,6 +18,16 @@ vim.cmd [[let g:winresizer_start_key = '<Space>w']] --> window resize
 -- Nvim-tree
 keymap("n", "<leader>t", ":NvimTreeToggle <CR>")
 
+-- Lualine
+keymap("n", "<leader>l", function()
+  local lualine = require "lualine"
+  if vim.o.ls == 0 then
+    lualine.hide { unhide = true }
+  else
+    lualine.hide()
+  end
+end)
+
 -- Mirrors vim-surround keybindings to vim-sandwich
 
 --> ys, yss, yS, ds, cs, S, dss, css

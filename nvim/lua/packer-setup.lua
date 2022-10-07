@@ -127,9 +127,6 @@ return require("packer").startup(function()
   --> GUI <--
   use {
     "nvim-lualine/lualine.nvim",
-    config = function()
-      require "plugins.lualine"
-    end,
   }
   use "mbbill/undotree"
   use {
