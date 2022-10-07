@@ -126,3 +126,9 @@ end
 -- keymap("v", "<leader>rp", ":lua require('refactoring').debug.print_var({})<CR>")
 -- -- Cleanup function: this remap should be made in normal mode
 -- keymap("n", "<leader>rc", ":lua require('refactoring').debug.cleanup({})<CR>")
+
+local NS = { noremap = true, silent = true }
+
+vim.keymap.set("v", "al", function()
+  require("align").align_to_char(1)
+end, NS) -- Align to chosen character
