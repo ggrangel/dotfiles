@@ -32,6 +32,7 @@ keymap("n", "<leader>ls", function()
   end
 end)
 
+-- Show command status: useful when you're recording a query
 keymap("n", "<leader>ch", function()
   if vim.o.ch == 0 then
     vim.o.ch = 1

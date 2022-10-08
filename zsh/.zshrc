@@ -8,7 +8,7 @@ stty -ixon
 # easy navigation
 export _ZO_ECHO=1 # z will print the matched directory before navigating to it.
 
-# save zoxide database on drive
+# save zoxide database on a drive folder according to the machine you're
 host_name=$(cat /etc/hostname)
 drive_folder="$HOME/drive/.local/share"
 if [[ $host_name == "core" ]]; then
