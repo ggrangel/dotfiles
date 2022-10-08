@@ -33,6 +33,9 @@ local options = {
   smartcase = true,
   ignorecase = true,
 
+  ------ Disable mouse
+  mouse = "",
+
   ------ Manage files
   swapfile = false,
   backup = false,
