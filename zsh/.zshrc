@@ -10,16 +10,18 @@ export _ZO_ECHO=1 # z will print the matched directory before navigating to it.
 
 # save zoxide database on a drive folder according to the machine you're
 host_name=$(cat /etc/hostname)
-drive_folder="$HOME/drive/.local/share"
+zoxide_folder="$HOME/drive/.local/share/zoxide"
 if [[ $host_name == "core" ]]; then
-    export _ZO_DATA_DIR="$drive_folder/zoxide-core"
+    export _ZO_DATA_DIR="$zoxide_folder/core"
 elif [[ $host_name == "aux" ]]; then
-    export _ZO_DATA_DIR="$drive_folder/zoxide-aux"
+    export _ZO_DATA_DIR="$zoxide_folder/aux"
 fi
 
 eval "$(zoxide init zsh)"
 
 setopt autocd autopushd # enables .. to go back one dir
+unsetopt BEEP # turn off all beeps
+# unsetopt LIST_BEEP # turn off autocomplete beeps
 
 HISTFILE=$HOME/.cache/zsh_history
 HISTSIZE=50000
