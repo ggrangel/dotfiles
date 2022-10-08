@@ -8,14 +8,13 @@ local lspconfig = require "lspconfig"
 
 local servers = {
   "bashls",
-  "html",
+  -- "html",
   "jsonls",
   "pyright",
-  -- "pylsp",
-  "rust_analyzer",
-  "sorbet",
+  -- "rust_analyzer",
+  -- "sorbet", -- ruby
   "sumneko_lua",
-  "tsserver",
+  -- "tsserver",
 }
 
 lsp_installer.setup {
