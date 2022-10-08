@@ -9,9 +9,13 @@ local keymap = vim.keymap.set
 
 vim.g.mapleader = " "
 
--- keymap("n", "<leader><leader>a", ":wa | lua vim.notify('Project saved') <CR>")
-keymap("n", "<leader><leader>s", ":wa | source | lua vim.notify('Project sourced') <CR>", { silent = true })
-keymap("n", "<leader><leader>l", ":source ~/.config/nvim/after/plugin/luasnip.lua<CR>")
+keymap("n", "<leader><leader>a", ":wa | lua vim.notify('Project saved') <CR>")
+-- keymap("n", "<leader><leader>s", ":wa | source | lua vim.notify('Project sourced') <CR>", { silent = true })
+keymap(
+  "n",
+  "<leader><leader>s",
+  ":source ~/.config/nvim/lua/plugins/luasnip-setup.lua | lua vim.notify('Luasnip sourced') <CR>"
+)
 
 vim.cmd [[let g:winresizer_start_key = '<Space>w']] --> window resize
 
@@ -19,12 +23,20 @@ vim.cmd [[let g:winresizer_start_key = '<Space>w']] --> window resize
 keymap("n", "<leader>t", ":NvimTreeToggle <CR>")
 
 -- Lualine
-keymap("n", "<leader>l", function()
+keymap("n", "<leader>ls", function()
   local lualine = require "lualine"
   if vim.o.ls == 0 then
     lualine.hide { unhide = true }
   else
     lualine.hide()
+  end
+end)
+
+keymap("n", "<leader>ch", function()
+  if vim.o.ch == 0 then
+    vim.o.ch = 1
+  else
+    vim.o.ch = 0
   end
 end)
 
