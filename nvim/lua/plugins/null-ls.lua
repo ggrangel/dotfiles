@@ -42,6 +42,7 @@ null_ls.setup {
     },
     --> Linters <--
     diagnostics.shellcheck,
+    code_actions.gitsigns,
   },
   on_attach = function(client, bufnr)
     if client.supports_method "textDocument/formatting" then
