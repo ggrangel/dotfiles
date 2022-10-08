@@ -7,7 +7,18 @@ stty -ixon
 
 # easy navigation
 export _ZO_ECHO=1 # z will print the matched directory before navigating to it.
+
+# save zoxide database on drive
+host_name=$(cat /etc/hostname)
+drive_folder="$HOME/drive/.local/share"
+if [[ $host_name == "core" ]]; then
+    export _ZO_DATA_DIR="$drive_folder/zoxide-core"
+elif [[ $host_name == "aux" ]]; then
+    export _ZO_DATA_DIR="$drive_folder/zoxide-aux"
+fi
+
 eval "$(zoxide init zsh)"
+
 setopt autocd autopushd # enables .. to go back one dir
 
 HISTFILE=$HOME/.cache/zsh_history
@@ -32,14 +43,6 @@ source $ZDOTDIR/completion.zsh
 
 eval "$(mcfly init zsh)"
 export MCFLY_KEY_SCHEME=vim
-
-# make a new directory and cd to it
-mkd () {
-    # -- makes sure the passed name for the new direcxtory is not interpreted as an option to mkdir or cd
-    # -P used on cd resolves symbolink links.
-    mkdir -p -- "$1" &&
-    cd -P -- "$1"
-}
 
 # load zhs-syntax-highlighting; should be last.
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
