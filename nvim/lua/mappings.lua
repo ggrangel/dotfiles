@@ -17,18 +17,18 @@ keymap(
   ":source ~/.config/nvim/lua/plugins/luasnip-setup.lua | lua vim.notify('Luasnip sourced') <CR>"
 )
 
-vim.cmd [[let g:winresizer_start_key = '<Space>w']] --> window resize
+vim.cmd [[let g:winresizer_start_key = '<leader><leader>w']] --> window resize
 
 -- Nvim-tree
 keymap("n", "<leader>t", ":NvimTreeToggle <CR>")
 
 -- Lualine
 keymap("n", "<leader>ls", function()
-  local lualine = require "lualine"
+  local ll = require "lualine"
   if vim.o.ls == 0 then
-    lualine.hide { unhide = true }
+    ll.hide { unhide = true }
   else
-    lualine.hide()
+    ll.hide()
   end
 end)
 
@@ -94,9 +94,9 @@ keymap("n", "<C-q>k", "<C-w>k :q <CR>")
 keymap("n", "<C-q>j", "<C-w>j :q <CR>")
 
 --- Vim-rails
-keymap("n", "<leader>rm", ":Emodel<CR>")
-keymap("n", "<leader>rv", ":Eview<CR>")
-keymap("n", "<leader>rc", ":Econtroller<CR>")
+-- keymap("n", "<leader>rm", ":Emodel<CR>")
+-- keymap("n", "<leader>rv", ":Eview<CR>")
+-- keymap("n", "<leader>rc", ":Econtroller<CR>")
 
 --> LSP <--
 keymap("n", "gD", vim.lsp.buf.declaration)
@@ -149,8 +149,6 @@ end
 -- -- Cleanup function: this remap should be made in normal mode
 -- keymap("n", "<leader>rc", ":lua require('refactoring').debug.cleanup({})<CR>")
 
-local NS = { noremap = true, silent = true }
-
 vim.keymap.set("v", "al", function()
   require("align").align_to_char(1)
-end, NS) -- Align to chosen character
+end) -- Align to chosen character
