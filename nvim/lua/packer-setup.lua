@@ -67,7 +67,7 @@ return require("packer").startup(function()
       require "plugins.harpoon"
     end,
   }
-  use "tpope/vim-rails"
+  -- use "tpope/vim-rails"
   use {
     "ggandor/leap.nvim",
     config = function()
