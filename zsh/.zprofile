@@ -3,7 +3,8 @@ export XDG_STATE_HOME="$HOME/.local/state"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
-export DRIVE_FOLDER="$HOME/drive/.local/share"
+
+DRIVE_FOLDER="$HOME/drive/.local/share"
 
 export PATH="$PATH:$HOME/scripts:$HOME/.local/bin"
 
@@ -27,7 +28,6 @@ export PASSWORD_STORE_DIR="$XDG_DATA_HOME/pass"
 export PYENV_ROOT="$XDG_DATA_HOME/pyenv"
 export PYTHONSTARTUP="$XDG_CONFIG_HOME/python/pythonrc"
 export RUSTUP_HOME="$XDG_DATA_HOME/rustup"
-export _ZO_DATA_DIR="$DRIVE_FOLDER/zoxide"
 # export XAUTHORITY="$XDG_RUNTIME_DIR/Xauthority" # uncommenting this line will make the systemd service of locking PC before suspending it stop working
 
 export DISABLE_AUTO_TITLE='true'  # tmuxp stuff

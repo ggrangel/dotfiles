@@ -201,3 +201,4 @@ ins_right { "progress", color = { fg = colors.orange, gui = "bold" } }
 -- })
 
 lualine.setup(config)
+lualine.hide() -- hidden by default

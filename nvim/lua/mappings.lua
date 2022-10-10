@@ -9,17 +9,39 @@ local keymap = vim.keymap.set
 
 vim.g.mapleader = " "
 
--- keymap("n", "<leader><leader>a", ":wa | lua vim.notify('Project saved') <CR>")
-keymap("n", "<leader><leader>s", ":wa | source | lua vim.notify('Project sourced') <CR>", { silent = true })
-keymap("n", "<leader><leader>l", ":source ~/.config/nvim/after/plugin/luasnip.lua<CR>")
+keymap("n", "<leader><leader>a", ":wa | lua vim.notify('Project saved') <CR>")
+-- keymap("n", "<leader><leader>s", ":wa | source | lua vim.notify('Project sourced') <CR>", { silent = true })
+keymap(
+  "n",
+  "<leader><leader>s",
+  ":source ~/.config/nvim/lua/plugins/luasnip-setup.lua | lua vim.notify('Luasnip sourced') <CR>"
+)
 
-vim.cmd [[let g:winresizer_start_key = '<Space>w']] --> window resize
+vim.cmd [[let g:winresizer_start_key = '<leader><leader>w']] --> window resize
 
 -- Nvim-tree
 keymap("n", "<leader>t", ":NvimTreeToggle <CR>")
 
--- Mirrors vim-surround keybindings to vim-sandwich
+-- Lualine
+keymap("n", "<leader>ls", function()
+  local ll = require "lualine"
+  if vim.o.ls == 0 then
+    ll.hide { unhide = true }
+  else
+    ll.hide()
+  end
+end)
 
+-- Show command status: useful when you're recording a query
+keymap("n", "<leader>ch", function()
+  if vim.o.ch == 0 then
+    vim.o.ch = 1
+  else
+    vim.o.ch = 0
+  end
+end)
+
+-- Mirrors vim-surround keybindings to vim-sandwich
 --> ys, yss, yS, ds, cs, S, dss, css
 vim.cmd [[
 runtime macros/sandwich/keymap/surround.vim
@@ -72,9 +94,9 @@ keymap("n", "<C-q>k", "<C-w>k :q <CR>")
 keymap("n", "<C-q>j", "<C-w>j :q <CR>")
 
 --- Vim-rails
-keymap("n", "<leader>rm", ":Emodel<CR>")
-keymap("n", "<leader>rv", ":Eview<CR>")
-keymap("n", "<leader>rc", ":Econtroller<CR>")
+-- keymap("n", "<leader>rm", ":Emodel<CR>")
+-- keymap("n", "<leader>rv", ":Eview<CR>")
+-- keymap("n", "<leader>rc", ":Econtroller<CR>")
 
 --> LSP <--
 keymap("n", "gD", vim.lsp.buf.declaration)
@@ -113,6 +135,10 @@ for i = 1, 5 do
   end)
 end
 
+vim.keymap.set("v", "al", function()
+  require("align").align_to_char(1)
+end) -- Align to chosen character
+
 ---- Refactoring nvim
 -- Remaps for each of the four refactoring operations currently offered by the plugin
 -- keymap("v", "<leader>re", [[ <Esc><Cmd>lua require('refactoring').refactor('Extract Function')<CR>]])
@@ -126,9 +152,3 @@ end
 -- keymap("v", "<leader>rp", ":lua require('refactoring').debug.print_var({})<CR>")
 -- -- Cleanup function: this remap should be made in normal mode
 -- keymap("n", "<leader>rc", ":lua require('refactoring').debug.cleanup({})<CR>")
-
-local NS = { noremap = true, silent = true }
-
-vim.keymap.set("v", "al", function()
-  require("align").align_to_char(1)
-end, NS) -- Align to chosen character
