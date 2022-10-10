@@ -135,6 +135,10 @@ for i = 1, 5 do
   end)
 end
 
+vim.keymap.set("v", "al", function()
+  require("align").align_to_char(1)
+end) -- Align to chosen character
+
 ---- Refactoring nvim
 -- Remaps for each of the four refactoring operations currently offered by the plugin
 -- keymap("v", "<leader>re", [[ <Esc><Cmd>lua require('refactoring').refactor('Extract Function')<CR>]])
@@ -148,7 +152,3 @@ end
 -- keymap("v", "<leader>rp", ":lua require('refactoring').debug.print_var({})<CR>")
 -- -- Cleanup function: this remap should be made in normal mode
 -- keymap("n", "<leader>rc", ":lua require('refactoring').debug.cleanup({})<CR>")
-
-vim.keymap.set("v", "al", function()
-  require("align").align_to_char(1)
-end) -- Align to chosen character
