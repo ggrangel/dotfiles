@@ -135,9 +135,17 @@ for i = 1, 5 do
   end)
 end
 
-vim.keymap.set("v", "al", function()
+keymap("v", "al", function()
   require("align").align_to_char(1)
 end) -- Align to chosen character
+
+--- yanky.nvim
+keymap({ "n", "x" }, "p", "<Plug>(YankyPutAfter)")
+keymap({ "n", "x" }, "P", "<Plug>(YankyPutBefore)")
+keymap({ "n", "x" }, "gp", "<Plug>(YankyGPutAfter)")
+keymap({ "n", "x" }, "gP", "<Plug>(YankyGPutBefore)")
+keymap("n", "<c-n>", "<Plug>(YankyCycleForward)")
+keymap("n", "<c-p>", "<Plug>(YankyCycleBackward)")
 
 ---- Refactoring nvim
 -- Remaps for each of the four refactoring operations currently offered by the plugin

@@ -141,6 +141,13 @@ return require("packer").startup(function()
   use "simeji/winresizer" -- Easy resizing of vim windows (press <c-w>)
   use "vonr/align.nvim" -- especially used to align comments (press 'al' in visual mode)
 
+  use {
+    "gbprod/yanky.nvim",
+    config = function()
+      require "plugins.yanky"
+    end,
+  }
+
   -- Completion
   use {
     "hrsh7th/nvim-cmp",
