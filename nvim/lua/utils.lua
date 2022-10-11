@@ -1,12 +1,12 @@
 local keymap = vim.keymap.set
 
-vim.api.nvim_create_augroup("highlight_yank", { clear = true })
-vim.api.nvim_create_autocmd("TextYankPost", {
-  callback = function()
-    vim.highlight.on_yank { higroup = "Visual", timeout = 200 }
-  end,
-  group = "highlight_yank",
-})
+-- vim.api.nvim_create_augroup("highlight_yank", { clear = true })
+-- vim.api.nvim_create_autocmd("TextYankPost", {
+--   callback = function()
+--     vim.highlight.on_yank { higroup = "Visual", timeout = 200 }
+--   end,
+--   group = "highlight_yank",
+-- })
 
 function OpenGitHubRepo()
   local function open_uri(uri)
