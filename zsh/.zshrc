@@ -39,10 +39,9 @@ source $ZDOTDIR/completion.zsh
 
 [ -f "$ZDOTDIR/aliasrc" ] && source "$ZDOTDIR/aliasrc"
 
-[ -f "$ZDOTDIR/proxy.zsh" ] && source "$ZDOTDIR/proxy.zsh"
-
 [ -f "$ZDOTDIR/dev.zsh" ] && source "$ZDOTDIR/dev.zsh"
 
+# ^r to activate mcfly
 eval "$(mcfly init zsh)"
 export MCFLY_KEY_SCHEME=vim
 

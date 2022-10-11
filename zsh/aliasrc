@@ -43,3 +43,10 @@ mkd () {
     mkdir -p -- "$1" &&
     cd -P -- "$1"
 }
+
+# print all sxhkd keybindings
+lskeys () {
+  sxhkd_folder="$HOME/.config/sxhkd" 
+  host_name=$(cat /etc/hostname)
+  cat "$sxhkd_folder/sxhkdrc" "$sxhkd_folder/sxhkdrc.$host_name"
+}
