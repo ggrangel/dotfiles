@@ -2,7 +2,7 @@ local handlers = require "plugins/lsp/handlers"
 
 handlers.setup()
 
-local lsp_installer = require "nvim-lsp-installer"
+require("mason").setup()
 
 local lspconfig = require "lspconfig"
 
@@ -15,10 +15,6 @@ local servers = {
   -- "sorbet", -- ruby
   "sumneko_lua",
   -- "tsserver",
-}
-
-lsp_installer.setup {
-  ensure_installed = servers,
 }
 
 for _, server in pairs(servers) do
