@@ -42,7 +42,7 @@ local options = {
   undofile = true, -- enables persistent undo
 
   guifont = "monospace:h17", -- the font used in graphical neovim applications
-  -- termguicolors = true -- for colorizer to work
+  termguicolors = true, -- for opacity changes
 
   -- shadafile = "NONE", -- improves startuptime a little bit
 }
