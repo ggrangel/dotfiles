@@ -1,5 +1,5 @@
 # vi mode
-bindkey -v
+bindkey -v # switches between INSERT and NORMAL modes with ESC key
 export KEYTIMOUT=1 # makes the switch between modes quicker
 
 # Use vim keys in tab complete menu:
