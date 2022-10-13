@@ -2,10 +2,11 @@
 alias ls="ls -hNAv --color=auto --group-directories-first" # N supresses quotes, A ignores the dot and dotdot dirs, v shows dotfiles first
 alias mkdir="mkdir -pv"
 alias mv="mv -v"
-alias rm="trash -v"
+alias rm="rm -iv" # run \rm to ignore its alias
 alias fd="fd --hidden --no-ignore"
 
 # one-letter aliases
+alias l="lsd -hA --group-dirs first"
 alias p="sudo pacman"
 alias t="tmux"
 alias v="nvim"
@@ -24,6 +25,9 @@ alias dzathura='devour zathura'
 
 # copy current pwd to clipboard
 alias cpwd="pwd | tr '\n' ' ' | xsel -ib"
+
+# show tmux keys
+alias tmkeys="cat $HOME/.config/tmux/tmux.conf | grep ^bind"
 
 # Quickly write and read notes
 notesFile="$HOME/drive/notes"
@@ -45,7 +49,7 @@ mkd () {
 }
 
 # print all sxhkd keybindings
-lskeys () {
+keys () {
   sxhkd_folder="$HOME/.config/sxhkd" 
   host_name=$(cat /etc/hostname)
   cat "$sxhkd_folder/sxhkdrc" "$sxhkd_folder/sxhkdrc.$host_name"
