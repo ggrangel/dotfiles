@@ -41,7 +41,8 @@ null_ls.setup {
       },
     },
     --> Linters <--
-    diagnostics.shellcheck,
+    formatting.shellharden,
+    -- diagnostics.shellcheck,  -- bloated: too many dependencies
     code_actions.gitsigns,
   },
   on_attach = function(client, bufnr)
