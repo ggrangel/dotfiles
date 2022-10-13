@@ -32,12 +32,7 @@ source $ZDOTDIR/completion.zsh
 
 # save zoxide database on a drive folder according to the machine you're
 host_name=$(cat /etc/hostname)
-zoxide_folder="$HOME/drive/.local/share/zoxide"
-if [[ $host_name == "core" ]]; then
-    export _ZO_DATA_DIR="$zoxide_folder/core"
-elif [[ $host_name == "aux" ]]; then
-    export _ZO_DATA_DIR="$zoxide_folder/aux"
-fi
+export _ZO_DATA_DIR="$HOME/drive/.local/share/zoxide/$host_name"
 export _ZO_ECHO=1 # z will print the matched directory before navigating to it.
 eval "$(zoxide init zsh)"
 
