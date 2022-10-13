@@ -4,31 +4,20 @@ source $HOME/.config/zsh/prompt/prompt.zsh
 
 # disable Ctrl+s (freezes the terminal)
 stty -ixon
+# run bindkey for a list of zsh keybindings
+bindkey -r "^D" # used to kill tmux pane and window. remove this zsh keybinding
 
-# easy navigation
-export _ZO_ECHO=1 # z will print the matched directory before navigating to it.
-
-# save zoxide database on a drive folder according to the machine you're
-host_name=$(cat /etc/hostname)
-zoxide_folder="$HOME/drive/.local/share/zoxide"
-if [[ $host_name == "core" ]]; then
-    export _ZO_DATA_DIR="$zoxide_folder/core"
-elif [[ $host_name == "aux" ]]; then
-    export _ZO_DATA_DIR="$zoxide_folder/aux"
-fi
-
-eval "$(zoxide init zsh)"
-
-setopt autocd autopushd # enables .. to go back one dir
-unsetopt BEEP # turn off all beeps
-# unsetopt LIST_BEEP # turn off autocomplete beeps
-
-HISTFILE=$HOME/.cache/zsh_history
-HISTSIZE=50000
-SAVEHIST=50000
-setopt INC_APPEND_HISTORY
+setopt AUTOCD # enables .. to go back one dir
+setopt AUTOPUSHD # push the curr dir visited to stack
 setopt HIST_IGNORE_DUPS  # do not write duplicates to history
 setopt HIST_FIND_NO_DUPS  # when searching, do not show duplicates
+setopt INC_APPEND_HISTORY # allows sharing of history between concurrent shells
+unsetopt BEEP # turn off all beeps
+# unsetopt LIST_BEEP # turn off only autocomplete beeps
+
+HISTFILE=$HOME/.cache/zsh_history
+HISTSIZE=10000 # max events for internal history
+SAVEHIST=10000 # max events in history file
 
 # Basic auto/tab complete
 autoload -U compinit; compinit # loads a file containing shell commands
@@ -40,6 +29,17 @@ source $ZDOTDIR/completion.zsh
 [ -f "$ZDOTDIR/aliasrc" ] && source "$ZDOTDIR/aliasrc"
 
 [ -f "$ZDOTDIR/dev.zsh" ] && source "$ZDOTDIR/dev.zsh"
+
+# save zoxide database on a drive folder according to the machine you're
+host_name=$(cat /etc/hostname)
+zoxide_folder="$HOME/drive/.local/share/zoxide"
+if [[ $host_name == "core" ]]; then
+    export _ZO_DATA_DIR="$zoxide_folder/core"
+elif [[ $host_name == "aux" ]]; then
+    export _ZO_DATA_DIR="$zoxide_folder/aux"
+fi
+export _ZO_ECHO=1 # z will print the matched directory before navigating to it.
+eval "$(zoxide init zsh)"
 
 # ^r to activate mcfly
 eval "$(mcfly init zsh)"
