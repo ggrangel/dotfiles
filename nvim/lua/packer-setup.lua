@@ -19,6 +19,8 @@ return require("packer").startup(function()
   -- use "/home/rangelgbr/apps/plugins/autosnips/"
 
   -- Misc
+
+  use "nagy135/typebreak.nvim"
   use "lewis6991/impatient.nvim" -- Speed up loading Lua modules in Neovim to improve startup time.
   use {
     "vimwiki/vimwiki",
@@ -37,7 +39,14 @@ return require("packer").startup(function()
   use {
     "Pocco81/auto-save.nvim",
     config = function()
-      require "plugins.autosave"
+      require "plugins.autosave" -- using only in markdown files
+    end,
+  }
+
+  use {
+    "smjonas/inc-rename.nvim", -- LSP rename with preview
+    config = function()
+      require "plugins.inc-rename"
     end,
   }
 
@@ -97,7 +106,6 @@ return require("packer").startup(function()
       require "plugins.gitsigns"
     end,
   } -- git decorations
-  -- use { "rrethy/vim-hexokinase", run = "make hexokinase" } -- shows color as a virtual text
   use "kyazdani42/nvim-web-devicons" -- Required by many plugins
   use {
     "stevearc/dressing.nvim",
@@ -184,7 +192,7 @@ return require("packer").startup(function()
       require "plugins.lsp"
     end,
   }
-  use "williamboman/nvim-lsp-installer"
+  use "williamboman/mason.nvim"
   use {
     "jose-elias-alvarez/null-ls.nvim",
     config = function()
