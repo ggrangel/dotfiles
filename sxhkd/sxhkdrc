@@ -11,7 +11,7 @@ super + F4
     insync start
 
 super + r
-    sh -c "wmctrl -a $BROWSER || $BROWSER" 
+    $BROWSER
 
 super + c
     $BROWSER --incognito
