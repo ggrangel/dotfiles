@@ -41,6 +41,8 @@ keymap("n", "<leader>ch", function()
   end
 end)
 
+keymap("n", "<leader>rn", ":IncRename ")
+
 -- Mirrors vim-surround keybindings to vim-sandwich
 --> ys, yss, yS, ds, cs, S, dss, css
 vim.cmd [[
@@ -135,7 +137,7 @@ for i = 1, 5 do
   end)
 end
 
-keymap("v", "al", function()
+keymap("v", "<leader>al", function()
   require("align").align_to_char(1)
 end) -- Align to chosen character
 
