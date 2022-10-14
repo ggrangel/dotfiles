@@ -13,6 +13,9 @@ super + F4
 super + r
     $BROWSER
 
+super + t 
+  sh -c "telegram-desktop ; wmctrl -a Telegram"
+
 super + c
     $BROWSER --incognito
 
