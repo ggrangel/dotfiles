@@ -187,7 +187,7 @@ return require("packer").startup(function()
 
   -- LSP
   use {
-    "neovim/nvim-lspconfig",
+    "neovim/nvim-lspconfig", -- consider replacing this by VonHeikemen/lsp-zero.nvim someday
     config = function()
       require "plugins.lsp"
     end,
