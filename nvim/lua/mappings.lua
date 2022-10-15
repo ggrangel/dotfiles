@@ -24,11 +24,11 @@ keymap("n", "<leader>t", ":NvimTreeToggle <CR>")
 
 -- Lualine
 keymap("n", "<leader>ls", function()
-  local ll = require "lualine"
+  local lualine = require "lualine"
   if vim.o.ls == 0 then
-    ll.hide { unhide = true }
+    lualine.hide { unhide = true }
   else
-    ll.hide()
+    lualine.hide()
   end
 end)
 
@@ -107,7 +107,7 @@ keymap("n", "gl", function()
 end)
 
 --> LuaSnip <--
---vim.api.nvim_create_user_command("LuaSnipEdit", require("luasnip.loaders.from_lua").edit_snippet_files, {})
+vim.api.nvim_create_user_command("LuaSnipEdit", require("luasnip.loaders.from_lua").edit_snippet_files, {})
 keymap("n", "<leader><CR>", "<cmd>LuaSnipEdit<cr>")
 
 -- Harpoon
