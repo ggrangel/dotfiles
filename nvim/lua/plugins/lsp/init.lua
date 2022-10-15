@@ -7,8 +7,8 @@ require("mason").setup()
 local lspconfig = require "lspconfig"
 
 local servers = {
-  "sumneko_lua",
   "bashls",
+  "sumneko_lua",
 }
 
 for _, server in pairs(servers) do
