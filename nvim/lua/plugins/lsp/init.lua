@@ -7,14 +7,8 @@ require("mason").setup()
 local lspconfig = require "lspconfig"
 
 local servers = {
-  "bashls",
-  -- "html",
-  "jsonls",
-  "pyright",
-  -- "rust_analyzer",
-  -- "sorbet", -- ruby
   "sumneko_lua",
-  -- "tsserver",
+  "bashls",
 }
 
 for _, server in pairs(servers) do
@@ -30,3 +24,7 @@ for _, server in pairs(servers) do
 
   lspconfig[server].setup(opts)
 end
+
+require("mason-lspconfig").setup {
+  ensure_installed = servers,
+}
