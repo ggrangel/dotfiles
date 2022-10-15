@@ -9,7 +9,8 @@ null_ls.setup {
   debug = false,
   sources = {
     formatting.stylua,
-    diagnostics.luacheck,
+    -- diagnostics.luacheck, -- too many false positives
+    -- diagnostics.selene, -- too many false positives
     formatting.shfmt,
     diagnostics.shellcheck,
     code_actions.shellcheck,
