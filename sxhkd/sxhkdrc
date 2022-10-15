@@ -1,14 +1,5 @@
-super + F1
-    $BROWSER https://www.icloud.com/find/
-
-super + F2
-    redshift -P -O 5000
-
-super + F3
-    redshift -P -O 3500
-
-super + F4
-    insync start
+super + c
+    $BROWSER --incognito
 
 super + r
     $BROWSER
@@ -16,14 +7,11 @@ super + r
 super + t 
   sh -c "telegram-desktop ; wmctrl -a Telegram"
 
-super + c
-    $BROWSER --incognito
+super + z
+    passmenu -fn "Hack Nerd Font"
 
 super + Return
     $TERMINAL
-
-super + z
-    passmenu -fn "Hack Nerd Font"
 
 super + q
     sortie.sh
@@ -43,3 +31,14 @@ Print
 ctrl + Print
     screenshooter.sh window
 
+super + F1
+    $BROWSER https://www.icloud.com/find/
+
+super + F2
+    $BROWSER https://web.whatsapp.com/
+
+super + F3
+    redshift -P -O 5000
+
+super + F4
+    redshift -P -O 3500
