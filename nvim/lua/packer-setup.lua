@@ -49,6 +49,12 @@ return require("packer").startup(function()
       require "plugins.inc-rename"
     end,
   }
+  use {
+    "karb94/neoscroll.nvim",
+    config = function()
+      require("neoscroll").setup()
+    end,
+  }
 
   -- Treesitter
   use {
@@ -187,12 +193,13 @@ return require("packer").startup(function()
 
   -- LSP
   use {
-    "neovim/nvim-lspconfig", -- consider replacing this by VonHeikemen/lsp-zero.nvim someday
+    "neovim/nvim-lspconfig", -- provides basic configurations of LSP servers
     config = function()
       require "plugins.lsp"
     end,
   }
-  use "williamboman/mason.nvim"
+  use "williamboman/mason.nvim" -- provides a repository and frontend that helps a user manage the installation of various third-party tools (LSP servers, formatters, linters)
+  use "williamboman/mason-lspconfig.nvim" -- uses Mason to ensure installation of user specified LSP servers and will tell nvim-lspconfig what command to use to launch those servers (that is, it's a bridge between the 2 former plugins)
   use {
     "jose-elias-alvarez/null-ls.nvim",
     config = function()
