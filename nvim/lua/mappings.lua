@@ -49,14 +49,6 @@ vim.cmd [[
 runtime macros/sandwich/keymap/surround.vim
 ]]
 
----- Keeping it centered
-keymap("n", "n", "nzzzv")
-keymap("n", "N", "Nzzzv")
-keymap("n", "J", "mzJ`z")
-
----- Paste from 0 register
-keymap({ "n", "v" }, "<leader>p", '"0p')
-
 ---- Navigate tabs
 keymap("n", "<C-h>", "<C-w>h")
 keymap("n", "<C-j>", "<C-w>j")
@@ -94,11 +86,6 @@ keymap("n", "<C-q>h", "<C-w>h :q <CR>")
 keymap("n", "<C-q>l", "<C-w>l :q <CR>")
 keymap("n", "<C-q>k", "<C-w>k :q <CR>")
 keymap("n", "<C-q>j", "<C-w>j :q <CR>")
-
---- Vim-rails
--- keymap("n", "<leader>rm", ":Emodel<CR>")
--- keymap("n", "<leader>rv", ":Eview<CR>")
--- keymap("n", "<leader>rc", ":Econtroller<CR>")
 
 --> LSP <--
 keymap("n", "gD", vim.lsp.buf.declaration)
