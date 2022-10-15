@@ -15,8 +15,8 @@ null_ls.setup {
   debug = false,
   sources = {
     --> Formatters <--
-    formatting.black,
-    formatting.isort,
+    -- formatting.black,
+    -- formatting.isort,
     formatting.beautysh,
     formatting.stylua,
     -- formatting.rustfmt,
