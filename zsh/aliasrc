@@ -52,5 +52,5 @@ mkd () {
 keys () {
   sxhkd_folder="$HOME/.config/sxhkd" 
   host_name=$(cat /etc/hostname)
-  cat "$sxhkd_folder/sxhkdrc" "$sxhkd_folder/sxhkdrc.$host_name"
+  bat "$sxhkd_folder/sxhkdrc" "$sxhkd_folder/sxhkdrc.$host_name"
 }
