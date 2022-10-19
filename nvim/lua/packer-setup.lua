@@ -68,6 +68,7 @@ return require("packer").startup(function()
   use { "nvim-treesitter/playground" }
   use "RRethy/nvim-treesitter-textsubjects"
   use "nvim-treesitter/nvim-treesitter-textobjects"
+  use "nvim-treesitter/nvim-treesitter-context"
 
   -- Navigation
   use {
