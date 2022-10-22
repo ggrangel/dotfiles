@@ -1,10 +1,10 @@
-local handlers = require "plugins/lsp/handlers"
+local handlers = require("plugins/lsp/handlers")
 
 handlers.setup()
 
 require("mason").setup()
 
-local lspconfig = require "lspconfig"
+local lspconfig = require("lspconfig")
 
 local servers = {
   "bashls",
@@ -25,6 +25,6 @@ for _, server in pairs(servers) do
   lspconfig[server].setup(opts)
 end
 
-require("mason-lspconfig").setup {
+require("mason-lspconfig").setup({
   ensure_installed = servers,
-}
+})

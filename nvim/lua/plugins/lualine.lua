@@ -1,4 +1,4 @@
-local lualine = require "lualine"
+local lualine = require("lualine")
 
 -- stylua: ignore
 local colors = {
@@ -17,13 +17,13 @@ local colors = {
 
 local conditions = {
   buffer_not_empty = function()
-    return vim.fn.empty(vim.fn.expand "%:t") ~= 1
+    return vim.fn.empty(vim.fn.expand("%:t")) ~= 1
   end,
   hide_in_width = function()
     return vim.fn.winwidth(0) > 80
   end,
   check_git_workspace = function()
-    local filepath = vim.fn.expand "%:p:h"
+    local filepath = vim.fn.expand("%:p:h")
     local gitdir = vim.fn.finddir(".git", filepath .. ";")
     return gitdir and #gitdir > 0 and #gitdir < #filepath
   end,
@@ -74,12 +74,12 @@ local function ins_right(component)
   table.insert(config.sections.lualine_x, component)
 end
 
-ins_left {
+ins_left({
   "branch",
   color = { fg = colors.violet, gui = "bold" },
-}
+})
 
-ins_left {
+ins_left({
   "diff",
   -- Is it me or the symbol for modified us really weird
   symbols = { added = " ", modified = "柳", removed = " " },
@@ -89,9 +89,9 @@ ins_left {
     removed = { fg = colors.red },
   },
   cond = conditions.hide_in_width,
-}
+})
 
-ins_left {
+ins_left({
   "diagnostics",
   sources = { "nvim_diagnostic" },
   symbols = { error = " ", warn = " ", info = " " },
@@ -100,38 +100,38 @@ ins_left {
     color_warn = { fg = colors.yellow },
     color_info = { fg = colors.cyan },
   },
-}
+})
 
 -- Insert new section. You can make any number of sections in neovim :)
 -- for lualine it's any number greater then 2
-ins_left {
+ins_left({
   function()
     return "%="
   end,
-}
+})
 
-ins_left {
+ins_left({
   "%{expand('%:p:h:t')}/%t",
   cond = conditions.buffer_not_empty,
   color = { fg = colors.magenta, gui = "bold" },
-}
+})
 
-ins_right {
+ins_right({
   "filetype",
   color = { fg = colors.green, gui = "bold" },
-}
+})
 
-ins_right {
+ins_right({
   function()
-    M = require "plugins._lualine_lsp_msg"
+    M = require("plugins._lualine_lsp_msg")
 
     return M.list_attached_lsp_clients()
   end,
   icon = " LSP:",
   color = { fg = colors.violet, gui = "bold" },
-}
+})
 
-ins_right { "progress", color = { fg = colors.orange, gui = "bold" } }
+ins_right({ "progress", color = { fg = colors.orange, gui = "bold" } })
 
 lualine.setup(config)
 -- lualine.hide() -- hidden by default

@@ -1,5 +1,5 @@
 local M = {}
-local null_ls = require "null-ls"
+local null_ls = require("null-ls")
 
 local does_table_contain_element = function(table, element)
   for _, value in ipairs(table) do
