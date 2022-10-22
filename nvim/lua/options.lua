@@ -11,8 +11,8 @@ local options = {
   wrapscan = true,
 
   ------ Numbering
-  -- relativenumber = true,
-  -- number = true,
+  relativenumber = true,
+  number = true,
 
   ------ Bar Heights
   ls = 0, -- last stats
