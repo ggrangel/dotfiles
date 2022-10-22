@@ -9,8 +9,8 @@ local keymap = vim.keymap.set
 
 vim.g.mapleader = " "
 
-keymap("n", "<leader><leader>a", ":wa | lua vim.notify('Project saved') <CR>")
--- keymap("n", "<leader><leader>s", ":wa | source | lua vim.notify('Project sourced') <CR>", { silent = true })
+keymap("n", "<leader>A", ":wa | lua vim.notify('Project saved') <CR>")
+keymap("n", "<leader>S", ":wa | source | lua vim.notify('Config sourced') <CR>", { silent = true })
 keymap(
   "n",
   "<leader><leader>s",
