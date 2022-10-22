@@ -20,6 +20,8 @@ return require("packer").startup(function()
 
   -- Misc
 
+  use "sbulav/nredir.nvim"
+
   use "lewis6991/impatient.nvim" -- Speed up loading Lua modules in Neovim to improve startup time.
   use {
     "vimwiki/vimwiki",
