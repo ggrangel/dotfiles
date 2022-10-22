@@ -111,7 +111,7 @@ return require("packer").startup(function()
   use({
     "stevearc/dressing.nvim",
     config = function()
-      require("plugins.dressing") -- better vim.input and vim.select
+      require("plugins.dressing") -- improves vim.ui interfaces (input and select)
     end,
   }) --> beautiful vim.ui.select and vim.ui.input
   use({
@@ -123,7 +123,7 @@ return require("packer").startup(function()
   use({
     "rcarriga/nvim-notify",
     config = function()
-      require("plugins.notify")
+      require("plugins.notify") -- improves notification interface
     end,
   }) --> notification manager
   use("RRethy/vim-illuminate") -- highlights other uses of the word under cursor using LSP and treesitter
