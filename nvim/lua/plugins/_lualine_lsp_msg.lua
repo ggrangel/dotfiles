@@ -1,7 +1,7 @@
 local M = {}
 local null_ls = require "null-ls"
 
-M._does_table_contain_element = function(table, element)
+local does_table_contain_element = function(table, element)
   for _, value in ipairs(table) do
     if value == element then
       return true
@@ -10,7 +10,7 @@ M._does_table_contain_element = function(table, element)
   return false
 end
 
-M._get_nullls_sources = function(buf_ft)
+local get_nullls_sources = function(buf_ft)
   local sources = null_ls.get_sources()
   local sources_name = {}
 
@@ -18,7 +18,7 @@ M._get_nullls_sources = function(buf_ft)
     local filetypes = source.filetypes
     for ft, active in pairs(filetypes) do
       if ft == buf_ft and active == true then
-        if not M._does_table_contain_element(sources_name, source.name) then
+        if not does_table_contain_element(sources_name, source.name) then
           table.insert(sources_name, source.name)
         end
       end
@@ -27,7 +27,7 @@ M._get_nullls_sources = function(buf_ft)
   return sources_name
 end
 
-M._get_all_attached_clients = function(buf_ft)
+local get_all_attached_clients = function(buf_ft)
   local clients = vim.lsp.get_active_clients()
 
   if next(clients) == nil then
@@ -40,7 +40,7 @@ M._get_all_attached_clients = function(buf_ft)
     local filetypes = client.config.filetypes
     if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
       if client.name == "null-ls" then
-        local nls_sources = M._get_nullls_sources(buf_ft)
+        local nls_sources = get_nullls_sources(buf_ft)
         for _, source in ipairs(nls_sources) do
           table.insert(clients_name, source)
         end
@@ -53,7 +53,7 @@ M._get_all_attached_clients = function(buf_ft)
   return clients_name
 end
 
-M._build_message = function(clients)
+local build_message = function(clients)
   local possibly_add_word_separator = function(msg)
     if msg ~= "" then
       msg = msg .. ", "
@@ -77,9 +77,9 @@ end
 M.list_attached_lsp_clients = function()
   local buf_ft = vim.api.nvim_buf_get_option(0, "filetype")
 
-  local clients = M._get_all_attached_clients(buf_ft)
+  local clients = get_all_attached_clients(buf_ft)
 
-  return M._build_message(clients)
+  return build_message(clients)
 end
 
 return M
