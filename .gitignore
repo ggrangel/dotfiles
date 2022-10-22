@@ -37,3 +37,5 @@ zoomus.conf
 zsh/auth.cfg
 zsh/.zcompdump
 byobu
+
+nvim/.luarc.json
