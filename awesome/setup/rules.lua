@@ -26,7 +26,7 @@ local file = io.open("/etc/hostname")
 if file ~= nil then
   local host_name = file:read()
 
-  if host_name == "core" then
+  if host_name == "main" then
     table.insert(
       rules,
       { rule = { instance = "telegram-desktop" }, properties = { screen = screen[3], tag = "4" } }
