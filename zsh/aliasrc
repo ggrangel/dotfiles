@@ -3,7 +3,6 @@ alias ls="ls -hNAv --color=auto --group-directories-first" # N supresses quotes,
 alias mkdir="mkdir -pv"
 alias mv="mv -v"
 alias rm="rm -iv" # run \rm to ignore its alias
-alias fd="fd --hidden --no-ignore"
 
 # one-letter aliases
 alias l="lsd -hA --group-dirs first"
@@ -42,7 +41,7 @@ function wnote {
 
 # make a new directory and cd to it
 mkd () {
-    # -- makes sure the passed name for the new direcxtory is not interpreted as an option to mkdir or cd
+    # -- makes sure the passed name for the new directory is not interpreted as an option to mkdir or cd
     # -P used on cd resolves symbolink links.
     mkdir -p -- "$1" &&
     cd -P -- "$1"
