@@ -28,17 +28,6 @@ alias cpwd="pwd | tr '\n' ' ' | xsel -ib"
 # show tmux keys
 alias tmkeys="cat $HOME/.config/tmux/tmux.conf | grep ^bind"
 
-# Quickly write and read notes
-notesFile="$HOME/drive/notes"
-alias rnote="bat $notesFile"
-alias cnote="truncate -s 0 $notesFile" # -s 0 specify the size
-# save a quick note: must be a function to accept arguments
-function wnote {
-    echo "$(date "+%a, %b %d %Y @ %H:%M")" >> $notesFile
-    echo "$@" >> $notesFile
-    echo "" >> $notesFile
-}
-
 # make a new directory and cd to it
 mkd () {
     # -- makes sure the passed name for the new directory is not interpreted as an option to mkdir or cd
