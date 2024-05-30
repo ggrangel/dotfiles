@@ -37,12 +37,20 @@ require("lazy").setup({
   { "nvim-treesitter/nvim-treesitter-textobjects" }, -- define custom textobjects (like "f" for function and "c" for conditionals)
   { "nvim-treesitter/nvim-treesitter-context" },    -- sticky header for context
   {
-    "unblevable/quick-scope",
-    enabled = false,
+    "jinh0/eyeliner.nvim",
     config = function()
-      require("plugins.quick-scope") -- helps with horizontal navigation (f and t)
+      require("eyeliner").setup({
+        highlight_on_key = true,
+      })
     end,
   },
+  -- {
+  --   "unblevable/quick-scope",
+  --   -- enabled = true,
+  --   config = function()
+  --     require("plugins.quick-scope") -- helps with horizontal navigation (f and t)
+  --   end,
+  -- },
   {
     "nvim-telescope/telescope.nvim",
     dependencies = {
@@ -144,6 +152,9 @@ require("lazy").setup({
     end,
   },
   {
-    "tiagovla/tokyodark.nvim",
+    "rebelot/kanagawa.nvim",
+  },
+  {
+    "github/copilot.vim",
   },
 })

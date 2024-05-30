@@ -16,4 +16,5 @@
 --
 -- vim.g.catppuccin_flavour = flavour
 -- vim.cmd [[colorscheme catppuccin]]
-vim.cmd([[colorscheme tokyodark]])
+-- vim.cmd([[colorscheme tokyodark]])
+vim.cmd("colorscheme kanagawa")

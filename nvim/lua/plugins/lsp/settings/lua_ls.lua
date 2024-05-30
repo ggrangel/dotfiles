@@ -2,7 +2,7 @@ return {
   settings = {
     Lua = {
       diagnostics = {
-        globals = { "use" },
+        globals = { "use", "vim" },
       },
       workspace = {
         preloadFileSize = 350,
@@ -13,4 +13,3 @@ return {
     },
   },
 }
-

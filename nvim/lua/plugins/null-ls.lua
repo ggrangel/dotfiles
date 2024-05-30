@@ -16,7 +16,7 @@ null_ls.setup({
     code_actions.shellcheck,
     code_actions.gitsigns,
     formatting.prettier,
-    diagnostics.eslint,
+    diagnostics.eslint.with({ extra_args = "--no-warn-ignored" }),
     code_actions.eslint,
   },
   on_attach = function(client, bufnr)

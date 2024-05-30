@@ -19,6 +19,10 @@ HISTFILE=$HOME/.cache/zsh_history
 HISTSIZE=10000 # max events for internal history
 SAVEHIST=10000 # max events in history file
 
+# Synchronizes PRIMARY and SELECTION clipboard
+autocutsel &
+autocutsel -s PRIMARY &
+
 # Basic auto/tab complete
 autoload -U compinit; compinit # loads a file containing shell commands
 _comp_options+=(globdots)  # include hidden files in completions
