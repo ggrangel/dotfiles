@@ -30,6 +30,8 @@ source $ZDOTDIR/completion.zsh
 
 [ -f "$ZDOTDIR/dev.zsh" ] && source "$ZDOTDIR/dev.zsh"
 
+[ -f "$ZDOTDIR/secret.zsh" ] && source "$ZDOTDIR/secret.zsh"
+
 # save zoxide database on a drive folder according to the machine you're
 host_name=$(cat /etc/hostname)
 export _ZO_DATA_DIR="$HOME/drive/.local/share/zoxide/$host_name"
