@@ -19,3 +19,19 @@ require("harpoon").setup({
 		mark_branch = false,
 	},
 })
+
+local keymap = vim.keymap.set
+
+keymap("n", "<leader>hr", function()
+  return require("harpoon.mark").add_file()
+end)
+keymap("n", "<leader>hh", function()
+  return require("harpoon.ui").toggle_quick_menu()
+end)
+local hkeys = { "a", "s", "d", "f", "g" }
+for i = 1, 5 do
+  keymap("n", "<leader>h" .. hkeys[i], function()
+    return require("harpoon.ui").nav_file(i)
+  end)
+end
+

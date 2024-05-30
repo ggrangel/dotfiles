@@ -1,4 +1,4 @@
-super + c
+super + b
     $BROWSER --incognito
 
 super + r
@@ -13,7 +13,7 @@ super + z
 super + Return
     $TERMINAL
 
-super + q
+super + w
     sortie.sh
 
 super + BackSpace

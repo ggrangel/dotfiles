@@ -11,3 +11,10 @@
 	helper = !/usr/bin/gh auth git-credential
 [pull]
 	rebase = false
+[alias]
+	st = status
+	sw = switch
+	ci = commit
+	a = add
+	aliases = config --get-regexp alias
+	l = log --date-order --pretty=\"format:%C(yellow)%h%Cblue%d%Creset %s %C(white) %an, %ar%Creset\"

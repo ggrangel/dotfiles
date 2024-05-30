@@ -22,18 +22,8 @@ local rules = {
   { rule = { instance = "Insync" }, properties = { screen = screen[1], tag = "4" } },
 }
 
-local file = io.open("/etc/hostname")
-if file ~= nil then
-  local host_name = file:read()
+-- run $ xprop to get an app's instance name
+table.insert(rules, { rule = { instance = "telegram-desktop" }, properties = { screen = screen[3], tag = "4" } })
+table.insert(rules, { rule = { instance = "Navigator" }, properties = { screen = screen[1], tag = "1" } })
 
-  if host_name == "main" then
-    table.insert(
-      rules,
-      { rule = { instance = "telegram-desktop" }, properties = { screen = screen[3], tag = "4" } }
-    )
-  elseif host_name == "aux" then
-    table.insert(rules, { rule = { instance = "telegram-desktop" }, properties = { tag = "4" } })
-    table.insert(rules, { rule = { instance = "brave-browser" }, properties = { tag = "2" } })
-  end
-end
 return rules

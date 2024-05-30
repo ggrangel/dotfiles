@@ -8,6 +8,9 @@
 # Node version manager
 # source /usr/share/nvm/init-nvm.sh
 
+export PATH="$PATH:$HOME/.local/share/npm/lib/node_modules/aws-cdk/bin"
+
+
 # export PATH="$PATH:$CARGO_HOME/bin" # rust
 # export PATH="$PATH:$HOME/.rvm/bin" # ruby
 # export PATH="$PATH:$PYENV_ROOT/bin" # python

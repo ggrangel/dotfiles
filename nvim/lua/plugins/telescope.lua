@@ -120,4 +120,20 @@ telescope.setup {
 
 telescope.load_extension "fzf"
 telescope.load_extension "ui-select"
--- telescope.load_extension("bookmarks")
+
+
+vim.keymap.set("n", "<leader>ff", function()
+  return require("telescope.builtin").find_files()
+end)
+vim.keymap.set("n", "<leader>fl", function()
+  return require("telescope.builtin").live_grep()
+end)
+vim.keymap.set("n", "<leader>fi", function()
+  return require("telescope.builtin").git_files()
+end)
+vim.keymap.set("n", "<leader>fb", function()
+  return require("telescope.builtin").buffers()
+end)
+vim.keymap.set("n", "<leader>fh", function()
+  return require("telescope.builtin").help_tags()
+end)

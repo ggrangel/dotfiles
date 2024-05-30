@@ -9,6 +9,8 @@ alias l="lsd -hA --group-dirs first"
 alias p="sudo pacman"
 alias t="tmux"
 alias v="nvim"
+alias e="exit"
+alias g="git"
 
 # if I only type lazygit, autojump may take us to the lazygit dir
 alias gg="lazygit -p ."

@@ -1,4 +1,4 @@
-require("yanky").setup {
+require("yanky").setup({
   ring = {
     history_length = 10,
     storage = "shada",
@@ -24,4 +24,13 @@ require("yanky").setup {
   preserve_cursor_position = {
     enabled = true,
   },
-}
+})
+
+local keymap = vim.keymap.set
+
+keymap({ "n", "x" }, "p", "<Plug>(YankyPutAfter)")
+keymap({ "n", "x" }, "P", "<Plug>(YankyPutBefore)")
+keymap({ "n", "x" }, "gp", "<Plug>(YankyGPutAfter)")
+keymap({ "n", "x" }, "gP", "<Plug>(YankyGPutBefore)")
+keymap("n", "<c-n>", "<Plug>(YankyCycleForward)")
+keymap("n", "<c-p>", "<Plug>(YankyCycleBackward)")

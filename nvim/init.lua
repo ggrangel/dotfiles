@@ -1,7 +1,5 @@
-require "impatient"
-require "packer-setup"
-require "theme"
-require "options"
-require "mappings"
-require "utils"
-require "globals"
+require("lazy-nvim")
+require("theme")
+require("options")
+require("mappings")
+require("utils")

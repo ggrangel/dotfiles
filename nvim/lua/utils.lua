@@ -1,5 +1,10 @@
 local keymap = vim.keymap.set
 
+P = function(v)
+  print(vim.inspect(v))
+  return v
+end
+
 local function count_lsp_res_changes(lsp_res)
   local count = { instances = 0, files = 0 }
   if lsp_res.documentChanges then

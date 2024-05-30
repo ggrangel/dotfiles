@@ -1,12 +1,12 @@
-vim.cmd([[
-try
-  colorscheme darkplus
-catch /^Vim\%((\a\+)\)\=:E185/
-  colorscheme default
-  set background=dark
-endtry
-]])
-
+-- vim.cmd([[
+-- try
+--   colorscheme darkplus
+-- catch /^Vim\%((\a\+)\)\=:E185/
+--   colorscheme default
+--   set background=dark
+-- endtry
+-- ]])
+--
 -- local flavour = "mocha"
 --
 -- -- less contrast for evenings
@@ -16,3 +16,4 @@ endtry
 --
 -- vim.g.catppuccin_flavour = flavour
 -- vim.cmd [[colorscheme catppuccin]]
+vim.cmd([[colorscheme tokyodark]])

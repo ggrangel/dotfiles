@@ -8,7 +8,9 @@ local lspconfig = require("lspconfig")
 
 local servers = {
   "bashls",
-  "sumneko_lua",
+  "tsserver",
+  "lua_ls",
+  "pyright",
 }
 
 for _, server in pairs(servers) do
@@ -28,3 +30,9 @@ end
 require("mason-lspconfig").setup({
   ensure_installed = servers,
 })
+
+-- press this key twice in order to focus on the diagnostic window
+-- useful for yanking the text
+vim.keymap.set("n", "gl", function()
+  return vim.diagnostic.open_float({ border = "rounded" })
+end)

@@ -11,7 +11,7 @@ export PATH="$PATH:$HOME/scripts:$HOME/.local/bin"
 export TERMINAL="kitty"
 export EDITOR="nvim"
 export VISUAL="nvim"
-export BROWSER="brave"
+export BROWSER="firefox"
 
 # cause I don't let just anyone into my $HOME
 export BUNDLE_USER_CACHE="$XDG_CACHE_HOME/bundle"
@@ -28,6 +28,8 @@ export PASSWORD_STORE_DIR="$XDG_DATA_HOME/pass"
 export PYENV_ROOT="$XDG_DATA_HOME/pyenv"
 export PYTHONSTARTUP="$XDG_CONFIG_HOME/python/pythonrc"
 export RUSTUP_HOME="$XDG_DATA_HOME/rustup"
+export AWS_CONFIG_FILE="$XDG_DATA_HOME/aws/config"
+export AWS_SHARED_CREDENTIALS_FILE="$XDG_DATA_HOME/aws/credentials"
 # export XAUTHORITY="$XDG_RUNTIME_DIR/Xauthority" # uncommenting this line will make the systemd service of locking PC before suspending it stop working
 
 export DISABLE_AUTO_TITLE='true'  # tmuxp stuff
