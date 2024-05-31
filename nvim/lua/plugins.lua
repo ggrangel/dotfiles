@@ -157,4 +157,18 @@ require("lazy").setup({
   {
     "github/copilot.vim",
   },
+  {
+    "folke/trouble.nvim",
+    config = function()
+      require("plugins/trouble")
+    end,
+  },
+  {
+    {
+      "robitx/gp.nvim",
+      config = function()
+        require("plugins/gp-nvim")
+      end,
+    },
+  },
 })

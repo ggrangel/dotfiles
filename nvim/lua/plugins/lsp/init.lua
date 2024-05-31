@@ -36,3 +36,19 @@ require("mason-lspconfig").setup({
 vim.keymap.set("n", "gl", function()
   return vim.diagnostic.open_float({ border = "rounded" })
 end)
+
+vim.keymap.set("n", "gD", vim.lsp.buf.declaration)
+vim.keymap.set("n", "gd", vim.lsp.buf.definition)
+vim.keymap.set("n", "gi", vim.lsp.buf.implementation)
+vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help)
+vim.keymap.set("n", "<space>gt", vim.lsp.buf.type_definition)
+vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action)
+
+-- nvim lsp defaults:
+-- vim.keymap.set("n", "[d", function()
+--   return vim.diagnostic.goto_prev({ border = "rounded" })
+-- end)
+-- vim.keymap.set("n", "]d", function()
+--   return vim.diagnostic.goto_next({ border = "rounded" })
+-- end)
+-- vim.keymap.set("n", "K", vim.lsp.buf.hover)

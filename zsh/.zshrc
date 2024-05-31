@@ -20,8 +20,8 @@ HISTSIZE=10000 # max events for internal history
 SAVEHIST=10000 # max events in history file
 
 # Synchronizes PRIMARY and SELECTION clipboard
-autocutsel &
-autocutsel -s PRIMARY &
+autocutsel &! # the bang "!" avoids printing the PID 
+autocutsel -s PRIMARY &!
 
 # Basic auto/tab complete
 autoload -U compinit; compinit # loads a file containing shell commands
