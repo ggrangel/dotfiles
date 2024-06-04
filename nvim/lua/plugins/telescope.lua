@@ -1,8 +1,8 @@
-local telescope = require "telescope"
+local telescope = require("telescope")
 
-local actions = require "telescope.actions"
+local actions = require("telescope.actions")
 
-telescope.setup {
+telescope.setup({
   defaults = {
     prompt_prefix = " ",
     selection_caret = " ",
@@ -19,11 +19,11 @@ telescope.setup {
     mappings = {
       i = {
         ["<esc>"] = actions.close,
-        ["<C-n>"] = actions.cycle_history_next,
-        ["<C-p>"] = actions.cycle_history_prev,
+        ["<C-j>"] = actions.cycle_history_next,
+        ["<C-k>"] = actions.cycle_history_prev,
 
-        ["<C-j>"] = actions.move_selection_next,
-        ["<C-k>"] = actions.move_selection_previous,
+        ["<C-n>"] = actions.move_selection_next,
+        ["<C-p>"] = actions.move_selection_previous,
 
         ["<C-c>"] = actions.close,
 
@@ -92,7 +92,7 @@ telescope.setup {
     playground = {
       enable = true,
       disable = {},
-      updatetime = 25, -- Debounced time for highlighting nodes in the playground from source code
+      updatetime = 25,      -- Debounced time for highlighting nodes in the playground from source code
       persist_queries = false, -- Whether the query persists across vim sessions
       keybindings = {
         toggle_query_editor = "o",
@@ -116,11 +116,10 @@ telescope.setup {
     -- builtin picker
   },
   extensions = {},
-}
+})
 
-telescope.load_extension "fzf"
-telescope.load_extension "ui-select"
-
+telescope.load_extension("fzf")
+telescope.load_extension("ui-select")
 
 vim.keymap.set("n", "<leader>ff", function()
   return require("telescope.builtin").find_files()

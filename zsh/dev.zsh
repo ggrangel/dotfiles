@@ -8,7 +8,7 @@
 # Node version manager
 # source /usr/share/nvm/init-nvm.sh
 
-export PATH="$PATH:$HOME/.local/share/npm/lib/node_modules/aws-cdk/bin"
+export PATH="$PATH:$HOME/.local/share/npm/lib/node_modules/aws-cdk/bin:$HOME/.local/share/gem/ruby/3.0.0/bin"
 
 
 # export PATH="$PATH:$CARGO_HOME/bin" # rust

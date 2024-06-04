@@ -4,6 +4,7 @@ local lspkind = require("lspkind")
 lspkind.init()
 
 require("luasnip/loaders/from_vscode").lazy_load()
+require("vim-react-snippets").lazy_load()
 
 cmp.setup({
   formatting = {

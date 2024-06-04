@@ -6,18 +6,13 @@ local diagnostics = null_ls.builtins.diagnostics
 local code_actions = null_ls.builtins.code_actions
 
 null_ls.setup({
-  debug = false,
   sources = {
-    formatting.stylua,
-    -- diagnostics.luacheck, -- too many false positives
-    -- diagnostics.selene, -- too many false positives
-    formatting.shfmt,
-    diagnostics.shellcheck,
-    code_actions.shellcheck,
     code_actions.gitsigns,
-    formatting.prettier,
-    diagnostics.eslint.with({ extra_args = "--no-warn-ignored" }),
-    code_actions.eslint,
+    formatting.prettierd,
+    formatting.shfmt,
+    formatting.stylua,
+    diagnostics.selene, -- too many false positives
+    diagnostics.zsh,
   },
   on_attach = function(client, bufnr)
     if client.supports_method("textDocument/formatting") then
