@@ -8,6 +8,7 @@
 # Node version manager
 # source /usr/share/nvm/init-nvm.sh
 
+# ruby is necessary to run tmuxinator
 export PATH="$PATH:$HOME/.local/share/npm/lib/node_modules/aws-cdk/bin:$HOME/.local/share/gem/ruby/3.0.0/bin"
 
 

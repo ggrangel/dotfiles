@@ -1,0 +1,5 @@
+local refactoring = require("refactoring")
+refactoring.setup()
+vim.keymap.set({ "n", "x" }, "<leader>R", function()
+  refactoring.select_refactor()
+end)

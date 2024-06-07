@@ -13,6 +13,52 @@ vim.opt.rtp:prepend(lazypath)
 
 vim.g.mapleader = " " -- Make sure to set `mapleader` before lazy so your mappings are correct
 
+local function react_plugins()
+  return {
+    {
+      "folke/ts-comments.nvim", -- for jsx and tsx comments
+      opts = {},
+      event = "VeryLazy",
+    },
+    {
+      "windwp/nvim-ts-autotag", -- handles html tags
+      ft = {
+        "javascript",
+        "javascriptreact",
+        "typescript",
+        "typescriptreact",
+      },
+      config = function()
+        require("nvim-ts-autotag").setup()
+      end,
+    },
+    {
+      "mlaursen/vim-react-snippets",
+    },
+  }
+end
+
+local function lsp_plugins()
+  return {
+    {
+      "neovim/nvim-lspconfig", -- provides basic configurations of LSP servers
+      config = function()
+        require("plugins.lsp")
+      end,
+    },
+    { "williamboman/mason.nvim" },         -- provides a repository and frontend that helps a user manage the installation of various third-party tools (LSP servers, formatters, linters)
+    { "williamboman/mason-lspconfig.nvim" }, -- uses Mason to ensure installation of user specified LSP servers and will tell nvim-lspconfig what command to use to launch those servers (that is, it's a bridge between the 2 former plugins)
+    {
+      -- Provides language server capabilities to tools that doesn't conform to the LSP (ex: prettier)
+      "nvimtools/none-ls.nvim",
+      -- event = "VeryLazy",
+      config = function()
+        require("plugins/null-ls")
+      end,
+    },
+  }
+end
+
 require("lazy").setup({
   {
     "vimwiki/vimwiki",
@@ -33,7 +79,7 @@ require("lazy").setup({
       require("plugins.vim-sandwich")
     end,
   },                                                -- like vim-surround but highlights text and also supports dot command
-  { "RRethy/nvim-treesitter-textsubjects" },
+  -- { "RRethy/nvim-treesitter-textsubjects" },
   { "nvim-treesitter/nvim-treesitter-textobjects" }, -- define custom textobjects (like "f" for function and "c" for conditionals)
   { "nvim-treesitter/nvim-treesitter-context" },    -- sticky header for context
   {
@@ -44,13 +90,6 @@ require("lazy").setup({
       })
     end,
   },
-  -- {
-  --   "unblevable/quick-scope",
-  --   -- enabled = true,
-  --   config = function()
-  --     require("plugins.quick-scope") -- helps with horizontal navigation (f and t)
-  --   end,
-  -- },
   {
     "nvim-telescope/telescope.nvim",
     dependencies = {
@@ -85,8 +124,7 @@ require("lazy").setup({
     config = function()
       require("plugins.gitsigns")
     end,
-  },                                 -- git decorations
-  { "kyazdani42/nvim-web-devicons" }, -- Required by many plugins
+  }, -- git decorations
   {
     "hrsh7th/nvim-cmp",
     lazy = false,
@@ -95,10 +133,10 @@ require("lazy").setup({
       "hrsh7th/cmp-nvim-lsp",
       "hrsh7th/cmp-path",
       "hrsh7th/cmp-buffer",
-      "hrsh7th/cmp-nvim-lua",  --> completion source for nvim lua api
+      "hrsh7th/cmp-nvim-lua",      --> completion source for nvim lua api
       { "L3MON4D3/LuaSnip", build = "make install_jsregexp" },
-      "saadparwaiz1/cmp_luasnip", -- communicatoin between luasnip and cmp
-      "mlaursen/vim-react-snippets",
+      "saadparwaiz1/cmp_luasnip",  -- communicatoin between luasnip and cmp
+      "kyazdani42/nvim-web-devicons", -- Required by many plugins
     },
     config = function()
       require("plugins/cmp")
@@ -113,7 +151,7 @@ require("lazy").setup({
   {
     "ggandor/leap.nvim",
     config = function()
-      require("leap").set_default_keymaps() -- vertical navigation
+      vim.keymap.set("n", "s", "<Plug>(leap)")
     end,
   },
   { "RRethy/vim-illuminate" }, -- highlights other uses of the word under cursor using LSP and treesitter
@@ -122,23 +160,6 @@ require("lazy").setup({
     "gbprod/yanky.nvim",      -- highlights on yank
     config = function()
       require("plugins.yanky")
-    end,
-  },
-
-  {
-    "neovim/nvim-lspconfig", -- provides basic configurations of LSP servers
-    config = function()
-      require("plugins.lsp")
-    end,
-  },
-  { "williamboman/mason.nvim" },          -- provides a repository and frontend that helps a user manage the installation of various third-party tools (LSP servers, formatters, linters)
-  { "williamboman/mason-lspconfig.nvim" }, -- uses Mason to ensure installation of user specified LSP servers and will tell nvim-lspconfig what command to use to launch those servers (that is, it's a bridge between the 2 former plugins)
-  {
-    -- Provides language server capabilities to tools that doesn't conform to the LSP (ex: prettier)
-    "nvimtools/none-ls.nvim",
-    -- event = "VeryLazy",
-    config = function()
-      require("plugins/null-ls")
     end,
   },
   {
@@ -167,171 +188,35 @@ require("lazy").setup({
     end,
   },
   {
-    {
-      "robitx/gp.nvim",
-      config = function()
-        require("plugins/gp-nvim")
-      end,
-    },
-  },
-  {
-    "windwp/nvim-ts-autotag", -- handles html tags
-    ft = {
-      "javascript",
-      "javascriptreact",
-      "typescript",
-      "typescriptreact",
-    },
-    config = function()
-      require("nvim-ts-autotag").setup()
-    end,
-  },
-  {
-    -- Better replacement for typescript-languange-server (tsserver)
-    "pmizio/typescript-tools.nvim",
-    dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
-    -- config = function()
-    --   require("typescript-tools").setup()
-    -- end,
-  },
-  {
     "ThePrimeagen/refactoring.nvim",
     dependencies = {
       "nvim-lua/plenary.nvim",
       "nvim-treesitter/nvim-treesitter",
     },
     config = function()
-      local refactoring = require("refactoring")
-      refactoring.setup()
-      vim.keymap.set({ "n", "x" }, "<leader>rr", function()
-        refactoring.select_refactor()
-      end)
+      require("plugins.refactoring")
     end,
   },
   {
     "lewis6991/whatthejump.nvim", -- displays the jump list in a floating window
   },
   {
-    "voxelprismatic/rabbit.nvim",
+    "voxelprismatic/rabbit.nvim", -- [under experiment] alternative to harpoon
     config = function()
-      require("rabbit").setup({
-        colors = {
-          title = {   -- Title text
-            fg = "#000000", -- Grabs from :hi Normal
-            bold = true,
-          },
-          index = {   -- Index numbers
-            fg = "#000000", -- Grabs from :hi Comment
-            italic = true,
-          },
-          dir = "#000000", -- Folders; Grabs from :hi NonText
-
-          file = "#000000", -- File name; Grabs from :hi Normal
-
-          term = {     -- Addons, eg :term or :Oil
-            fg = "#000000", -- Grabs from :hi Constant
-            italic = true,
-          },
-          noname = {  -- No buffer name set
-            fg = "#000000", -- Grabs from :hi Function
-            italic = true,
-          },
-        },
-
-        window = {
-          -- If `box_style` is specified, it will overwrite anything set in `box`
-          box_style = "round", -- One of "round", "square", "thick", "double"
-          box = {
-            top_left = "╭", -- Top left corner of box
-            top_right = "╮", -- Top right corner of box
-            bottom_left = "╰", -- Bottom left corner of box
-            bottom_right = "╯", -- Bottom right corner of box
-            vertical = "│", -- Vertical wall
-            horizontal = "─", -- Horizontal ceiling
-            emphasis = "═", -- Emphasis around title, like `──══ Rabbit ══──`
-          },
-
-          width = 64, -- Width, in columns
-          height = 24, -- Height, in rows
-
-          -- Where the plugin name should be displayed.
-          -- * "bottom" means in the bottom left corner, but not displayed in full screen
-          -- * "title" means next to rabbit, eg `──══ Rabbit History ══──`
-          -- * "hide" means to not display it at all
-          plugin_name_position = "bottom",
-
-          title = "Rabbit", -- Title text, eg: `──══ Rabbit ══──` or `──══ NotHarpoon ══──`
-
-          emphasis_width = 8, -- Eg: `──────══ Rabbit ══──────` or `──══════ Rabbit ══════──`
-
-          float = true,  -- Plain `true` means use bottom right corner
-          float = {
-            top = 10000, -- Top offset in lines
-            left = 10000, -- Left offset in columns
-          },
-          float = {
-            "bottom", -- "top" or "bottom;" MUST BE FIRST
-            "right", -- "left" or "right;" MUST BE LAST
-          },
-
-          -- When using split screen, it will try to use the width and height provided earlier.
-          -- Eg, when splitting left or right: height = 100%; width = `width`
-          -- Eg, when splitting above or below: height = `height`; width = 100%
-          -- NOTE: `float` must be explicitly set to false in order to split
-          -- NOTE: If both `float` and `split` are false, a new buffer will open, "fullscreen"
-          split = true, -- Plain `true` means use the right side
-          split = "right", -- One of "left", "right", "above", "below"
-
-          overflow = ":::", -- String to display when folders overflow
-          path_len = 12, -- How many characters to display in folder name before cutting off
-        },
-
-        default_keys = {
-          close = { -- Default bindings to close Rabbit
-            "<Esc>",
-            "q",
-            "<leader>",
-          },
-
-          select = { -- Default bindings to select a buffer
-            "<CR>",
-          },
-
-          open = { -- Default bindings to open Rabbit
-            "<leader>r",
-          },
-
-          file_add = { -- Default bindings to add current buffer to persistent history
-            "a",  -- This would act like Prime's Harpoon, but it isn't implemented yet
-          },
-
-          file_del = { -- Default bindings to remove current buffer from persistent history
-            "d",  -- This would act like Prime's Harpoon, but it isn't implemented yet
-          },
-        },
-
-        plugin_opts = {  -- Plugin specific options you'd like to set
-          history = {
-            color = "#d7827e", -- Border color
-            switch = "r", -- Keybind to switch to the history window from within Rabbit
-            keys = {},   -- See the API for more details
-            opts = {},   -- See the API for more details
-          },
-          reopen = {
-            color = "#907aa9", -- Border color
-            switch = "o", -- Keybind to switch to the reopen window from within Rabbit
-            keys = {},   -- See the API for more details
-            opts = {},   -- See the API for more details
-          },
-        },
-
-        enable = { -- Builtin plugins to enable immediately
-          "history", -- The plugin shown when opening Rabbit
-          "reopen",
-          "oxide",
-        },
-      })
-      vim.keymap.set({ "n", "x" }, "<leader>R", ":Rabbit<CR>")
+      require("plugins/rabbit")
     end,
   },
+  {
+    "smjonas/inc-rename.nvim", -- for better rename experience
+    config = function()
+      require("plugins/inc-rename")
+    end,
+  },
+  {
+    -- Better replacement for typescript-languange-server (tsserver)
+    "pmizio/typescript-tools.nvim",
+    dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+  },
+  lsp_plugins(),
+  react_plugins(),
 })

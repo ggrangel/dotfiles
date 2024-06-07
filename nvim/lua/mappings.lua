@@ -40,3 +40,6 @@ keymap("n", "<C-q>h", "<C-w>h :q <CR>")
 keymap("n", "<C-q>l", "<C-w>l :q <CR>")
 keymap("n", "<C-q>k", "<C-w>k :q <CR>")
 keymap("n", "<C-q>j", "<C-w>j :q <CR>")
+
+-- quickly execute macro stored in 'q'
+keymap("n", "Q", "@q")

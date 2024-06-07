@@ -64,7 +64,7 @@ local function LspRename()
 end
 
 vim.api.nvim_create_user_command("LspRename", LspRename, {})
-keymap("n", "<leader>rn", LspRename)
+-- keymap("n", "<leader>rn", LspRename)
 
 function OpenGitHubRepo()
   local function open_uri(uri)

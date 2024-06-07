@@ -7,7 +7,7 @@ require("trouble").setup({
 })
 
 --- Trouble
-vim.keymap.set("n", "<leader>xx", ":Trouble diagnostics toggle <CR>")
-vim.keymap.set("n", "<leader>xX", ":Trouble diagnostics toggle filter.buf=0 <CR>")
+vim.keymap.set("n", "<leader>xx", ":Trouble diagnostics toggle focus=true <CR>")
+vim.keymap.set("n", "<leader>xX", ":Trouble diagnostics toggle filter.buf=0 focus=true <CR>")
 vim.keymap.set("n", "<leader>xl", ":Trouble symbols toggle focus=false <CR>")
-vim.keymap.set("n", "gr", ":Trouble lsp toggle <CR>")
+vim.keymap.set("n", "gr", ":Trouble lsp toggle focus=true <CR>")
