@@ -13,6 +13,31 @@ vim.opt.rtp:prepend(lazypath)
 
 vim.g.mapleader = " " -- Make sure to set `mapleader` before lazy so your mappings are correct
 
+local function go_plugins()
+  return {
+    -- provides a bunch of go helper features
+    "olexsmir/gopher.nvim",
+    ft = "go",
+    config = function()
+      require("gopher").setup()
+    end,
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "neovim/nvim-treesitter",
+    },
+  }
+end
+
+local function typescript_plugins()
+  return {
+    {
+      -- Better replacement for typescript-languange-server (tsserver)
+      "pmizio/typescript-tools.nvim",
+      dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+    },
+  }
+end
+
 local function react_plugins()
   return {
     {
@@ -23,6 +48,7 @@ local function react_plugins()
     {
       "windwp/nvim-ts-autotag", -- handles html tags
       ft = {
+        "html",
         "javascript",
         "javascriptreact",
         "typescript",
@@ -59,6 +85,20 @@ local function lsp_plugins()
   }
 end
 
+local function treesitter_plugins()
+  return {
+    {
+      "nvim-treesitter/nvim-treesitter",
+      run = ":TSUpdate",
+      config = function()
+        require("plugins.treesitter")
+      end,
+    },
+    { "nvim-treesitter/nvim-treesitter-textobjects" }, -- define custom textobjects (like "f" for function and "c" for conditionals)
+    { "nvim-treesitter/nvim-treesitter-context" },   -- sticky header for context
+  }
+end
+
 require("lazy").setup({
   {
     "vimwiki/vimwiki",
@@ -67,21 +107,11 @@ require("lazy").setup({
     end,
   },
   {
-    "nvim-treesitter/nvim-treesitter",
-    run = ":TSUpdate",
-    config = function()
-      require("plugins.treesitter")
-    end,
-  },
-  {
     "machakann/vim-sandwich",
     config = function()
       require("plugins.vim-sandwich")
     end,
-  },                                                -- like vim-surround but highlights text and also supports dot command
-  -- { "RRethy/nvim-treesitter-textsubjects" },
-  { "nvim-treesitter/nvim-treesitter-textobjects" }, -- define custom textobjects (like "f" for function and "c" for conditionals)
-  { "nvim-treesitter/nvim-treesitter-context" },    -- sticky header for context
+  }, -- like vim-surround but highlights text and also supports dot command
   {
     "jinh0/eyeliner.nvim",
     config = function()
@@ -198,25 +228,20 @@ require("lazy").setup({
     end,
   },
   {
-    "lewis6991/whatthejump.nvim", -- displays the jump list in a floating window
-  },
-  {
-    "voxelprismatic/rabbit.nvim", -- [under experiment] alternative to harpoon
-    config = function()
-      require("plugins/rabbit")
-    end,
-  },
-  {
     "smjonas/inc-rename.nvim", -- for better rename experience
     config = function()
       require("plugins/inc-rename")
     end,
   },
   {
-    -- Better replacement for typescript-languange-server (tsserver)
-    "pmizio/typescript-tools.nvim",
-    dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+    "rgroli/other.nvim",
+    config = function()
+      require("plugins/other")
+    end,
   },
+  treesitter_plugins(),
   lsp_plugins(),
+  go_plugins(),
+  typescript_plugins(),
   react_plugins(),
 })

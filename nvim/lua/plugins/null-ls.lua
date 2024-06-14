@@ -8,6 +8,9 @@ local code_actions = null_ls.builtins.code_actions
 null_ls.setup({
   sources = {
     code_actions.gitsigns,
+    formatting.gofmt,
+    formatting.goimports_reviser,
+    formatting.golines,
     formatting.prettierd,
     formatting.shfmt,
     formatting.stylua,

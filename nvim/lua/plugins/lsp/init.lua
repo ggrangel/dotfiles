@@ -17,6 +17,7 @@ handlers.capabilities.textDocument.completion.completionItem.snippetSupport = tr
 local servers = {
   "bashls",
   "eslint",
+  "gopls",
   "lua_ls",
   "pyright",
   "tailwindcss",

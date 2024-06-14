@@ -40,3 +40,6 @@ zsh/.zcompdump
 zsh/auth.cfg
 zsh/secret.zsh
 github-copilot/
+go
+gtk-3.0/bookmarks
+nvim/lazy-lock.json

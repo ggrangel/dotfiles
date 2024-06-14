@@ -43,3 +43,10 @@ keymap("n", "<C-q>j", "<C-w>j :q <CR>")
 
 -- quickly execute macro stored in 'q'
 keymap("n", "Q", "@q")
+
+vim.keymap.set("n", "[b", "<cmd>bprevious<cr>", {
+  desc = "Prev buffer",
+})
+vim.keymap.set("n", "]b", "<cmd>bnext<cr>", {
+  desc = "Next buffer",
+})
