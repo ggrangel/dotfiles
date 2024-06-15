@@ -4,4 +4,4 @@ require("other-nvim").setup({
   },
 })
 
-vim.keymap.set("n", ":A<CR>", "<cmd>:Other<CR>")
+vim.api.nvim_create_user_command("A", "Other", {})
