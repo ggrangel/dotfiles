@@ -46,11 +46,18 @@ local function goto_tmux_pane(name)
   vim.fn.jobstart(cmd, { detach = true })
 end
 
-hkeys = { "q", "w", "e", "r", "t" }
+hkeys = { "z", "x", "c", "v", "b" }
 for i = 1, 5 do
   keymap("n", "<leader>h" .. hkeys[i], function()
     -- for some reason harpoon.tmux.gotoTerminal is not working
     goto_tmux_pane("term")
-    harpoon_tmux.sendCommand("term", 1)
+    harpoon_tmux.sendCommand("term", i)
+  end)
+end
+
+hkeys = { "Z", "X", "C", "V", "B" }
+for i = 1, 5 do
+  keymap("n", "<leader>h" .. hkeys[i], function()
+    harpoon_tmux.sendCommand("term", i)
   end)
 end

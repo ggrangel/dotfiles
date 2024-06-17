@@ -6,6 +6,10 @@ local handlers = {}
 handlers.on_attach = function(client, bufnr)
   -- highlights other uses of the word under cursor using LSP and treesitter
   require("illuminate").on_attach(client)
+  -- trying to disable inlay hint but it's not working. Something else is enabling it :(
+  -- if client.server_capabilities.inlayHintProvider then
+  --   vim.lsp.inlay_hint.enable(false, { bufnr = bufnr })
+  -- end
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
