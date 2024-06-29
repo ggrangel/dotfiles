@@ -50,6 +50,8 @@ require("mason-lspconfig").setup({
   ensure_installed = servers,
 })
 
+vim.diagnostic.config({ virtual_text = false })
+
 -- press this key twice in order to focus on the diagnostic window
 -- useful for yanking the text
 vim.keymap.set("n", "gl", function()

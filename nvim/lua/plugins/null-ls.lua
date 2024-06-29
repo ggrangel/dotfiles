@@ -11,7 +11,9 @@ null_ls.setup({
     formatting.gofmt,
     formatting.goimports_reviser,
     formatting.golines,
-    formatting.prettierd,
+    formatting.prettierd.with({
+      filetypes = { "json", "yaml" },
+    }),
     formatting.shfmt.with({
       filetypes = { "sh", "bash", "zsh" },
     }),
