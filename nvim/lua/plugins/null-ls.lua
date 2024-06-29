@@ -12,8 +12,16 @@ null_ls.setup({
     formatting.goimports_reviser,
     formatting.golines,
     formatting.prettierd,
-    formatting.shfmt,
+    formatting.shfmt.with({
+      filetypes = { "sh", "bash", "zsh" },
+    }),
     formatting.stylua,
+    diagnostics.staticcheck,
+    diagnostics.hadolint,
+    -- formatting.pg_format,
+    diagnostics.sqlfluff.with({
+      extra_args = { "--dialect", "postgresql" },
+    }),
     diagnostics.selene, -- too many false positives
     diagnostics.zsh,
   },

@@ -20,10 +20,12 @@ handlers.capabilities.textDocument.completion.completionItem.snippetSupport = tr
 
 local servers = {
   "bashls",
+  "dockerls",
   "eslint",
   "gopls",
   "lua_ls",
   "pyright",
+  "sqlls",
   "tailwindcss",
 }
 
