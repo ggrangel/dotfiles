@@ -1,18 +1,18 @@
 # Change prompt
-fpath=($ZDOTDIR/prompt $fpath)
-source $HOME/.config/zsh/prompt/prompt.zsh
+fpath=("$ZDOTDIR/prompt" $fpath)
+source "$HOME/.config/zsh/prompt/prompt.zsh"
 
 # disable Ctrl+s (freezes the terminal)
 stty -ixon
 # run bindkey for a list of zsh keybindings
 bindkey -r "^D" # used to kill tmux pane and window. remove this zsh keybinding
 
-setopt AUTOCD # enables .. to go back one dir
-setopt AUTOPUSHD # push the curr dir visited to stack
-setopt HIST_IGNORE_DUPS  # do not write duplicates to history
+setopt AUTOCD             # enables .. to go back one dir
+setopt AUTOPUSHD          # push the curr dir visited to stack
+setopt HIST_IGNORE_DUPS   # do not write duplicates to history
 setopt HIST_FIND_NO_DUPS  # when searching, do not show duplicates
 setopt INC_APPEND_HISTORY # allows sharing of history between concurrent shells
-unsetopt BEEP # turn off all beeps
+unsetopt BEEP             # turn off all beeps
 # unsetopt LIST_BEEP # turn off only autocomplete beeps
 
 HISTFILE=$HOME/.cache/zsh_history
@@ -20,9 +20,11 @@ HISTSIZE=10000 # max events for internal history
 SAVEHIST=10000 # max events in history file
 
 # Basic auto/tab complete
-autoload -U compinit; compinit # loads a file containing shell commands
-_comp_options+=(globdots)  # include hidden files in completions
-source $ZDOTDIR/completion.zsh
+
+autoload -U compinit
+compinit
+_comp_options+=(globdots) # With hidden files
+[ -f "$ZDOTDIR/completion.zsh" ] && source "$ZDOTDIR/completion.zsh"
 
 [ -f "$ZDOTDIR/vi.zsh" ] && source "$ZDOTDIR/vi.zsh"
 
