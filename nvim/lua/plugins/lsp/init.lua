@@ -51,6 +51,10 @@ require("mason-lspconfig").setup({
 })
 
 vim.diagnostic.config({ virtual_text = false })
+-- toggle vim.diagnostic lsp inlay hints
+vim.keymap.set("n", "<leader>cn", function()
+  vim.diagnostic.config({ virtual_text = not vim.diagnostic.config().virtual_text })
+end)
 
 -- press this key twice in order to focus on the diagnostic window
 -- useful for yanking the text
