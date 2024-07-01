@@ -19,5 +19,6 @@
 	aliases = config --get-regexp alias
 	l = log --date-order --pretty=\"format:%C(yellow)%h%Cblue%d%Creset %s %C(white) %an, %ar%Creset\"
 	di = diff
+	cim = commit --amend
 [push]
 	autoSetupRemote = true
