@@ -239,6 +239,12 @@ require("lazy").setup({
       require("plugins/other")
     end,
   },
+  {
+    "vim-test/vim-test",
+    config = function()
+      require("plugins/vim-test")
+    end,
+  },
   treesitter_plugins(),
   lsp_plugins(),
   go_plugins(),

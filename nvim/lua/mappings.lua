@@ -26,8 +26,8 @@ keymap("n", "<leader>ch", function()
 end)
 
 ---- Navigate tabs
-keymap("n", "<C-h>", "<C-w>h")
-keymap("n", "<C-j>", "<C-w>j")
+-- keymap("n", "<C-h>", "<C-w>h")
+-- keymap("n", "<C-j>", "<C-w>j")
 -- keymap("n", "<C-k>", "<C-w>k")
 -- keymap("n", "<C-l>", "<C-w>l")
 
