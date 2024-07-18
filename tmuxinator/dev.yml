@@ -48,7 +48,7 @@ root: ~/
 # attach: false
 
 windows:
-  - term: cd $HOME/workspace
+  - term: cd $HOME/workspace && clear
   - dev:
   - config: cd $HOME/.config && $EDITOR .
   - background:

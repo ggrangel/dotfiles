@@ -7,5 +7,6 @@ let g:test#neovim#start_normal = 1
 if has('nvim')
   tmap <C-o> <C-\><C-n> " C-o goes from TERMINAL INSERT mode to NORMAL mode
 endif
-nmap <silent> <leader>T :TestFile<CR>
+nmap <silent> <leader>tn :TestNearest<CR>
+nmap <silent> <leader>ti :TestFile<CR>
 ]])

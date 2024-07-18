@@ -123,9 +123,18 @@ ins_right({
 
 ins_right({
   function()
-    M = require("plugins._lualine_lsp_msg")
+    local linters = GetAllLinters()
+    local lsps = require("plugins._lualine_lsp_msg").list_attached_lsp_clients()
 
-    return M.list_attached_lsp_clients()
+    if linters == "" then
+      return lsps
+    end
+
+    if lsps == "" then
+      return linters
+    end
+
+    return lsps .. ", " .. linters
   end,
   icon = " LSP:",
   color = { fg = colors.violet, gui = "bold" },

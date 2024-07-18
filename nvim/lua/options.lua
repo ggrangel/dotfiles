@@ -62,3 +62,11 @@ vim.api.nvim_create_autocmd("FileType", { pattern = "help", command = "wincmd L"
 -- disables continuation of comments (doesn't work to set as an option)
 vim.api.nvim_create_autocmd("BufEnter", { command = "set formatoptions-=cro", group = "one_time_opts" })
 vim.api.nvim_create_autocmd("BufEnter", { command = "setlocal formatoptions-=cro", group = "one_time_opts" })
+
+vim.filetype.add({
+  pattern = {
+    [".*/.github/workflows/.*yml"] = "ghactions",
+    [".*/.github/workflows/.*yaml"] = "ghactions",
+  },
+})
+vim.treesitter.language.register("yaml", "ghactions")

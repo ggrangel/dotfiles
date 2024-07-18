@@ -44,3 +44,6 @@ keys () {
   host_name=$(cat /etc/hostname)
   bat "$sxhkd_folder/sxhkdrc" "$sxhkd_folder/sxhkdrc.$host_name"
 }
+
+# go
+alias gotestcov="go test -coverprofile=coverage.out ./... && go tool cover -html=coverage.out -o coverage.html && $BROWSER coverage.html && rm -f coverage.out"

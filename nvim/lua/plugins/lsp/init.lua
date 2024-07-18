@@ -50,7 +50,7 @@ require("mason-lspconfig").setup({
   ensure_installed = servers,
 })
 
-vim.diagnostic.config({ virtual_text = false })
+vim.diagnostic.config({ virtual_text = { source = true } })
 -- toggle vim.diagnostic lsp inlay hints
 vim.keymap.set("n", "<leader>cn", function()
   vim.diagnostic.config({ virtual_text = not vim.diagnostic.config().virtual_text })

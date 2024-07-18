@@ -72,7 +72,7 @@ local function lsp_plugins()
         require("plugins.lsp")
       end,
     },
-    { "williamboman/mason.nvim" },         -- provides a repository and frontend that helps a user manage the installation of various third-party tools (LSP servers, formatters, linters)
+    { "williamboman/mason.nvim" },           -- provides a repository and frontend that helps a user manage the installation of various third-party tools (LSP servers, formatters, linters)
     { "williamboman/mason-lspconfig.nvim" }, -- uses Mason to ensure installation of user specified LSP servers and will tell nvim-lspconfig what command to use to launch those servers (that is, it's a bridge between the 2 former plugins)
     {
       -- Provides language server capabilities to tools that doesn't conform to the LSP (ex: prettier)
@@ -95,7 +95,7 @@ local function treesitter_plugins()
       end,
     },
     { "nvim-treesitter/nvim-treesitter-textobjects" }, -- define custom textobjects (like "f" for function and "c" for conditionals)
-    { "nvim-treesitter/nvim-treesitter-context" },   -- sticky header for context
+    { "nvim-treesitter/nvim-treesitter-context" },     -- sticky header for context
   }
 end
 
@@ -123,10 +123,10 @@ require("lazy").setup({
   {
     "nvim-telescope/telescope.nvim",
     dependencies = {
-      { "nvim-lua/plenary.nvim" },                               -- dependency
-      { "burntsushi/ripgrep" },                                  -- necessary for live_grep picker
+      { "nvim-lua/plenary.nvim" },                                  -- dependency
+      { "burntsushi/ripgrep" },                                     -- necessary for live_grep picker
       { "nvim-telescope/telescope-fzf-native.nvim", run = "make" }, -- better sorgint performance
-      { "nvim-telescope/telescope-ui-select.nvim" },             --> sets vim.ui.select to telescope
+      { "nvim-telescope/telescope-ui-select.nvim" },                --> sets vim.ui.select to telescope
     },
     config = function()
       require("plugins.telescope")
@@ -163,9 +163,9 @@ require("lazy").setup({
       "hrsh7th/cmp-nvim-lsp",
       "hrsh7th/cmp-path",
       "hrsh7th/cmp-buffer",
-      "hrsh7th/cmp-nvim-lua",      --> completion source for nvim lua api
+      "hrsh7th/cmp-nvim-lua",         --> completion source for nvim lua api
       { "L3MON4D3/LuaSnip", build = "make install_jsregexp" },
-      "saadparwaiz1/cmp_luasnip",  -- communicatoin between luasnip and cmp
+      "saadparwaiz1/cmp_luasnip",     -- communicatoin between luasnip and cmp
       "kyazdani42/nvim-web-devicons", -- Required by many plugins
     },
     config = function()
@@ -185,9 +185,9 @@ require("lazy").setup({
     end,
   },
   { "RRethy/vim-illuminate" }, -- highlights other uses of the word under cursor using LSP and treesitter
-  { "mbbill/undotree" },      -- enables to undo even after restarting nvim
+  { "mbbill/undotree" },       -- enables to undo even after restarting nvim
   {
-    "gbprod/yanky.nvim",      -- highlights on yank
+    "gbprod/yanky.nvim",       -- highlights on yank
     config = function()
       require("plugins.yanky")
     end,
@@ -244,6 +244,9 @@ require("lazy").setup({
     config = function()
       require("plugins/vim-test")
     end,
+  },
+  {
+    'mfussenegger/nvim-lint',
   },
   treesitter_plugins(),
   lsp_plugins(),
