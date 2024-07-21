@@ -12,23 +12,17 @@ keymap("n", "<leader>ch", function()
   else
     vim.o.ch = 0
   end
-end)
-
----- Navigate tabs
--- keymap("n", "<C-h>", "<C-w>h")
--- keymap("n", "<C-j>", "<C-w>j")
--- keymap("n", "<C-k>", "<C-w>k")
--- keymap("n", "<C-l>", "<C-w>l")
+end, { desc = "Toggle command height" })
 
 --- Stay in indent mode
 keymap("v", "<", "<gv")
 keymap("v", ">", ">gv")
 
 -- close other tab
-keymap("n", "<C-q>h", "<C-w>h :q <CR>")
-keymap("n", "<C-q>l", "<C-w>l :q <CR>")
-keymap("n", "<C-q>k", "<C-w>k :q <CR>")
-keymap("n", "<C-q>j", "<C-w>j :q <CR>")
+keymap("n", "<C-q>h", "<C-w>h :bd <CR>")
+keymap("n", "<C-q>l", "<C-w>l :bd <CR>")
+keymap("n", "<C-q>k", "<C-w>k :bd <CR>")
+keymap("n", "<C-q>j", "<C-w>j :bd <CR>")
 
 -- quickly execute macro stored in 'q'
-keymap("n", "Q", "@q")
+keymap("n", "Q", "@q", { desc = "Execute macro stored in 'q'" })

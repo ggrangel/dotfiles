@@ -27,9 +27,6 @@ telescope.setup({
 
         ["<C-c>"] = actions.close,
 
-        ["<Down>"] = actions.move_selection_next,
-        ["<Up>"] = actions.move_selection_previous,
-
         ["<CR>"] = actions.select_default,
         ["<C-x>"] = actions.select_horizontal,
         ["<C-v>"] = actions.select_vertical,
@@ -119,20 +116,59 @@ telescope.setup({
 })
 
 telescope.load_extension("fzf")
-telescope.load_extension("ui-select")
+telescope.load_extension("frecency")
 
+local builtin = require("telescope.builtin")
+local setPreview = {
+  preview = true,
+  layout_config = {
+    height = 0.75,
+    width = 0.75,
+  },
+}
+
+vim.keymap.set("n", "<leader>f/", function()
+  return builtin.current_buffer_fuzzy_find()
+end, { desc = "Fuzzy find in current buffer" })
+vim.keymap.set("n", "<leader>fa", function()
+  return telescope.extensions.frecency.frecency()
+end, { desc = "Find all files" })
+-- vim.keymap.set("n", "<leader>fa", function()
+--   return builtin.find_files()
+-- end, { desc = "Find all files" })
+vim.keymap.set("n", "<leader>fd", function()
+  return builtin.diagnostics(setPreview)
+end, { desc = "Show LSP diagnostics" })
 vim.keymap.set("n", "<leader>ff", function()
-  return require("telescope.builtin").find_files()
-end)
-vim.keymap.set("n", "<leader>fl", function()
-  return require("telescope.builtin").live_grep()
-end)
-vim.keymap.set("n", "<leader>fi", function()
-  return require("telescope.builtin").git_files()
-end)
-vim.keymap.set("n", "<leader>fb", function()
-  return require("telescope.builtin").buffers()
-end)
+  return builtin.resume()
+end, { desc = "Resume last picker" })
 vim.keymap.set("n", "<leader>fh", function()
-  return require("telescope.builtin").help_tags()
-end)
+  return builtin.help_tags()
+end, { desc = "Show nvim help tags" })
+-- vim.keymap.set("n", "<leader>fi", function()
+--   return builtin.git_files()
+-- end, { desc = "Find git files" })
+vim.keymap.set("n", "<leader>fj", function()
+  return builtin.buffers()
+end, { desc = "Show buffers" })
+vim.keymap.set("n", "<leader>fk", function()
+  return builtin.keymaps()
+end, { desc = "Show keymaps" })
+vim.keymap.set("n", "<leader>fl", function()
+  return builtin.live_grep(setPreview)
+end, { desc = "Live grep" })
+vim.keymap.set("n", "<leader>fm", function()
+  return builtin.marks(setPreview)
+end, { desc = "Show marks" })
+vim.keymap.set("n", "<leader>fr", function()
+  return builtin.registers()
+end, { desc = "Show registers" })
+vim.keymap.set("n", "<leader>fs", function()
+  return builtin.spell_suggest()
+end, { desc = "Show spell suggestions" })
+vim.keymap.set("n", "<leader>fu", function()
+  return builtin.jumplist(setPreview)
+end, { desc = "Show jumplist" })
+vim.keymap.set("n", "<leader>fy", function()
+  return builtin.command_history()
+end, { desc = "Show command history" })
