@@ -13,3 +13,6 @@ vim.api.nvim_create_autocmd({ "BufWritePost" }, {
 		nvimlint.try_lint()
 	end,
 })
+
+-- For a list of linters see:
+-- help nvim-lint-available-linters

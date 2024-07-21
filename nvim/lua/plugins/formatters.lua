@@ -16,3 +16,5 @@ conform.setup({
 	},
 })
 
+-- For a list of formatters see:
+-- help conform-formatters
