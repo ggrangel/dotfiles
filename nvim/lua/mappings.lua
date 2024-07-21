@@ -4,17 +4,6 @@ vim.g.mapleader = " "
 
 keymap("n", "<leader>A", ":wa | lua vim.notify('Project saved') <CR>")
 keymap("n", "<leader>S", ":wa | source | lua vim.notify('Config sourced') <CR>", { silent = true })
-keymap("n", "<leader>N", ":Nredir Notifications <CR>") -- opens notification in new window
-vim.cmd([[let g:winresizer_start_key = '<leader>W']])  --> window resize
-
-keymap("n", "<leader>ls", function()
-  local lualine = require("lualine")
-  if vim.o.ls == 0 then
-    lualine.hide({ unhide = true })
-  else
-    lualine.hide()
-  end
-end)
 
 -- Show command status: useful when you're recording a query
 keymap("n", "<leader>ch", function()
@@ -43,10 +32,3 @@ keymap("n", "<C-q>j", "<C-w>j :q <CR>")
 
 -- quickly execute macro stored in 'q'
 keymap("n", "Q", "@q")
-
-vim.keymap.set("n", "[b", "<cmd>bprevious<cr>", {
-  desc = "Prev buffer",
-})
-vim.keymap.set("n", "]b", "<cmd>bnext<cr>", {
-  desc = "Next buffer",
-})

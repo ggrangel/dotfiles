@@ -43,9 +43,6 @@ for _, server in pairs(servers) do
   lspconfig[server].setup(opts)
 end
 
--- this language server is not installed via Mason, but as a plugin
-require("plugins/lsp/settings/typescript-tools").setup(handlers.on_attach, handlers.capabilities)
-
 require("mason-lspconfig").setup({
   ensure_installed = servers,
 })

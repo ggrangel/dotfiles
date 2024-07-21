@@ -10,7 +10,7 @@ null_ls.setup({
     code_actions.gitsigns,
     formatting.gofmt,
     formatting.goimports,
-    formatting.golines,
+    -- formatting.golines,
     formatting.prettierd.with({
       filetypes = { "json", "yaml", "html" },
     }),

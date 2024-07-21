@@ -25,6 +25,7 @@ local harpoon_ui = require("harpoon.ui")
 local harpoon_tmux = require("harpoon.tmux")
 
 keymap("n", "<leader>hr", function()
+  vim.notify("Harpoon threw the anchor!")
   return require("harpoon.mark").add_file()
 end)
 keymap("n", "<leader>hh", function()
