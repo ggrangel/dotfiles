@@ -19,11 +19,11 @@ local rules = {
     },
   },
 
-  { rule = { instance = "Insync" }, properties = { screen = screen[1], tag = "4" } },
+  -- run $ xprop to get an app's instance name
+  { rule = { instance = "telegram-desktop" }, properties = { screen = screen[3], tag = "4" } },
 }
 
--- run $ xprop to get an app's instance name
-table.insert(rules, { rule = { instance = "telegram-desktop" }, properties = { screen = screen[3], tag = "4" } })
-table.insert(rules, { rule = { instance = "Navigator" }, properties = { screen = screen[1], tag = "1" } })
+-- Not sure what Navigator is anymore. Will leave it here, removing later if not needed
+-- table.insert(rules, { rule = { instance = "Navigator" }, properties = { screen = screen[1], tag = "1" } })
 
 return rules
