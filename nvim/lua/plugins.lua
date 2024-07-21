@@ -56,11 +56,12 @@ require("lazy").setup({
 		end,
 	},
 	{
+		-- like vim-surround but highlights text and also supports dot command
 		"machakann/vim-sandwich",
 		config = function()
 			require("plugins.vim-sandwich")
 		end,
-	}, -- like vim-surround but highlights text and also supports dot command
+	},
 	{
 		"jinh0/eyeliner.nvim",
 		config = function()
@@ -74,16 +75,14 @@ require("lazy").setup({
 		dependencies = {
 			{ "nvim-lua/plenary.nvim" }, -- dependency
 			{ "burntsushi/ripgrep" }, -- necessary for live_grep picker
+			{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 		},
 		config = function()
 			require("plugins.telescope")
 		end,
 	},
 	{
-		"nvim-telescope/telescope-fzf-native.nvim",
-		build = "make",
-	},
-	{
+		-- fzf telescope
 		"nvim-telescope/telescope-frecency.nvim",
 	},
 	-- entireBuffer: gG (useful for yanking whole file)
@@ -104,11 +103,12 @@ require("lazy").setup({
 		end,
 	},
 	{
+		-- git decorations
 		"lewis6991/gitsigns.nvim",
 		config = function()
 			require("plugins.gitsigns")
 		end,
-	}, -- git decorations
+	},
 	{
 		"hrsh7th/nvim-cmp",
 		lazy = false,
@@ -119,8 +119,7 @@ require("lazy").setup({
 			"hrsh7th/cmp-buffer",
 			"hrsh7th/cmp-nvim-lua", --> completion source for nvim lua api
 			{ "L3MON4D3/LuaSnip", build = "make install_jsregexp" },
-			"saadparwaiz1/cmp_luasnip", -- communication between luasnip and cmp
-			"kyazdani42/nvim-web-devicons", -- Required by many plugins
+			"kyazdani42/nvim-web-devicons",
 		},
 		config = function()
 			require("plugins.nvim-cmp")
@@ -182,6 +181,7 @@ require("lazy").setup({
 		end,
 	},
 	{
+		-- alternate file (":A")
 		"rgroli/other.nvim",
 		config = function()
 			require("plugins/other")
@@ -206,6 +206,7 @@ require("lazy").setup({
 		end,
 	},
 	{
+		-- open github link of current line
 		"ruifm/gitlinker.nvim",
 		config = function()
 			require("plugins/gitlinker")
